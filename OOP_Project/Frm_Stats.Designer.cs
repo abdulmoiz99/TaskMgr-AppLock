@@ -108,7 +108,7 @@
             this.lisV_Apps.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lisV_Apps.MultiSelect = false;
             this.lisV_Apps.Name = "lisV_Apps";
-            this.lisV_Apps.Size = new System.Drawing.Size(498, 165);
+            this.lisV_Apps.Size = new System.Drawing.Size(498, 209);
             this.lisV_Apps.TabIndex = 18;
             this.lisV_Apps.UseCompatibleStateImageBehavior = false;
             this.lisV_Apps.View = System.Windows.Forms.View.Details;
@@ -158,7 +158,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.groupBox1.Location = new System.Drawing.Point(13, 68);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(763, 534);
+            this.groupBox1.Size = new System.Drawing.Size(763, 578);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "App Usage";
@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(758, 613);
+            this.ClientSize = new System.Drawing.Size(758, 658);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

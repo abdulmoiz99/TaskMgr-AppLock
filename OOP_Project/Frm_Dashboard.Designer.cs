@@ -226,6 +226,7 @@
             // 
             // Toppannel
             // 
+            this.Toppannel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Toppannel.BottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(212)))), ((int)(((byte)(104)))));
             this.Toppannel.BottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(192)))), ((int)(((byte)(224)))));
             this.Toppannel.Controls.Add(this.btn_close);
@@ -248,9 +249,9 @@
             this.btn_close.FlatAppearance.BorderSize = 0;
             this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_close.Image = global::OOP_Project.Properties.Resources.close_window_26;
-            this.btn_close.Location = new System.Drawing.Point(756, 0);
+            this.btn_close.Location = new System.Drawing.Point(754, 0);
             this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(35, 36);
+            this.btn_close.Size = new System.Drawing.Size(35, 34);
             this.btn_close.TabIndex = 9;
             this.btn_close.UseVisualStyleBackColor = false;
             // 

@@ -40,7 +40,6 @@ namespace OOP_Project
                 if (dgv_currentlyLocked.RowCount > 0)
                 {
                     pnl_Lock.Visible = false;
-                    //lab_appLock.Visible = false;
                 }
                 // FREQUENTLY USED APPS  
                 Stats Stats = new Stats();

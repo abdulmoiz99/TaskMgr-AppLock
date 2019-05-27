@@ -34,7 +34,7 @@ namespace OOP_Project
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
            
-            // ======To Start Focus=======
+            // ======To Start Focus==========
             var NEW = new Focus();
             int AppCount = NEW.getCount();
             if (AppCount > 0)
@@ -45,7 +45,7 @@ namespace OOP_Project
                     F[i] = new Focus(NEW.getAppName(i));
                 }
             }
-             //=============To start Lock===
+             //=============To start Lock======
             var NEW1 = new Lock();
             int appCountLock = NEW1.getCount();
             if (appCountLock > 0)
@@ -98,7 +98,6 @@ namespace OOP_Project
                     {
                         LOCK.setRecord(p.ProcessName);
                     }
-
                 }
             }
         }
@@ -198,5 +197,8 @@ namespace OOP_Project
             LOGIN.ShowDialog();
             this.Close();
         }
+
+       
+        
     }
 }

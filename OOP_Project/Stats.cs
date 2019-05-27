@@ -43,7 +43,6 @@ namespace OOP_Project
             {
                 try
                 {
-
                     if (con.State == ConnectionState.Open)
                     {
                         con.Close();
@@ -54,7 +53,7 @@ namespace OOP_Project
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show(ex.Message,"Stats");
                 }
             }
         }
@@ -73,7 +72,7 @@ namespace OOP_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"Stats");
             }
             startStats(Name);
         }
@@ -228,11 +227,24 @@ namespace OOP_Project
 
         public override int getCount()
         {
-            con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Stats ", con);
-            string count1 = cmd1.ExecuteScalar().ToString();
-            con.Close();
-            int count = int.Parse(count1);
+            int count = 0;
+            string count1 = "0";
+            try
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Stats ", con);
+                count1 = cmd1.ExecuteScalar().ToString();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Stats");
+            }
+            count = int.Parse(count1);
             return count;
         }
     }

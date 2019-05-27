@@ -25,33 +25,60 @@ namespace OOP_Project
         }
 
         private void Frm_AppLock_Activated(object sender, EventArgs e)
-        { // lock
-            SQL.con.Open();
-            DataTable tb = new DataTable();
-            SqlCommand cmd = new SqlCommand("select L_id,L_Name from Lock  where L_locked=0 AND L_User='" + Sql.userName + "'", SQL.con);
-            SqlDataReader d;
-            d = cmd.ExecuteReader();
-            tb.Load(d);
-            cmb_newLock.DisplayMember = "L_Name";
-            cmb_newLock.ValueMember = "L_id";
-            cmb_newLock.DataSource = tb;
-            SQL.con.Close();
-
-            // unlock
-            SQL.con.Open();
-            DataTable tb1 = new DataTable();
-            SqlCommand cmd1 = new SqlCommand("select L_id,L_Name from Lock where L_locked=1 AND L_User='" + Sql.userName + "'", SQL.con);
-            SqlDataReader d1;
-            d1 = cmd1.ExecuteReader();
-            tb1.Load(d1);
-            cmb_newUnlock.DisplayMember = "L_Name";
-            cmb_newUnlock.ValueMember = "L_id";
-            cmb_newUnlock.DataSource = tb1;
-            SQL.con.Close();
-
-            //datagrid view
+        {
             try
             {
+                // lock
+                if (SQL.con.State == ConnectionState.Open)
+                {
+                    SQL.con.Close();
+                }
+                SQL.con.Open();
+                DataTable tb = new DataTable();
+                SqlCommand cmd = new SqlCommand("select L_id,L_Name from Lock  where L_locked=0 AND L_User='" + Sql.userName + "'", SQL.con);
+                SqlDataReader d;
+                d = cmd.ExecuteReader();
+                tb.Load(d);
+                cmb_newLock.DisplayMember = "L_Name";
+                cmb_newLock.ValueMember = "L_id";
+                cmb_newLock.DataSource = tb;
+                SQL.con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,"AppLock");
+            }
+            try
+            {
+                // unlock
+                if (SQL.con.State == ConnectionState.Open)
+                {
+                    SQL.con.Close();
+                }
+                SQL.con.Open();
+                DataTable tb1 = new DataTable();
+                SqlCommand cmd1 = new SqlCommand("select L_id,L_Name from Lock where L_locked=1 AND L_User='" + Sql.userName + "'", SQL.con);
+                SqlDataReader d1;
+                d1 = cmd1.ExecuteReader();
+                tb1.Load(d1);
+                cmb_newUnlock.DisplayMember = "L_Name";
+                cmb_newUnlock.ValueMember = "L_id";
+                cmb_newUnlock.DataSource = tb1;
+                SQL.con.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "AppLock");
+
+            }
+            try
+            {
+                //datagrid view
+                if (SQL.con.State == ConnectionState.Open)
+                {
+                    SQL.con.Close();
+                }
                 SQL.con.Open();
                 SqlCommand cmd2 = new SqlCommand("select L_name from Lock where L_locked=1", SQL.con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
@@ -63,7 +90,7 @@ namespace OOP_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"AppLock");
             }
             if (dgv_currentlyLocked.RowCount > 0)
             {
@@ -94,7 +121,6 @@ namespace OOP_Project
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                    throw;
                 }
               
             }

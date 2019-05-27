@@ -44,7 +44,6 @@ namespace OOP_Project
         private void timer1_Tick(object sender, EventArgs e)
         {
             lisV_Apps.Items.Clear();
-            // stats1 Stats = new stats1();
             Process[] processes = Process.GetProcesses();
             foreach (Process p in processes)
             {

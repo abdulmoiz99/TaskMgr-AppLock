@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -8,18 +9,11 @@ using System.Windows.Forms;
 
 namespace OOP_Project
 {
-    class User:AppObject
+    class User : AppObject
     {
-      //  private string name;
         private string email;
         private string password;
         private string cnfrmPassword;
-       
-        //public string Name
-        //{
-        //    get { return name; }
-        //    set { name = value; }
-        //}
         public string Email
         {
             get { return email; }
@@ -42,28 +36,36 @@ namespace OOP_Project
         }
         public User(String name, string email, string password, string cnfrmPassword)
         {
-            base.Name= name;
+            base.Name = name;
             this.Email = email;
             this.Password = password;
             this.CnfrmPassword = cnfrmPassword;
-            if (matchPassword(password, cnfrmPassword) ==true)
+            if (matchPassword(password, cnfrmPassword) == true)
             {
-                if (CheckInList(name)==false)
+                if (CheckInList(name) == false)
                 {
+                    try
+                    {
+                        if (con.State == ConnectionState.Open)
+                        {
+                            con.Close();
+                        }
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password   ,      UIN_CPassword    )
+                                                        VALUES ('" + Name + "'  , '" + Email + "'  ,'" + Password + "','" + CnfrmPassword + "')", con);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "User");
+                    }
 
-               con.Open();
-                SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password   ,      UIN_CPassword    )
-                                                        VALUES ('" + Name + "'  , '" + Email + "'  ,'" + Password + "','" + CnfrmPassword + "')",con);
-                cmd.ExecuteNonQuery();
-               con.Close();
                 }
             }
-           
-        } 
-        private void createUser(string name)
-        {
-           
+
         }
+      
         private bool matchPassword(string password, string cnfrmPassword)
         {
             if (string.Compare(password, cnfrmPassword) == 0)
@@ -81,10 +83,14 @@ namespace OOP_Project
             string Compare = "";
             try
             {
-               con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",con);
-                Compare= cmd.ExecuteScalar().ToString();
-               con.Close();
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", con);
+                Compare = cmd.ExecuteScalar().ToString();
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -99,16 +105,20 @@ namespace OOP_Project
                 return false;
             }
         }
-      
+
         public bool checkPassword(string name, string password)
         {
             string oPassword = "";
             try
             {
-               con.Open();
-                SqlCommand cmd = new SqlCommand("Select UIN_password from userinfo where UIN_username='" + name + "'",con);
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Select UIN_password from userinfo where UIN_username='" + name + "'", con);
                 oPassword = cmd.ExecuteScalar().ToString();
-               con.Close();
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -129,10 +139,14 @@ namespace OOP_Project
         {
             try
             {
-               con.Open();
-                SqlCommand cmd = new SqlCommand("update UserInfo set UIN_Password='" + newPassword + "'where UIN_Username='" + Sql.userName + "'",con);
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd = new SqlCommand("update UserInfo set UIN_Password='" + newPassword + "'where UIN_Username='" + Sql.userName + "'", con);
                 cmd.ExecuteNonQuery();
-               con.Close();
+                con.Close();
 
             }
             catch (Exception ex)
@@ -143,11 +157,24 @@ namespace OOP_Project
 
         public override int getCount()
         {
-           con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM UserInfo where L_user='" + Sql.userName + "'",con);
-            string count1 = cmd1.ExecuteScalar().ToString();
-           con.Close();
-            int count = int.Parse(count1);
+            int count = 0;
+            string count1 = "0";
+            try
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM UserInfo where L_user='" + Sql.userName + "'", con);
+                count1 = cmd1.ExecuteScalar().ToString();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            count = int.Parse(count1);
             return count;
         }
     }

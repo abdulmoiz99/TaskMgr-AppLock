@@ -24,6 +24,10 @@ namespace OOP_Project
         {
             try
             {
+                if (SQL.con.State == ConnectionState.Open)
+                {
+                    SQL.con.Close();
+                }
                 SQL.con.Open();
                 SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='may');", SQL.con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd1);
@@ -35,7 +39,7 @@ namespace OOP_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message,"FORM FOCUS");
             }
         }
 

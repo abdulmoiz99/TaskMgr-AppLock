@@ -13,7 +13,7 @@ namespace OOP_Project
 {
     public partial class Frm_Password : Form
     {
-        string name = ";";
+        string name ="";
         public Frm_Password(string ProcName)
         {
             InitializeComponent();
