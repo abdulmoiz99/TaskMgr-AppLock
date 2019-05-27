@@ -90,11 +90,11 @@ namespace OOP_Project
                 {
                     Stats STATS = new Stats();
                     Lock LOCK = new Lock();
-                    if (STATS.CheckInList(p.ProcessName) == false)
+                    if (STATS.CheckApp(p.ProcessName) == false)
                     {
                         Stats NEW = new Stats(p.ProcessName);
                     }
-                    if (LOCK.CheckInList(p.ProcessName)==false)
+                    if (LOCK.CheckAppList(p.ProcessName)==false)
                     {
                         LOCK.setRecord(p.ProcessName);
                     }

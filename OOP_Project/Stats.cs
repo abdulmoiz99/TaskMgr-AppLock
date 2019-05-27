@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace OOP_Project
 {
-    class Stats:AppObject
+    class Stats
     {
         Timer t = new Timer();
         Sql SQL = new Sql();
@@ -29,13 +29,13 @@ namespace OOP_Project
         public Stats(string appName)
         {
             this.AppName = appName;
-            if (CheckInList(appName) == true)
+            if (CheckApp(appName) == true)
             {
                 startStats(appName);
             }
-            if (CheckInList(appName) == false)
+            if (CheckApp(appName) == false)
             {
-                setRecord(appName);
+                SetStats(appName);
                 startStats(appName);
             }
         }
@@ -67,7 +67,7 @@ namespace OOP_Project
                 }
             }
         }
-        public override void setRecord(string Name)
+        private void SetStats(string appName)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace OOP_Project
                 }
                 SQL.con.Open();
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO stats (Stats_AppName  , Stats_Time     ,  Stats_Date                              ,Stats_Day                       ,Stats_Month)
-                                                            VALUES ('" + Name + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')", SQL.con);
+                                                            VALUES ('" + appName + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')", SQL.con);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -87,7 +87,7 @@ namespace OOP_Project
             startStats(appName);
 
         }
-        public override bool CheckInList(string Name)
+        public bool CheckApp(string appName)
         {
             string CompareDateFromStats = "";
             try
@@ -97,7 +97,7 @@ namespace OOP_Project
                     SQL.con.Close();
                 }
                 SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + Name + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
+                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + appName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
                 CompareDateFromStats = cmd.ExecuteScalar().ToString();
             }
             catch (Exception ex)
@@ -113,7 +113,6 @@ namespace OOP_Project
                 return false;
             }
         }
-        
        public string currentMonth()
         {
             int MonthNum = System.DateTime.Now.Month;
@@ -195,6 +194,9 @@ namespace OOP_Project
             {
                 return 0;
             }
+
+
+
         }
         public int getScreenTimeMonth()
         {
@@ -234,19 +236,7 @@ namespace OOP_Project
             }
         }
 
-        public override int getCount()
-        {
-            if (SQL.con.State == ConnectionState.Open)
-            {
-                SQL.con.Close();
-            }
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Stats;", SQL.con);
-            string count1 = cmd1.ExecuteScalar().ToString();
-            SQL.con.Close();
-            int count = int.Parse(count1);
-            return count;
-        }
+      
     }
 
 }

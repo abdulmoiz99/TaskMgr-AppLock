@@ -8,14 +8,14 @@ namespace OOP_Project
 {
     class Lock : AppObject//: User
     {
-        Sql SQL = new Sql();
-        string procName;
-        string password;
-        Timer t = new Timer();
         public Lock()
         {
 
         }
+        Sql SQL = new Sql();
+        string procName;
+        string password;
+        Timer t = new Timer();
 
         public string ProcName
         {
@@ -61,7 +61,7 @@ namespace OOP_Project
                 t.Tick += new EventHandler(GiveAccess_Timer);
                 t.Start();
             }
-            else KillApp(procName);
+            else killApp(procName);
         }
         private void GiveAccess_Timer(object sender, EventArgs e)
         {
@@ -127,7 +127,7 @@ namespace OOP_Project
                 {
                     SQL.con.Close();
                 }
-                if (CheckInList(procName) == true)
+                if (CheckAppList(procName) == true)
                 {
                     SqlCommand cmd = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'", SQL.con);
                     Lock = cmd.ExecuteScalar().ToString();
@@ -136,7 +136,7 @@ namespace OOP_Project
                     {
                         foreach (Process proc in Process.GetProcessesByName(ProcName))
                         {
-                            KillApp(ProcName);
+                            killApp(ProcName);
                             if (Process.GetProcessesByName(ProcName).Length > 0)
                             {
                                 bool key = IsAlreadyOpen(typeof(Frm_Password));
@@ -156,11 +156,11 @@ namespace OOP_Project
                 MessageBox.Show(ex.Message);
             }
         }
-        public override bool CheckInList(string Name)
+        public bool CheckAppList(String procName)
         {
             string Check = "";
             SQL.con.Open();
-            SqlCommand cmd = new SqlCommand("	SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM Lock  WHERE L_Name = '" + Name + "' and L_User='" + Sql.userName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
+            SqlCommand cmd = new SqlCommand("	SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM Lock  WHERE L_Name = '" + procName + "' and L_User='" + Sql.userName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
             Check = cmd.ExecuteScalar().ToString();
             if (string.Compare("True", Check) == 0)
             {
@@ -168,7 +168,20 @@ namespace OOP_Project
             }
             else return false;
         }
-        
+        public void killApp(string procName)
+        {
+            foreach (Process proc in Process.GetProcessesByName(procName))
+            {
+                try
+                {
+                    proc.Kill();
+                }
+                catch (Exception)
+                {
+
+                }
+            }
+        }
         public void Startapp(String ProcName)
         {
             try

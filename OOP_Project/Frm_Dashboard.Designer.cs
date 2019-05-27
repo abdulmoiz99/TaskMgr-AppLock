@@ -184,7 +184,7 @@
             this.btn_Active.Name = "btn_Active";
             this.btn_Active.Size = new System.Drawing.Size(253, 50);
             this.btn_Active.TabIndex = 2;
-            this.btn_Active.Text = "      Performance";
+            this.btn_Active.Text = "     Performance";
             this.btn_Active.UseVisualStyleBackColor = false;
             this.btn_Active.Click += new System.EventHandler(this.btn_Active_Click);
             // 
@@ -220,7 +220,7 @@
             this.btn_DashBoard.Name = "btn_DashBoard";
             this.btn_DashBoard.Size = new System.Drawing.Size(253, 50);
             this.btn_DashBoard.TabIndex = 1;
-            this.btn_DashBoard.Text = "  DashBoard";
+            this.btn_DashBoard.Text = " DashBoard";
             this.btn_DashBoard.UseVisualStyleBackColor = false;
             this.btn_DashBoard.Click += new System.EventHandler(this.btn_DashBoard_Click);
             // 

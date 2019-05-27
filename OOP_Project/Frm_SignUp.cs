@@ -20,9 +20,9 @@ namespace OOP_Project
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
             User New = new User();
-            if (New.CheckInList(txt_userName.Text) == false)
+            if (New.checkUser(txt_userName.Text) == false)
             {
-                User NEW = new User(txt_userName.Text, txt_Email.Text, txt_password.Text);
+                User NEW = new User(txt_userName.Text, txt_Email.Text, txt_password.Text, txt_confirmPassword.Text);
                 MessageBox.Show("User Created Succesfully");
                 this.Hide();
                 Frm_Login NEW1 = new Frm_Login();
