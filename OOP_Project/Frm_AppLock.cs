@@ -76,8 +76,6 @@ namespace OOP_Project
             Lock New = new Lock();
             MessageBox.Show(cmb_newUnlock.Text.ToString());
             New.Unlock(cmb_newUnlock.Text.ToString());
-
-
             //
             Frm_AppLock_Activated(sender, e);
 

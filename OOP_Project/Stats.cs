@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace OOP_Project
 {
-    class Stats
+    class Stats : AppObject
     {
         Timer t = new Timer();
         Sql SQL = new Sql();
@@ -24,18 +24,18 @@ namespace OOP_Project
         }
         public Stats()
         {
-            
+
         }
         public Stats(string appName)
         {
             this.AppName = appName;
-            if (CheckApp(appName) == true)
+            if (CheckInList(appName) == true)
             {
                 startStats(appName);
             }
-            if (CheckApp(appName) == false)
+            if (CheckInList(appName) == false)
             {
-                SetStats(appName);
+                setRecord(appName);
                 startStats(appName);
             }
         }
@@ -67,7 +67,7 @@ namespace OOP_Project
                 }
             }
         }
-        private void SetStats(string appName)
+        public override void setRecord(string Name)
         {
             try
             {
@@ -77,7 +77,7 @@ namespace OOP_Project
                 }
                 SQL.con.Open();
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO stats (Stats_AppName  , Stats_Time     ,  Stats_Date                              ,Stats_Day                       ,Stats_Month)
-                                                            VALUES ('" + appName + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')", SQL.con);
+                                                            VALUES ('" + Name + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')", SQL.con);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -85,9 +85,8 @@ namespace OOP_Project
                 MessageBox.Show(ex.Message);
             }
             startStats(appName);
-
         }
-        public bool CheckApp(string appName)
+        public override bool CheckInList(string Name)
         {
             string CompareDateFromStats = "";
             try
@@ -113,7 +112,7 @@ namespace OOP_Project
                 return false;
             }
         }
-       public string currentMonth()
+        public string currentMonth()
         {
             int MonthNum = System.DateTime.Now.Month;
             string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNum);
@@ -236,7 +235,15 @@ namespace OOP_Project
             }
         }
 
-      
+        public override int getCount()
+        {
+            SQL.con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Stats ", SQL.con);
+            string count1 = cmd1.ExecuteScalar().ToString();
+            SQL.con.Close();
+            int count = int.Parse(count1);
+            return count;
+        }
     }
 
 }

@@ -90,7 +90,7 @@ namespace OOP_Project
             for (int i = 1; i <= count; i++)
             {
                 Name = LOCK.getAppName(i);
-                if (STATS.CheckApp(Name) == true)
+                if (STATS.CheckInList(Name) == true)
                 {
 
                     Time = STATS.getStatsToday(Name);
@@ -127,7 +127,7 @@ namespace OOP_Project
             for (int i = 1; i <= count; i++)
             {
                 Name = LOCK.getAppName(i);
-                if (STATS.CheckApp(Name) == true)
+                if (STATS.CheckInList(Name) == true)
                 {
                     Time = STATS.getStatsbyCurrentMonth(Name);
                     if (Time > 0)

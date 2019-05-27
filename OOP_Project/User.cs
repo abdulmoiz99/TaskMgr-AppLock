@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace OOP_Project
 {
-    class User
+    class User:AppObject
     {
         Sql SQL = new Sql();
         private string name;
@@ -49,7 +49,7 @@ namespace OOP_Project
             this.CnfrmPassword = cnfrmPassword;
             if (matchPassword(password, cnfrmPassword) ==true)
             {
-                if (checkUser(name)==false)
+                if (CheckInList(name)==false)
                 {
 
                 SQL.con.Open();
@@ -60,7 +60,7 @@ namespace OOP_Project
                 }
             }
            
-        }
+        } 
         private void createUser(string name)
         {
            
@@ -77,7 +77,7 @@ namespace OOP_Project
                 return false;
             }
         }
-        public bool checkUser(string name)
+        public override bool CheckInList(string Name)
         {
             string CompareDateFromStats = "";
             try
@@ -100,6 +100,7 @@ namespace OOP_Project
                 return false;
             }
         }
+      
         public bool checkPassword(string name, string password)
         {
             string oPassword = "";
@@ -141,7 +142,15 @@ namespace OOP_Project
             }
         }
 
-       
+        public override int getCount()
+        {
+            SQL.con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM UserInfo where L_user='" + Sql.userName + "'", SQL.con);
+            string count1 = cmd1.ExecuteScalar().ToString();
+            SQL.con.Close();
+            int count = int.Parse(count1);
+            return count;
+        }
     }
 
 }

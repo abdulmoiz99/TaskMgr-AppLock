@@ -61,7 +61,7 @@ namespace OOP_Project
                 t.Tick += new EventHandler(GiveAccess_Timer);
                 t.Start();
             }
-            else killApp(procName);
+            else KillApp(procName);
         }
         private void GiveAccess_Timer(object sender, EventArgs e)
         {
@@ -127,7 +127,7 @@ namespace OOP_Project
                 {
                     SQL.con.Close();
                 }
-                if (CheckAppList(procName) == true)
+                if (CheckInList(procName) == true)
                 {
                     SqlCommand cmd = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'", SQL.con);
                     Lock = cmd.ExecuteScalar().ToString();
@@ -136,7 +136,7 @@ namespace OOP_Project
                     {
                         foreach (Process proc in Process.GetProcessesByName(ProcName))
                         {
-                            killApp(ProcName);
+                            KillApp(ProcName);
                             if (Process.GetProcessesByName(ProcName).Length > 0)
                             {
                                 bool key = IsAlreadyOpen(typeof(Frm_Password));
@@ -156,8 +156,9 @@ namespace OOP_Project
                 MessageBox.Show(ex.Message);
             }
         }
-        public bool CheckAppList(String procName)
+        public override bool CheckInList(string Name)
         {
+
             string Check = "";
             SQL.con.Open();
             SqlCommand cmd = new SqlCommand("	SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM Lock  WHERE L_Name = '" + procName + "' and L_User='" + Sql.userName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
@@ -168,20 +169,7 @@ namespace OOP_Project
             }
             else return false;
         }
-        public void killApp(string procName)
-        {
-            foreach (Process proc in Process.GetProcessesByName(procName))
-            {
-                try
-                {
-                    proc.Kill();
-                }
-                catch (Exception)
-                {
-
-                }
-            }
-        }
+       
         public void Startapp(String ProcName)
         {
             try
@@ -233,7 +221,7 @@ namespace OOP_Project
         public override int getCount()
         {
             SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Lock where L_user='"+Sql.userName+"'", SQL.con);
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Lock ", SQL.con);
             string count1 = cmd1.ExecuteScalar().ToString();
             SQL.con.Close();
             int count = int.Parse(count1);
@@ -261,7 +249,7 @@ namespace OOP_Project
             }
             return Name;
         }
-        public override void setRecord(String Name)
+        public  override void setRecord(String Name)
         {
             try
             {

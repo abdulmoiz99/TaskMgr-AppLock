@@ -33,11 +33,11 @@ namespace OOP_Project
         private void btn_LogIn_Click(object sender, EventArgs e)
         {
 
-            User NEW = new User();
+            User User = new User();
 
-            if (NEW.checkUser(txt_UserName.Text) == true)
+            if (User.CheckInList(txt_UserName.Text) == true)
             {
-                if (NEW.checkPassword(txt_UserName.Text, txt_Password.Text) == true)
+                if (User.checkPassword(txt_UserName.Text, txt_Password.Text) == true)
                 {
                     Sql.userName = txt_UserName.Text;
                     this.Hide();
