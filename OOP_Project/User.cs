@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,15 @@ using System.Windows.Forms;
 
 namespace OOP_Project
 {
-    class User
+    class User:AppObject
     {
         Sql SQL = new Sql();
-        private string name;
+        private string  name;
         private string email;
         private string password;
         private string cnfrmPassword;
        
-        public string Name
+        public string  Name
         {
             get { return name; }
             set { name = value; }
@@ -41,7 +42,7 @@ namespace OOP_Project
         {
 
         }
-        public User(String name, string email, string password, string cnfrmPassword)
+        public User(String name, string email, string password)
         {
             this.Name = name;
             this.Email = email;
@@ -49,12 +50,12 @@ namespace OOP_Project
             this.CnfrmPassword = cnfrmPassword;
             if (matchPassword(password, cnfrmPassword) ==true)
             {
-                if (checkUser(name)==false)
+                if (CheckInList(name)==false)
                 {
 
                 SQL.con.Open();
-                SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password   ,      UIN_CPassword    )
-                                                        VALUES ('" + name + "'  , '" + email + "'  ,'" + password + "','" + cnfrmPassword + "')", SQL.con);
+                SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password     )
+                                                        VALUES ('" + name + "'  , '" + email + "'  ,'" + password + "')", SQL.con);
                 cmd.ExecuteNonQuery();
                 SQL.con.Close();
                 }
@@ -77,21 +78,21 @@ namespace OOP_Project
                 return false;
             }
         }
-        public bool checkUser(string name)
+        public override bool CheckInList(string Name)
         {
-            string CompareDateFromStats = "";
+            string Compare = "";
             try
             {
                 SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
-                CompareDateFromStats = cmd.ExecuteScalar().ToString();
+                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + Name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
+                Compare = cmd.ExecuteScalar().ToString();
                 SQL.con.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            if (string.Compare("True", CompareDateFromStats) == 0)
+            if (string.Compare("True", Compare) == 0)
             {
                 return true;
             }
@@ -100,6 +101,8 @@ namespace OOP_Project
                 return false;
             }
         }
+
+       
         public bool checkPassword(string name, string password)
         {
             string oPassword = "";
@@ -141,7 +144,21 @@ namespace OOP_Project
             }
         }
 
-       
+        public override int getCount()
+        {
+            if (SQL.con.State == ConnectionState.Open)
+            {
+                SQL.con.Close();
+            }
+            SQL.con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM User;", SQL.con);
+            string count1 = cmd1.ExecuteScalar().ToString();
+            SQL.con.Close();
+            int count = int.Parse(count1);
+            return count;
+        }
+
+        
     }
 
 }

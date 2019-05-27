@@ -35,8 +35,9 @@ namespace OOP_Project
 
             User NEW = new User();
 
-            if (NEW.checkUser(txt_UserName.Text) == true)
+            if (NEW.CheckInList(txt_UserName.Text) == true)
             {
+                MessageBox.Show("a");
                 if (NEW.checkPassword(txt_UserName.Text, txt_Password.Text) == true)
                 {
                     Sql.userName = txt_UserName.Text;

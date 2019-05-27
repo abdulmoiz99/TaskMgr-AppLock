@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="OOP_Project.AppObject">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAQAAAAAAAAAACAAAAQAAAAMAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>AppObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_Project.Focus">
+    <Position X="4.25" Y="1" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AOABAAQAAQIAAAACAAAAAAQAAABIAAAAQAQAAgEFAQA=</HashCode>
+      <FileName>Focus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_Project.Lock">
+    <Position X="0.5" Y="3.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>gEABAAQAAAIAAgACAAAAAAIAAAEIAAAiQAQAIgAEAAA=</HashCode>
+      <FileName>Lock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_Project.Stats">
+    <Position X="6.25" Y="0.5" Width="2" />
+    <InheritanceLine Type="OOP_Project.AppObject" ManuallyRouted="true">
+      <Path>
+        <Point X="2" Y="1.917" />
+        <Point X="2.153" Y="1.917" />
+        <Point X="2.153" Y="0.575" />
+        <Point X="6.097" Y="0.575" />
+        <Point X="6.097" Y="1.721" />
+        <Point X="6.25" Y="1.721" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AGQAAAQAkAAAAAAAgAAAIAAAACAAAAAAQAQBAAQkAAA=</HashCode>
+      <FileName>Stats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP_Project.User">
+    <Position X="2.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEAAAAAAACAAAAAgAAAAAAQBAAAEAQACQACBAgIEAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

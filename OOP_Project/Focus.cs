@@ -112,7 +112,7 @@ namespace OOP_Project
 
             if (Process.GetProcessesByName(ProcName1).Length > 0)
             {
-                if (CheckDate(ProcName1) == true)
+                if (CheckInList(ProcName1) == true)
                 {
                     if (TimerEqual(ProcName1) == false)
                     {
@@ -133,14 +133,14 @@ namespace OOP_Project
                     }
                 }
             }
-            if (CheckDate(ProcName1) == false)
+            if (CheckInList(ProcName1) == false)
             {
                 UpdateDate(ProcName1);
 
             }
 
         }
-        private bool CheckDate(String procName)
+        public override bool CheckInList(string Name)// checkdate
         {
             string date = "";
             DateTime StartDate, EndDate;
@@ -155,7 +155,7 @@ namespace OOP_Project
                 try
                 {
                     SQL.con.Open();
-                    SqlCommand cmd = new SqlCommand("select F_date from Focus where F_name='" + procName + "'", SQL.con);
+                    SqlCommand cmd = new SqlCommand("select F_date from Focus where F_name='" + Name + "'", SQL.con);
                     date = cmd.ExecuteScalar().ToString();
                     SQL.con.Close();
 
@@ -181,6 +181,7 @@ namespace OOP_Project
             }
 
         }
+
         private void UpdateDate(String procName)
         {
             SQL.con.Open();
@@ -207,25 +208,12 @@ namespace OOP_Project
         }
         private void RestricUse(String procName)
         {
-            if (CheckDate(procName) == true)
+            if (CheckInList(procName) == true)
             {
-                 killApp(procName);
+                KillApp(procName);
             }
         }
-       private void killApp(string procName)
-        {
-            foreach (Process proc in Process.GetProcessesByName(procName))
-            {
-                try
-                {
-                    proc.Kill();
-                }
-                catch (Exception)
-                {
-
-                }
-            }
-        }
+      
         private void ResetTimer(string procName)
         {
             SQL.con.Open();
@@ -233,15 +221,15 @@ namespace OOP_Project
             cmd.ExecuteNonQuery();
             SQL.con.Close();
         }
-        
-       
+
+
         public override void setRecord(string Name, int time)
         {
             try
             {
 
                 SQL.con.Open();
-                SqlCommand cmd1 = new SqlCommand("insert into Focus (F_Name,F_CountLive,F_CountTimer,F_Date) values('" + procName + "',0," + time + ",'" + DateTime.Now.ToShortDateString() + "')", SQL.con);
+                SqlCommand cmd1 = new SqlCommand("insert into Focus (F_Name,F_CountLive,F_CountTimer,F_Date) values('" + Name + "',0," + time + ",'" + DateTime.Now.ToShortDateString() + "')", SQL.con);
                 cmd1.ExecuteNonQuery();
                 SQL.con.Close();
             }
