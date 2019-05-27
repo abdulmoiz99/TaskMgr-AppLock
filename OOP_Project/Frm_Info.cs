@@ -54,8 +54,6 @@ namespace OOP_Project
                 {
                    pnl_FUsed.Visible = false;
                 }
-
-
             }
             catch (Exception ex)
             {
