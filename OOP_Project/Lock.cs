@@ -12,7 +12,6 @@ namespace OOP_Project
         {
 
         }
-        Sql SQL = new Sql();
         string procName;
         string password;
         Timer t = new Timer();
@@ -77,14 +76,14 @@ namespace OOP_Project
         {
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                   con.Close();
                 }
-                SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked =  0 WHERE L_Name = '" + ProcName + "' AND L_User='" + Sql.userName + "'", SQL.con);
+               con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked =  0 WHERE L_Name = '" + ProcName + "' AND L_User='" + Sql.userName + "'",con);
                 cmd.ExecuteNonQuery();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception ex)
             {
@@ -96,14 +95,14 @@ namespace OOP_Project
         {
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                   con.Close();
                 }
-                SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked = 1 WHERE L_Name = '" + procName + "' AND L_User='" + Sql.userName + "'", SQL.con);
+               con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked = 1 WHERE L_Name = '" + procName + "' AND L_User='" + Sql.userName + "'",con);
                 cmd.ExecuteNonQuery();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception ex)
             {
@@ -123,15 +122,15 @@ namespace OOP_Project
             string Lock;
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                   con.Close();
                 }
                 if (CheckInList(procName) == true)
                 {
-                    SqlCommand cmd = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'", SQL.con);
+                    SqlCommand cmd = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'",con);
                     Lock = cmd.ExecuteScalar().ToString();
-                    SQL.con.Close();
+                   con.Close();
                     if (string.Compare("True", Lock) == 0)
                     {
                         foreach (Process proc in Process.GetProcessesByName(ProcName))
@@ -160,8 +159,8 @@ namespace OOP_Project
         {
 
             string Check = "";
-            SQL.con.Open();
-            SqlCommand cmd = new SqlCommand("	SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM Lock  WHERE L_Name = '" + procName + "' and L_User='" + Sql.userName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
+           con.Open();
+            SqlCommand cmd = new SqlCommand("	SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM Lock  WHERE L_Name = '" + procName + "' and L_User='" + Sql.userName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",con);
             Check = cmd.ExecuteScalar().ToString();
             if (string.Compare("True", Check) == 0)
             {
@@ -189,10 +188,10 @@ namespace OOP_Project
                 String Lock = "";
             if (getCount() > 0)
             {
-                SQL.con.Open();
-                SqlCommand cmd1 = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'", SQL.con);
+               con.Open();
+                SqlCommand cmd1 = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'",con);
                Lock = cmd1.ExecuteScalar().ToString();
-                SQL.con.Close();
+               con.Close();
 
             }
                 if (string.Compare("True", Lock) == 0)
@@ -220,10 +219,10 @@ namespace OOP_Project
         }
         public override int getCount()
         {
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Lock ", SQL.con);
+           con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Lock ",con);
             string count1 = cmd1.ExecuteScalar().ToString();
-            SQL.con.Close();
+           con.Close();
             int count = int.Parse(count1);
             return count;
         }
@@ -233,14 +232,14 @@ namespace OOP_Project
             string Name = "";
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                   con.Close();
                 }
-                SQL.con.Open();
-                SqlCommand cmd1 = new SqlCommand("SELECT L_Name from Lock where L_id =" + id + " ", SQL.con);
+               con.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT L_Name from Lock where L_id =" + id + " ",con);
                 Name = cmd1.ExecuteScalar().ToString();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception ex)
             {
@@ -253,15 +252,15 @@ namespace OOP_Project
         {
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                   con.Close();
                 }
-                SQL.con.Open();
+               con.Open();
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO Lock (L_Name        ,L_Locked  , L_User)
-                                                         VALUES ('" + Name + "',0         ,'" + Sql.userName + "')", SQL.con);
+                                                         VALUES ('" + Name + "',0         ,'" + Sql.userName + "')",con);
                 cmd.ExecuteNonQuery();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception ex)
             {

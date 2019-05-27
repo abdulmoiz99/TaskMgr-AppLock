@@ -10,7 +10,6 @@ namespace OOP_Project
 {
     class User:AppObject
     {
-        Sql SQL = new Sql();
         private string name;
         private string email;
         private string password;
@@ -52,11 +51,11 @@ namespace OOP_Project
                 if (CheckInList(name)==false)
                 {
 
-                SQL.con.Open();
+               con.Open();
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password   ,      UIN_CPassword    )
-                                                        VALUES ('" + name + "'  , '" + email + "'  ,'" + password + "','" + cnfrmPassword + "')", SQL.con);
+                                                        VALUES ('" + name + "'  , '" + email + "'  ,'" + password + "','" + cnfrmPassword + "')",con);
                 cmd.ExecuteNonQuery();
-                SQL.con.Close();
+               con.Close();
                 }
             }
            
@@ -82,10 +81,10 @@ namespace OOP_Project
             string CompareDateFromStats = "";
             try
             {
-                SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
+               con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",con);
                 CompareDateFromStats = cmd.ExecuteScalar().ToString();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception ex)
             {
@@ -106,10 +105,10 @@ namespace OOP_Project
             string oPassword = "";
             try
             {
-                SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("Select UIN_password from userinfo where UIN_username='" + name + "'", SQL.con);
+               con.Open();
+                SqlCommand cmd = new SqlCommand("Select UIN_password from userinfo where UIN_username='" + name + "'",con);
                 oPassword = cmd.ExecuteScalar().ToString();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception ex)
             {
@@ -130,10 +129,10 @@ namespace OOP_Project
         {
             try
             {
-                SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("update UserInfo set UIN_Password='" + newPassword + "'where UIN_Username='" + Sql.userName + "'", SQL.con);
+               con.Open();
+                SqlCommand cmd = new SqlCommand("update UserInfo set UIN_Password='" + newPassword + "'where UIN_Username='" + Sql.userName + "'",con);
                 cmd.ExecuteNonQuery();
-                SQL.con.Close();
+               con.Close();
 
             }
             catch (Exception ex)
@@ -144,10 +143,10 @@ namespace OOP_Project
 
         public override int getCount()
         {
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM UserInfo where L_user='" + Sql.userName + "'", SQL.con);
+           con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM UserInfo where L_user='" + Sql.userName + "'",con);
             string count1 = cmd1.ExecuteScalar().ToString();
-            SQL.con.Close();
+           con.Close();
             int count = int.Parse(count1);
             return count;
         }

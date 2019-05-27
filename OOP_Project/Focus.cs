@@ -12,7 +12,6 @@ namespace OOP_Project
 {
     class Focus : AppObject// : Lock  kill app in restric use 
     {
-        Sql SQL = new Sql();
         Timer t = new Timer();
         string procName;
         int time;
@@ -77,14 +76,14 @@ namespace OOP_Project
                 {
                     if (TimerEqual(ProcName1) == false)
                     {
-                        if (SQL.con.State == ConnectionState.Open)
+                        if (con.State == ConnectionState.Open)
                         {
-                            SQL.con.Close();
+                           con.Close();
                         }
-                        SQL.con.Open();
-                        SqlCommand cmd = new SqlCommand("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + ProcName1 + "'", SQL.con);
+                       con.Open();
+                        SqlCommand cmd = new SqlCommand("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + ProcName1 + "'",con);
                         cmd.ExecuteNonQuery();
-                        SQL.con.Close();
+                       con.Close();
                     }
 
                     else
@@ -110,16 +109,16 @@ namespace OOP_Project
             if (getCount() > 0)
             {
 
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                   con.Close();
                 }
                 try
                 {
-                    SQL.con.Open();
-                    SqlCommand cmd = new SqlCommand("select F_date from Focus where F_name='" + procName + "'", SQL.con);
+                   con.Open();
+                    SqlCommand cmd = new SqlCommand("select F_date from Focus where F_name='" + procName + "'",con);
                     date = cmd.ExecuteScalar().ToString();
-                    SQL.con.Close();
+                   con.Close();
 
                 }
                 catch (Exception ex)
@@ -145,22 +144,22 @@ namespace OOP_Project
         }
         private void UpdateDate(String procName)
         {
-            SQL.con.Open();
-            SqlCommand cmd = new SqlCommand("Update Focus set F_date='" + DateTime.Now.ToShortDateString() + "' where f_Name='" + procName + "'", SQL.con);
+           con.Open();
+            SqlCommand cmd = new SqlCommand("Update Focus set F_date='" + DateTime.Now.ToShortDateString() + "' where f_Name='" + procName + "'",con);
             cmd.ExecuteNonQuery();
-            SQL.con.Close();
+           con.Close();
         }
         private bool TimerEqual(String procName)
         {
             string countLive;
             string countTime;
 
-            SQL.con.Open();
-            SqlCommand cmd = new SqlCommand("select F_CountLive from Focus where F_name='" + procName + "'", SQL.con);
+           con.Open();
+            SqlCommand cmd = new SqlCommand("select F_CountLive from Focus where F_name='" + procName + "'",con);
             countLive = cmd.ExecuteScalar().ToString();
-            SqlCommand cmd1 = new SqlCommand("select F_CountTimer from Focus where F_name='" + procName + "'", SQL.con);
+            SqlCommand cmd1 = new SqlCommand("select F_CountTimer from Focus where F_name='" + procName + "'",con);
             countTime = cmd1.ExecuteScalar().ToString();
-            SQL.con.Close();
+           con.Close();
             if (string.Compare(countLive, countTime) == 0)
             {
                 return true;
@@ -177,10 +176,10 @@ namespace OOP_Project
        
         private void ResetTimer(string procName)
         {
-            SQL.con.Open();
-            SqlCommand cmd = new SqlCommand("Update Focus set F_Countlive= 0 where f_Name='" + procName + "'", SQL.con);
+           con.Open();
+            SqlCommand cmd = new SqlCommand("Update Focus set F_Countlive= 0 where f_Name='" + procName + "'", con);
             cmd.ExecuteNonQuery();
-            SQL.con.Close();
+           con.Close();
         }
         
        
@@ -189,10 +188,10 @@ namespace OOP_Project
             try
             {
 
-                SQL.con.Open();
-                SqlCommand cmd1 = new SqlCommand("insert into Focus (F_Name,F_CountLive,F_CountTimer,F_Date) values('" + Name + "',0," + time + ",'" + DateTime.Now.ToShortDateString() + "')", SQL.con);
+               con.Open();
+                SqlCommand cmd1 = new SqlCommand("insert into Focus (F_Name,F_CountLive,F_CountTimer,F_Date) values('" + Name + "',0," + time + ",'" + DateTime.Now.ToShortDateString() + "')",con);
                 cmd1.ExecuteNonQuery();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception)
             {
@@ -202,14 +201,14 @@ namespace OOP_Project
         }
         public override int getCount()
         {
-            if (SQL.con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
-                SQL.con.Close();
+               con.Close();
             }
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Focus;", SQL.con);
+           con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Focus;",con);
             string count1 = cmd1.ExecuteScalar().ToString();
-            SQL.con.Close();
+           con.Close();
             int count = int.Parse(count1);
             return count;
         }
@@ -219,10 +218,10 @@ namespace OOP_Project
             string Name = "";
             try
             {
-                SQL.con.Open();
-                SqlCommand cmd1 = new SqlCommand("SELECT F_Name from focus where F_id =" + id + "", SQL.con);
+               con.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT F_Name from focus where F_id =" + id + "",con);
                 Name = cmd1.ExecuteScalar().ToString();
-                SQL.con.Close();
+               con.Close();
             }
             catch (Exception ex)
             {

@@ -13,8 +13,6 @@ namespace OOP_Project
     class Stats : AppObject
     {
         Timer t = new Timer();
-        Sql SQL = new Sql();
-
         private string appName;
 
         public string AppName
@@ -53,12 +51,12 @@ namespace OOP_Project
                 try
                 {
 
-                    if (SQL.con.State == ConnectionState.Open)
+                    if (con.State == ConnectionState.Open)
                     {
-                        SQL.con.Close();
+                        con.Close();
                     }
-                    SQL.con.Open();
-                    SqlCommand cmd = new SqlCommand("UPDATE stats SET stats_time = stats_time + 1 WHERE stats_AppName= '" + AppName + "' AND stats_Date='" + DateTime.Now.ToShortDateString() + "'", SQL.con);
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("UPDATE stats SET stats_time = stats_time + 1 WHERE stats_AppName= '" + AppName + "' AND stats_Date='" + DateTime.Now.ToShortDateString() + "'", con);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -71,13 +69,13 @@ namespace OOP_Project
         {
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                    con.Close();
                 }
-                SQL.con.Open();
+                con.Open();
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO stats (Stats_AppName  , Stats_Time     ,  Stats_Date                              ,Stats_Day                       ,Stats_Month)
-                                                            VALUES ('" + Name + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')", SQL.con);
+                                                            VALUES ('" + Name + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')", con);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -91,12 +89,12 @@ namespace OOP_Project
             string CompareDateFromStats = "";
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                    con.Close();
                 }
-                SQL.con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + appName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", SQL.con);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + appName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", con);
                 CompareDateFromStats = cmd.ExecuteScalar().ToString();
             }
             catch (Exception ex)
@@ -120,12 +118,12 @@ namespace OOP_Project
         }
         public int getStatsToday(string procName)
         {
-            if (SQL.con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
-                SQL.con.Close();
+                con.Close();
             }
-            SQL.con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "' AND  stats_date='" + DateTime.Now.ToShortDateString() + "'", SQL.con);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "' AND  stats_date='" + DateTime.Now.ToShortDateString() + "'", con);
             cmd.ExecuteScalar().ToString();
             if (cmd.ExecuteScalar().ToString() != "")
             {
@@ -139,12 +137,12 @@ namespace OOP_Project
         }
         public int getStatsByDay(string procName, string Day)
         {
-            if (SQL.con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
-                SQL.con.Close();
+                con.Close();
             }
-            SQL.con.Open();
-            SqlCommand cmd = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "'stats_day='" + Day + "' AND  stats_MONTH='" + currentMonth() + "'", SQL.con);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "'stats_day='" + Day + "' AND  stats_MONTH='" + currentMonth() + "'", con);
             cmd.ExecuteScalar().ToString();
             if (cmd.ExecuteScalar().ToString() != "")
             {
@@ -158,12 +156,12 @@ namespace OOP_Project
         }
         public int getStatsbyCurrentMonth(String AppName)
         {
-            if (SQL.con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
-                SQL.con.Close();
+                con.Close();
             }
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_AppName='" + AppName + "'AND stats_Month='" + currentMonth() + "'", SQL.con);
+            con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_AppName='" + AppName + "'AND stats_Month='" + currentMonth() + "'", con);
 
 
             if (cmd1.ExecuteScalar().ToString() != "")
@@ -178,12 +176,12 @@ namespace OOP_Project
         }
         public int getScreenTimeToday()
         {
-            if (SQL.con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
-                SQL.con.Close();
+                con.Close();
             }
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='devenv' AND stats_date='" + DateTime.Now.ToShortDateString() + "' ", SQL.con);
+            con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='devenv' AND stats_date='" + DateTime.Now.ToShortDateString() + "' ", con);
             if (cmd1.ExecuteScalar().ToString() != "")
             {
                 return int.Parse(cmd1.ExecuteScalar().ToString());
@@ -199,12 +197,12 @@ namespace OOP_Project
         }
         public int getScreenTimeMonth()
         {
-            if (SQL.con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
-                SQL.con.Close();
+                con.Close();
             }
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='devenv' AND stats_Month='" + currentMonth() + "' ", SQL.con);
+            con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='devenv' AND stats_Month='" + currentMonth() + "' ", con);
             if (cmd1.ExecuteScalar().ToString() != "")
             {
                 return int.Parse(cmd1.ExecuteScalar().ToString());
@@ -218,12 +216,12 @@ namespace OOP_Project
         }
         public int getAppConutToday()
         {
-            if (SQL.con.State == ConnectionState.Open)
+            if (con.State == ConnectionState.Open)
             {
-                SQL.con.Close();
+                con.Close();
             }
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(stats_appname) FROM stats WHERE stats_date='" + DateTime.Now.ToShortDateString() + "'", SQL.con);
+            con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(stats_appname) FROM stats WHERE stats_date='" + DateTime.Now.ToShortDateString() + "'", con);
             if (cmd1.ExecuteScalar().ToString() != "")
             {
                 return int.Parse(cmd1.ExecuteScalar().ToString());
@@ -237,10 +235,10 @@ namespace OOP_Project
 
         public override int getCount()
         {
-            SQL.con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Stats ", SQL.con);
+            con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Stats ", con);
             string count1 = cmd1.ExecuteScalar().ToString();
-            SQL.con.Close();
+            con.Close();
             int count = int.Parse(count1);
             return count;
         }
