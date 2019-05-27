@@ -36,6 +36,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_close = new System.Windows.Forms.Button();
             this.xuiGradientPanel4 = new XanderUI.XUIGradientPanel();
             this.xuiGradientPanel3 = new XanderUI.XUIGradientPanel();
             this.xuiGradientPanel1 = new XanderUI.XUIGradientPanel();
@@ -44,7 +45,6 @@
             this.xuiGradientPanel2 = new XanderUI.XUIGradientPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btn_close = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,10 +55,10 @@
             this.txt_userName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_userName.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_userName.ForeColor = System.Drawing.Color.White;
-            this.txt_userName.Location = new System.Drawing.Point(117, 36);
+            this.txt_userName.Location = new System.Drawing.Point(128, 36);
             this.txt_userName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_userName.Name = "txt_userName";
-            this.txt_userName.Size = new System.Drawing.Size(271, 24);
+            this.txt_userName.Size = new System.Drawing.Size(260, 24);
             this.txt_userName.TabIndex = 0;
             // 
             // txt_confirmPassword
@@ -67,10 +67,10 @@
             this.txt_confirmPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_confirmPassword.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_confirmPassword.ForeColor = System.Drawing.Color.White;
-            this.txt_confirmPassword.Location = new System.Drawing.Point(117, 225);
+            this.txt_confirmPassword.Location = new System.Drawing.Point(128, 225);
             this.txt_confirmPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_confirmPassword.Name = "txt_confirmPassword";
-            this.txt_confirmPassword.Size = new System.Drawing.Size(271, 24);
+            this.txt_confirmPassword.Size = new System.Drawing.Size(260, 24);
             this.txt_confirmPassword.TabIndex = 3;
             // 
             // txt_password
@@ -79,10 +79,10 @@
             this.txt_password.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_password.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.ForeColor = System.Drawing.Color.White;
-            this.txt_password.Location = new System.Drawing.Point(117, 150);
+            this.txt_password.Location = new System.Drawing.Point(128, 150);
             this.txt_password.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(271, 24);
+            this.txt_password.Size = new System.Drawing.Size(260, 24);
             this.txt_password.TabIndex = 2;
             // 
             // txt_Email
@@ -91,10 +91,10 @@
             this.txt_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Email.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Email.ForeColor = System.Drawing.Color.White;
-            this.txt_Email.Location = new System.Drawing.Point(117, 90);
+            this.txt_Email.Location = new System.Drawing.Point(128, 90);
             this.txt_Email.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Email.Name = "txt_Email";
-            this.txt_Email.Size = new System.Drawing.Size(271, 24);
+            this.txt_Email.Size = new System.Drawing.Size(260, 24);
             this.txt_Email.TabIndex = 1;
             // 
             // btn_SignUp
@@ -153,6 +153,18 @@
             this.panel1.Size = new System.Drawing.Size(414, 380);
             this.panel1.TabIndex = 10;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // btn_close
+            // 
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Image = global::OOP_Project.Properties.Resources.multiply_20;
+            this.btn_close.Location = new System.Drawing.Point(380, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(34, 36);
+            this.btn_close.TabIndex = 12;
+            this.btn_close.UseVisualStyleBackColor = true;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // xuiGradientPanel4
             // 
@@ -260,18 +272,6 @@
             this.label7.Size = new System.Drawing.Size(61, 22);
             this.label7.TabIndex = 5;
             this.label7.Text = "Email:";
-            // 
-            // btn_close
-            // 
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Image = global::OOP_Project.Properties.Resources.multiply_20;
-            this.btn_close.Location = new System.Drawing.Point(380, 0);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(34, 36);
-            this.btn_close.TabIndex = 12;
-            this.btn_close.UseVisualStyleBackColor = true;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click);
             // 
             // Frm_SignUp
             // 

@@ -13,7 +13,7 @@ namespace OOP_Project
     class Focus : AppObject// : Lock  kill app in restric use 
     {
         Timer t = new Timer();
-        string procName;
+       // string procName;
         int time;
         public int Time
         {
@@ -28,18 +28,18 @@ namespace OOP_Project
             }
         }
 
-        public string ProcName1
-        {
-            get
-            {
-                return procName;
-            }
+        //public string ProcName1
+        //{
+        //    get
+        //    {
+        //        return procName;
+        //    }
 
-            set
-            {
-                procName = value;
-            }
-        }
+        //    set
+        //    {
+        //        procName = value;
+        //    }
+        //}
 
       
       
@@ -48,12 +48,12 @@ namespace OOP_Project
         }
         public Focus(string procName)
         {
-            this.ProcName1 = procName;
+            base.Name = procName;
             StartTimer(procName);
         }
         public Focus(String procName, int time)
         {
-            this.ProcName1 = procName;
+            base.Name = procName;
             this.Time = time;
             setRecord(procName, time);
             StartTimer(procName);
@@ -61,7 +61,7 @@ namespace OOP_Project
        
         private void StartTimer(string procName)
         {
-            this.ProcName1 = procName;
+            base.Name = procName;
             t.Interval = 1000;
             t.Tick += new EventHandler(Update_Timer);
             t.Start();
@@ -70,38 +70,38 @@ namespace OOP_Project
         {
 
 
-            if (Process.GetProcessesByName(ProcName1).Length > 0)
+            if (Process.GetProcessesByName(Name).Length > 0)
             {
-                if (CheckInList(ProcName1) == true)
+                if (CheckInList(Name) == true)
                 {
-                    if (TimerEqual(ProcName1) == false)
+                    if (TimerEqual(Name) == false)
                     {
                         if (con.State == ConnectionState.Open)
                         {
                            con.Close();
                         }
                        con.Open();
-                        SqlCommand cmd = new SqlCommand("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + ProcName1 + "'",con);
+                        SqlCommand cmd = new SqlCommand("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + Name + "'",con);
                         cmd.ExecuteNonQuery();
                        con.Close();
                     }
 
                     else
                     {
-                        RestricUse(ProcName1);
-                        MessageBox.Show(ProcName1 + " is restricted");
+                        RestricUse(Name);
+                        MessageBox.Show(Name + " is restricted");
                     }
                 }
             }
-            if (CheckInList(ProcName1) == false)
+            if (CheckInList(Name) == false)
             {
-                UpdateDate(ProcName1);
+                UpdateDate(Name);
 
             }
 
         }
      
-        public override bool CheckInList(string Name)//check date
+        public override bool CheckInList(string name)//check date
         {
             string date = "";
             DateTime StartDate, EndDate;
@@ -116,7 +116,7 @@ namespace OOP_Project
                 try
                 {
                    con.Open();
-                    SqlCommand cmd = new SqlCommand("select F_date from Focus where F_name='" + procName + "'",con);
+                    SqlCommand cmd = new SqlCommand("select F_date from Focus where F_name='" + name + "'",con);
                     date = cmd.ExecuteScalar().ToString();
                    con.Close();
 
@@ -137,7 +137,7 @@ namespace OOP_Project
             }
             else
             {
-                ResetTimer(procName);
+                ResetTimer(name);
                 return false;
             }
 

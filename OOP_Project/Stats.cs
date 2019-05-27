@@ -13,20 +13,13 @@ namespace OOP_Project
     class Stats : AppObject
     {
         Timer t = new Timer();
-        private string appName;
-
-        public string AppName
-        {
-            get { return appName; }
-            set { appName = value; }
-        }
         public Stats()
         {
 
         }
         public Stats(string appName)
         {
-            this.AppName = appName;
+            base.Name = appName;
             if (CheckInList(appName) == true)
             {
                 startStats(appName);
@@ -39,14 +32,14 @@ namespace OOP_Project
         }
         public void startStats(string appName)
         {
-            this.AppName = appName;
+            base.Name = appName;
             t.Interval = 2000; // For accuracy
             t.Tick += new EventHandler(Stats_Timer);
             t.Start();
         }
         private void Stats_Timer(object sender, EventArgs e)
         {
-            if (Process.GetProcessesByName(AppName).Length > 0)
+            if (Process.GetProcessesByName(Name).Length > 0)
             {
                 try
                 {
@@ -56,7 +49,7 @@ namespace OOP_Project
                         con.Close();
                     }
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("UPDATE stats SET stats_time = stats_time + 1 WHERE stats_AppName= '" + AppName + "' AND stats_Date='" + DateTime.Now.ToShortDateString() + "'", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE stats SET stats_time = stats_time + 1 WHERE stats_AppName= '" + Name + "' AND stats_Date='" + DateTime.Now.ToShortDateString() + "'", con);
                     cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -82,7 +75,7 @@ namespace OOP_Project
             {
                 MessageBox.Show(ex.Message);
             }
-            startStats(appName);
+            startStats(Name);
         }
         public override bool CheckInList(string Name)
         {
@@ -94,7 +87,7 @@ namespace OOP_Project
                     con.Close();
                 }
                 con.Open();
-                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + appName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", con);
+                SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + Name + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", con);
                 CompareDateFromStats = cmd.ExecuteScalar().ToString();
             }
             catch (Exception ex)

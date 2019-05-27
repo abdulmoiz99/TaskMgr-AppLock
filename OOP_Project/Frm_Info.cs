@@ -39,7 +39,8 @@ namespace OOP_Project
                 SQL.con.Close();
                 if (dgv_currentlyLocked.RowCount > 0)
                 {
-                    pnl_AppLock.Visible = false;
+                    pnl_Lock.Visible = false;
+                    //lab_appLock.Visible = false;
                 }
                 // FREQUENTLY USED APPS  
                 Stats Stats = new Stats();
@@ -94,6 +95,11 @@ namespace OOP_Project
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pnl_lock_Paint(object sender, PaintEventArgs e)
         {
 
         }

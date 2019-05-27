@@ -12,22 +12,8 @@ namespace OOP_Project
         {
 
         }
-        string procName;
         string password;
         Timer t = new Timer();
-
-        public string ProcName
-        {
-            get
-            {
-                return procName;
-            }
-            set
-            {
-                procName = value;
-            }
-        }
-
         public string Password
         {
             get
@@ -43,33 +29,33 @@ namespace OOP_Project
 
         public Lock(String procName)
         {
-            this.ProcName = procName;
-            lockApp(procName);
-            CheckLockStatus(procName);
+            base.Name = procName;
+            lockApp(Name);
+            CheckLockStatus(Name);
         }
         public Lock(string procName, string Password)
         {
             this.Password = Password;
-            this.ProcName = procName;
+            base.Name = procName;
             User User = new User();
             if (User.checkPassword(Sql.userName, Password) == true)
             {
-                Startapp(procName);
-                Unlock(procName);
+                Startapp(Name);
+                Unlock(Name);
                 t.Interval = 1000;
                 t.Tick += new EventHandler(GiveAccess_Timer);
                 t.Start();
             }
-            else KillApp(procName);
+            else KillApp(Name);
         }
         private void GiveAccess_Timer(object sender, EventArgs e)
         {
-            if (Process.GetProcessesByName(ProcName).Length > 0)
+            if (Process.GetProcessesByName(Name).Length > 0)
             {
             }
             else
             {
-                lockApp(ProcName);
+                lockApp(Name);
             }
         }
         public void Unlock(string ProcName)
@@ -78,12 +64,12 @@ namespace OOP_Project
             {
                 if (con.State == ConnectionState.Open)
                 {
-                   con.Close();
+                    con.Close();
                 }
-               con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked =  0 WHERE L_Name = '" + ProcName + "' AND L_User='" + Sql.userName + "'",con);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked =  0 WHERE L_Name = '" + ProcName + "' AND L_User='" + Sql.userName + "'", con);
                 cmd.ExecuteNonQuery();
-               con.Close();
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -97,12 +83,12 @@ namespace OOP_Project
             {
                 if (con.State == ConnectionState.Open)
                 {
-                   con.Close();
+                    con.Close();
                 }
-               con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked = 1 WHERE L_Name = '" + procName + "' AND L_User='" + Sql.userName + "'",con);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Lock SET L_Locked = 1 WHERE L_Name = '" + procName + "' AND L_User='" + Sql.userName + "'", con);
                 cmd.ExecuteNonQuery();
-               con.Close();
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -112,6 +98,7 @@ namespace OOP_Project
 
         private void CheckLockStatus(String procName)
         {
+            base.Name = procName;
             t.Interval = 1000;
             t.Tick += new EventHandler(CheckLockStatus_Timer);
             t.Start();
@@ -124,24 +111,24 @@ namespace OOP_Project
             {
                 if (con.State == ConnectionState.Open)
                 {
-                   con.Close();
+                    con.Close();
                 }
-                if (CheckInList(procName) == true)
+                if (CheckInList(Name) == true)
                 {
-                    SqlCommand cmd = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'",con);
+                    SqlCommand cmd = new SqlCommand("Select L_locked from Lock where L_Name='" + Name + "' AND L_user ='" + Sql.userName + "'", con);
                     Lock = cmd.ExecuteScalar().ToString();
-                   con.Close();
+                    con.Close();
                     if (string.Compare("True", Lock) == 0)
                     {
-                        foreach (Process proc in Process.GetProcessesByName(ProcName))
+                        foreach (Process proc in Process.GetProcessesByName(Name))
                         {
-                            KillApp(ProcName);
-                            if (Process.GetProcessesByName(ProcName).Length > 0)
+                            KillApp(Name);
+                            if (Process.GetProcessesByName(Name).Length > 0)
                             {
                                 bool key = IsAlreadyOpen(typeof(Frm_Password));
                                 if (key == false)
                                 {
-                                    Frm_Password NEW = new Frm_Password(ProcName);
+                                    Frm_Password NEW = new Frm_Password(Name);
                                     NEW.Show();
                                 }
                             }
@@ -157,10 +144,9 @@ namespace OOP_Project
         }
         public override bool CheckInList(string Name)
         {
-
             string Check = "";
-           con.Open();
-            SqlCommand cmd = new SqlCommand("	SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM Lock  WHERE L_Name = '" + procName + "' and L_User='" + Sql.userName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",con);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("	SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM Lock  WHERE L_Name = '" + Name + "' and L_User='" + Sql.userName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", con);
             Check = cmd.ExecuteScalar().ToString();
             if (string.Compare("True", Check) == 0)
             {
@@ -168,7 +154,7 @@ namespace OOP_Project
             }
             else return false;
         }
-       
+
         public void Startapp(String ProcName)
         {
             try
@@ -185,19 +171,19 @@ namespace OOP_Project
         }
         public bool CheckAppLock(String ProcName)
         {
-                String Lock = "";
+            String Lock = "";
             if (getCount() > 0)
             {
-               con.Open();
-                SqlCommand cmd1 = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'",con);
-               Lock = cmd1.ExecuteScalar().ToString();
-               con.Close();
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand("Select L_locked from Lock where L_Name='" + ProcName + "' AND L_user ='" + Sql.userName + "'", con);
+                Lock = cmd1.ExecuteScalar().ToString();
+                con.Close();
 
             }
-                if (string.Compare("True", Lock) == 0)
-                {
-                    return true;
-                }
+            if (string.Compare("True", Lock) == 0)
+            {
+                return true;
+            }
 
             else return false;
         }
@@ -219,10 +205,10 @@ namespace OOP_Project
         }
         public override int getCount()
         {
-           con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Lock ",con);
+            con.Open();
+            SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Lock ", con);
             string count1 = cmd1.ExecuteScalar().ToString();
-           con.Close();
+            con.Close();
             int count = int.Parse(count1);
             return count;
         }
@@ -234,12 +220,12 @@ namespace OOP_Project
             {
                 if (con.State == ConnectionState.Open)
                 {
-                   con.Close();
+                    con.Close();
                 }
-               con.Open();
-                SqlCommand cmd1 = new SqlCommand("SELECT L_Name from Lock where L_id =" + id + " ",con);
+                con.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT L_Name from Lock where L_id =" + id + " ", con);
                 Name = cmd1.ExecuteScalar().ToString();
-               con.Close();
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -248,19 +234,19 @@ namespace OOP_Project
             }
             return Name;
         }
-        public  override void setRecord(String Name)
+        public override void setRecord(String Name)
         {
             try
             {
                 if (con.State == ConnectionState.Open)
                 {
-                   con.Close();
+                    con.Close();
                 }
-               con.Open();
+                con.Open();
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO Lock (L_Name        ,L_Locked  , L_User)
-                                                         VALUES ('" + Name + "',0         ,'" + Sql.userName + "')",con);
+                                                         VALUES ('" + Name + "',0         ,'" + Sql.userName + "')", con);
                 cmd.ExecuteNonQuery();
-               con.Close();
+                con.Close();
             }
             catch (Exception ex)
             {

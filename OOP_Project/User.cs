@@ -10,16 +10,16 @@ namespace OOP_Project
 {
     class User:AppObject
     {
-        private string name;
+      //  private string name;
         private string email;
         private string password;
         private string cnfrmPassword;
        
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        //public string Name
+        //{
+        //    get { return name; }
+        //    set { name = value; }
+        //}
         public string Email
         {
             get { return email; }
@@ -42,7 +42,7 @@ namespace OOP_Project
         }
         public User(String name, string email, string password, string cnfrmPassword)
         {
-            this.Name = name;
+            base.Name= name;
             this.Email = email;
             this.Password = password;
             this.CnfrmPassword = cnfrmPassword;
@@ -53,7 +53,7 @@ namespace OOP_Project
 
                con.Open();
                 SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password   ,      UIN_CPassword    )
-                                                        VALUES ('" + name + "'  , '" + email + "'  ,'" + password + "','" + cnfrmPassword + "')",con);
+                                                        VALUES ('" + Name + "'  , '" + Email + "'  ,'" + Password + "','" + CnfrmPassword + "')",con);
                 cmd.ExecuteNonQuery();
                con.Close();
                 }
@@ -76,21 +76,21 @@ namespace OOP_Project
                 return false;
             }
         }
-        public override bool CheckInList(string Name)
+        public override bool CheckInList(string name)
         {
-            string CompareDateFromStats = "";
+            string Compare = "";
             try
             {
                con.Open();
                 SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END",con);
-                CompareDateFromStats = cmd.ExecuteScalar().ToString();
+                Compare= cmd.ExecuteScalar().ToString();
                con.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            if (string.Compare("True", CompareDateFromStats) == 0)
+            if (string.Compare("True", Compare) == 0)
             {
                 return true;
             }
