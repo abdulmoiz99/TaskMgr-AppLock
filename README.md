@@ -1,0 +1,2 @@
+# TaskMgr-AppLock
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1e9742bf85814fb58f6d9cd5deb013f4)](https://app.codacy.com/app/moiza0799/TaskMgr-AppLock?utm_source=github.com&utm_medium=referral&utm_content=abdulmoiz99/TaskMgr-AppLock&utm_campaign=Badge_Grade_Dashboard)
