@@ -42,12 +42,6 @@ namespace OOP_Project
                 MessageBox.Show(ex.Message,"FORM FOCUS");
             }
         }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void Frm_Focus_Load(object sender, EventArgs e)
         {
             txt_timer.BorderStyle = BorderStyle.None;
@@ -79,12 +73,6 @@ namespace OOP_Project
                 MessageBox.Show("Please Select An App First", "Focus", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgv_MostUsedApps_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -98,15 +86,12 @@ namespace OOP_Project
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
-
         private void btn_add_Click(object sender, EventArgs e)
         {
             time++;
             txt_timer.Text = time.ToString();
         }
-
         private void btn_minus_Click(object sender, EventArgs e)
         {
             if (time > 0)

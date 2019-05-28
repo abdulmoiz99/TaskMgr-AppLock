@@ -17,12 +17,6 @@ namespace OOP_Project
         {
             InitializeComponent();
         }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void Frm_Stats_Load(object sender, EventArgs e)
         {
             btn_Daily_Click(sender, e);
@@ -30,22 +24,6 @@ namespace OOP_Project
             lab_ScreenTimeMonth.Text = (STATS.getScreenTimeMonth() / 60).ToString() + " min this month";
 
         }
-
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lisV_Apps_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_Daily_Click(object sender, EventArgs e)
         {
             // to setup chart   
@@ -121,16 +99,6 @@ namespace OOP_Project
                     }
                 }
             }
-
-        }
-
-        private void chart1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter_1(object sender, EventArgs e)
-        {
 
         }
     }

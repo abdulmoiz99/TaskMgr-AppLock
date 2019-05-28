@@ -258,8 +258,7 @@ namespace OOP_Project
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                throw;
+                MessageBox.Show(ex.Message,"Lock");
             }
             return Name;
         }

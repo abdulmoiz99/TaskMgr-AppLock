@@ -19,11 +19,6 @@ namespace OOP_Project
             InitializeComponent();
         }
 
-        private void Frm_AppLock_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Frm_AppLock_Activated(object sender, EventArgs e)
         {
             try
@@ -124,16 +119,6 @@ namespace OOP_Project
                 }
               
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

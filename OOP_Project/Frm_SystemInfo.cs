@@ -29,11 +29,6 @@ namespace OOP_Project
             lab_windoesSpec.Text = HardwareInfo.GetOSInformation();
             lab_proccesor.Text = HardwareInfo.GetProcessorInformation();
             lab_macAddress.Text = HardwareInfo.GetMACAddress();
-
-
-
-
-
             // RAM            
             double TotalRam = double.Parse(HardwareInfo.GetPhysicalMemory());
             PerformanceCounter availableBytes = new PerformanceCounter("Memory", "Available Bytes", true);
@@ -46,61 +41,6 @@ namespace OOP_Project
 
             //this.chart1.Series["TotalRam"].Points.AddXY("Available", AvailableRam);
             //this.chart1.Series["TotalRam"].Points.AddXY("Used", UsedRam);
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label22_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label15_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label24_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_proccesor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_macAddress_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_GPU_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_manufacturer_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lab_clockSpeed_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

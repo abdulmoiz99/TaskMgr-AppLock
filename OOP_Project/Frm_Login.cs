@@ -24,12 +24,6 @@ namespace OOP_Project
             NEW.ShowDialog();
             this.Close();
         }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void btn_LogIn_Click(object sender, EventArgs e)
         {
 
@@ -67,12 +61,6 @@ namespace OOP_Project
             
            txt_Password.PasswordChar = '●';
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_close_Click(object sender, EventArgs e)
         {
 

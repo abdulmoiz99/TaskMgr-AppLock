@@ -97,8 +97,6 @@
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Active";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
             // label1
             // 
@@ -134,7 +132,6 @@
             this.lisV_Apps.TabIndex = 17;
             this.lisV_Apps.UseCompatibleStateImageBehavior = false;
             this.lisV_Apps.View = System.Windows.Forms.View.Details;
-            this.lisV_Apps.SelectedIndexChanged += new System.EventHandler(this.lisV_Apps_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -159,7 +156,6 @@
             this.lisV_Process.TabIndex = 21;
             this.lisV_Process.UseCompatibleStateImageBehavior = false;
             this.lisV_Process.View = System.Windows.Forms.View.Details;
-            this.lisV_Process.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // columnHeader4
             // 
@@ -212,7 +208,6 @@
             this.btn_endTask.TabIndex = 16;
             this.btn_endTask.Text = "End Task";
             this.btn_endTask.UseVisualStyleBackColor = true;
-            this.btn_endTask.Click += new System.EventHandler(this.btn_endTask_Click);
             // 
             // tabPage3
             // 
@@ -228,7 +223,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Performance";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // groupBox4
             // 
@@ -275,7 +269,6 @@
             this.chart2.Size = new System.Drawing.Size(353, 225);
             this.chart2.TabIndex = 5;
             this.chart2.Text = "chart2";
-            this.chart2.Click += new System.EventHandler(this.chart2_Click);
             // 
             // groupBox1
             // 
@@ -332,7 +325,6 @@
             this.Name = "Frm_Performance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Performance";
-            this.Activated += new System.EventHandler(this.Frm_Performance_Activated);
             this.Load += new System.EventHandler(this.Frm_Performance_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

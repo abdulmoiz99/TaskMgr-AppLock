@@ -77,7 +77,6 @@
             this.Panel_SideBar.Name = "Panel_SideBar";
             this.Panel_SideBar.Size = new System.Drawing.Size(268, 691);
             this.Panel_SideBar.TabIndex = 6;
-            this.Panel_SideBar.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel_SideBar_Paint);
             // 
             // label1
             // 

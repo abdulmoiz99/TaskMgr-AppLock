@@ -110,7 +110,6 @@
             this.groupBox3.Size = new System.Drawing.Size(695, 407);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox5
             // 
@@ -129,7 +128,6 @@
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Restric Use";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // btn_add
             // 

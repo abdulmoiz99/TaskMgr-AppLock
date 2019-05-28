@@ -86,7 +86,6 @@
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Lock";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // cmb_newLock
             // 
@@ -138,7 +137,6 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Unlock";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // cmb_newUnlock
             // 
@@ -259,7 +257,6 @@
             this.Name = "Frm_AppLock";
             this.Text = "Frm_AppLock";
             this.Activated += new System.EventHandler(this.Frm_AppLock_Activated);
-            this.Load += new System.EventHandler(this.Frm_AppLock_Load);
             this.pnl_applock.ResumeLayout(false);
             this.pnl_applock.PerformLayout();
             this.groupBox2.ResumeLayout(false);

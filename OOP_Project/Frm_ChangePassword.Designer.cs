@@ -45,7 +45,6 @@
             this.btn_Update.TabIndex = 0;
             this.btn_Update.Text = "change";
             this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // textBox1
             // 

@@ -63,7 +63,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Screen Time";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // panel1
             // 
@@ -112,7 +111,6 @@
             this.lisV_Apps.TabIndex = 18;
             this.lisV_Apps.UseCompatibleStateImageBehavior = false;
             this.lisV_Apps.View = System.Windows.Forms.View.Details;
-            this.lisV_Apps.SelectedIndexChanged += new System.EventHandler(this.lisV_Apps_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -162,7 +160,6 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "App Usage";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
             // chart1
             // 
@@ -181,7 +178,6 @@
             this.chart1.Size = new System.Drawing.Size(720, 265);
             this.chart1.TabIndex = 20;
             this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click_1);
             // 
             // Frm_Stats
             // 

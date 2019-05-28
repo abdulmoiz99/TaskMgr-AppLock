@@ -46,8 +46,8 @@ namespace OOP_Project
                 }
             }
              //=============To start Lock======
-            var NEW1 = new Lock();
-            int appCountLock = NEW1.getCount();
+            var Lock = new Lock();
+            int appCountLock = Lock.getCount();
             if (appCountLock > 0)
             {
                 string Name;
@@ -55,8 +55,9 @@ namespace OOP_Project
                 Lock[] L = new Lock[appCountLock + 1];
                 for (int i = 1; i <= appCountLock; i++)
                 {
-                    Name = NEW1.getAppName(i);
-                    if (NEW1.CheckAppLock(Name) == true)
+                    MessageBox.Show(i.ToString());
+                    Name = Lock.getAppName(i);
+                    if (Lock.CheckAppLock(Name) == true)
                     {
                         L[i] = new Lock(Name);
                     }
@@ -141,16 +142,6 @@ namespace OOP_Project
             NEW.Show();
 
         }
-
-        private void btn_AppLaunch_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Panel_SideBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_systemInfo_Click(object sender, EventArgs e)
         {
             PanelFloat.Height = btn_systemInfo.Height;

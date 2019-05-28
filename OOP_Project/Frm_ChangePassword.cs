@@ -16,10 +16,5 @@ namespace OOP_Project
         {
             InitializeComponent();
         }
-
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

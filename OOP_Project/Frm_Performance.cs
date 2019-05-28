@@ -31,16 +31,7 @@ namespace OOP_Project
             timer1_Tick(sender,e);
         }
 
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-        }
-        private void tabPage1_Enter(object sender, EventArgs e)
-        {
-        }
-
+       
         private void timer1_Tick(object sender, EventArgs e)
         {
             lisV_Apps.Items.Clear();
@@ -75,22 +66,6 @@ namespace OOP_Project
                 lisV_Process.Items.Add(itm);
             }
         }
-        private void Frm_Performance_Activated(object sender, EventArgs e)
-        {
-        }
-        private void chart2_Click(object sender, EventArgs e)
-        {
-        }
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-        }
-        private void lisV_Apps_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void btn_endTask_Click(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

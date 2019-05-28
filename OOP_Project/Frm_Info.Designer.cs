@@ -131,7 +131,6 @@
             this.lab_user.Size = new System.Drawing.Size(60, 28);
             this.lab_user.TabIndex = 2;
             this.lab_user.Text = "user";
-            this.lab_user.Click += new System.EventHandler(this.lab_user_Click);
             // 
             // button1
             // 
@@ -146,7 +145,6 @@
             this.button1.Size = new System.Drawing.Size(263, 148);
             this.button1.TabIndex = 1;
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -158,7 +156,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 38);
             this.panel1.TabIndex = 26;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // panel3
             // 
@@ -196,7 +193,6 @@
             this.label4.Size = new System.Drawing.Size(139, 19);
             this.label4.TabIndex = 0;
             this.label4.Text = "Currently Locked";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // dgv_currentlyLocked
             // 
@@ -303,7 +299,6 @@
             this.label5.Size = new System.Drawing.Size(228, 98);
             this.label5.TabIndex = 0;
             this.label5.Text = "No App \r\nRestricted";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // panel5
             // 
@@ -390,7 +385,6 @@
             this.groupBox4.Size = new System.Drawing.Size(381, 290);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // pnl_FUsed
             // 
@@ -475,8 +469,6 @@
             this.pnl_Lock.Name = "pnl_Lock";
             this.pnl_Lock.Size = new System.Drawing.Size(260, 186);
             this.pnl_Lock.TabIndex = 25;
-            this.pnl_Lock.Paint += new System.Windows.Forms.PaintEventHandler(this.pnl_lock_Paint);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -507,9 +499,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Info";
             this.Activated += new System.EventHandler(this.Frm_Info_Activated);
-            this.Load += new System.EventHandler(this.Frm_Info_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnl_AppLock.ResumeLayout(false);
