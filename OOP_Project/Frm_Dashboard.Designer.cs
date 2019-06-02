@@ -278,7 +278,6 @@
             this.Toppannel.TabIndex = 3;
             this.Toppannel.TopLeft = System.Drawing.Color.DeepSkyBlue;
             this.Toppannel.TopRight = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(192)))), ((int)(((byte)(224)))));
-            this.Toppannel.Paint += new System.Windows.Forms.PaintEventHandler(this.Toppannel_Paint);
             this.Toppannel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseDown);
             this.Toppannel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseMove);
             this.Toppannel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseUp);

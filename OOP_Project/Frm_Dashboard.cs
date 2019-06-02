@@ -142,7 +142,6 @@ namespace OOP_Project
             NEW.MdiParent = this;
             NEW.Dock = DockStyle.Fill;
             NEW.Show();
-
         }
         private void btn_systemInfo_Click(object sender, EventArgs e)
         {
@@ -158,10 +157,6 @@ namespace OOP_Project
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-        }
-
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
@@ -169,11 +164,6 @@ namespace OOP_Project
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
         }
-        private void Toppannel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Frm_Dashboard_Resize_1(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)

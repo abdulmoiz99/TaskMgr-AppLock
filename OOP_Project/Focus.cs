@@ -170,7 +170,10 @@ namespace OOP_Project
             {
                 return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
         private void RestricUse(String procName)
         {

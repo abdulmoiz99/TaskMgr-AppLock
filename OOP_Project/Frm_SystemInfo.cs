@@ -38,9 +38,6 @@ namespace OOP_Project
             lab_TRam.Text = TotalRam.ToString() + " MB";
             lab_ARam.Text = AvailableRam.ToString() + " MB";
             lab_URam.Text = UsedRam.ToString() + " MB";
-
-            //this.chart1.Series["TotalRam"].Points.AddXY("Available", AvailableRam);
-            //this.chart1.Series["TotalRam"].Points.AddXY("Used", UsedRam);
         }
     }
 }

@@ -60,7 +60,6 @@ namespace OOP_Project
             }
 
         }
-
         private void btn_Monthly_Click(object sender, EventArgs e)
         {
             chart1.Series[0].Points.Clear();
@@ -93,7 +92,10 @@ namespace OOP_Project
                         {
                             arr[1] = (Time / 60).ToString() + " mins";
                         }
-                        else arr[1] = (Time).ToString() + " sec";
+                        else
+                        {
+                            arr[1] = (Time).ToString() + " sec";
+                        }
                         itm = new ListViewItem(arr);
                         lisV_Apps.Items.Add(itm);
                     }

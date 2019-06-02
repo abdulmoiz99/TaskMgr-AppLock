@@ -54,7 +54,7 @@ namespace OOP_Project
             }
         }
         // SQL setting and connection setup
-        public static SqlConnection con = new SqlConnection(ReadCS());
+        public readonly static SqlConnection con = new SqlConnection(ReadCS());
         public static string userName = string.Empty;
         public static string ReadCS()
         {

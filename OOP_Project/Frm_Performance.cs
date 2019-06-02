@@ -20,14 +20,6 @@ namespace OOP_Project
 
         private void Frm_Performance_Load(object sender, EventArgs e)
         {
-            //double TotalRam = double.Parse(HardwareInfo.GetPhysicalMemory());
-            //PerformanceCounter availableBytes = new PerformanceCounter("Memory", "Available Bytes", true);
-            //double AvailableRam = availableBytes.RawValue / 1024 / 1024; // Mb 
-            //availableBytes.Close();
-            //double UsedRam = TotalRam - AvailableRam;
-
-            //this.chart1.Series["TotalRam"].Points.AddXY("Available", AvailableRam);
-            //this.chart1.Series["TotalRam"].Points.AddXY("Used", UsedRam); 
             timer1_Tick(sender,e);
         }
 

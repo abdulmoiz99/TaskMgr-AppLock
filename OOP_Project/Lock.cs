@@ -39,7 +39,10 @@ namespace OOP_Project
                 t.Tick += new EventHandler(GiveAccess_Timer);
                 t.Start();
             }
-            else KillApp(Name);
+            else
+            {
+                KillApp(Name);
+            }
         }
         private void GiveAccess_Timer(object sender, EventArgs e)
         {
@@ -197,7 +200,10 @@ namespace OOP_Project
             {
                 return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
         private bool IsAlreadyOpen(Type formType)
         {
@@ -243,7 +249,10 @@ namespace OOP_Project
             {
                 return true;
             }
-            else return false;
+            else
+            {
+                return false;
+            }
         }
         public override int getCount()
         {
