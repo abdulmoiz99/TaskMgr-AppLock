@@ -55,7 +55,6 @@ namespace OOP_Project
                 Lock[] L = new Lock[appCountLock + 1];
                 for (int i = 1; i <= appCountLock; i++)
                 {
-                    MessageBox.Show(i.ToString());
                     Name = Lock.getAppName(i);
                     if (Lock.CheckAppLock(Name) == true)
                     {
@@ -189,7 +188,9 @@ namespace OOP_Project
             this.Close();
         }
 
-       
-        
+        private void btn_close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

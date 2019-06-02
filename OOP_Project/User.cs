@@ -105,7 +105,6 @@ namespace OOP_Project
                 return false;
             }
         }
-
         public bool checkPassword(string name, string password)
         {
             string oPassword = "";
@@ -133,7 +132,6 @@ namespace OOP_Project
             {
                 return false;
             }
-
         }
         public void UpdatePassword(string newPassword)
         {

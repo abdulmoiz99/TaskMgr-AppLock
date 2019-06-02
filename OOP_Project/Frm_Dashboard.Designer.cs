@@ -159,7 +159,7 @@
             this.btn_AppUsage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_AppUsage.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_AppUsage.ForeColor = System.Drawing.Color.White;
-            this.btn_AppUsage.Image = global::OOP_Project.Properties.Resources.chart_36;
+            this.btn_AppUsage.Image = global::OOP_Project.Properties.Resources.chart_361;
             this.btn_AppUsage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_AppUsage.Location = new System.Drawing.Point(12, 412);
             this.btn_AppUsage.Name = "btn_AppUsage";
@@ -253,6 +253,7 @@
             this.btn_close.Size = new System.Drawing.Size(35, 34);
             this.btn_close.TabIndex = 9;
             this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
             // 
             // btn_Minimizesd
             // 

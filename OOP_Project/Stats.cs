@@ -203,8 +203,6 @@ namespace OOP_Project
             {
                 return 0;
             }
-
-
         }
         public int getAppConutToday()
         {

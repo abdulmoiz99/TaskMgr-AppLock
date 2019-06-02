@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="minimize-window-26" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimize-window-26.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="smartphone-ram-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\smartphone-ram-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="info-36" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info-36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,11 +139,14 @@
   <data name="lock-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\lock-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="invisible-20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\invisible-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="slide-up-40" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\slide-up-40.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="motherboard-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\motherboard-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lock-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close-window-22" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close-window-22.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,8 +172,8 @@
   <data name="User-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="smartphone-ram-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\smartphone-ram-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lock-36" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lock-36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="close-window-26" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close-window-26.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,8 +181,8 @@
   <data name="male-user-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\male-user-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lock-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lock-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="minimize-window-26" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minimize-window-26.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="home-36" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home-36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,10 +193,10 @@
   <data name="close-25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close-25.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="lock-36" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lock-36.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="invisible-20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\invisible-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="motherboard-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\motherboard-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="chart-361" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\chart-361.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

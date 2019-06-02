@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
@@ -56,9 +57,8 @@ namespace OOP_Project
             }
         }
         // SQL setting and connection setup
-        public SqlConnection con = new SqlConnection(Sql.ReadCS());
-        public static string userName = string.Empty;
-        public static string ReadCS()
+        public SqlConnection con = new SqlConnection(ReadCS());
+        private static string ReadCS()
         {
             using (var streamReader = File.OpenText("SqlSettings.dat"))
             {
@@ -66,5 +66,6 @@ namespace OOP_Project
                 return lines;
             }
         }
+
     }
 }

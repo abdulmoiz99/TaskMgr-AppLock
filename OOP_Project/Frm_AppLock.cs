@@ -120,5 +120,10 @@ namespace OOP_Project
               
             }
         }
+
+        private void Frm_AppLock_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
