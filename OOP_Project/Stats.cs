@@ -51,9 +51,13 @@ namespace OOP_Project
                     SqlCommand cmd = new SqlCommand("UPDATE stats SET stats_time = stats_time + 1 WHERE stats_AppName= '" + Name + "' AND stats_Date='" + DateTime.Now.ToShortDateString() + "'", con);
                     cmd.ExecuteNonQuery();
                 }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show(ex.Message, "Stats");
+                }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message,"Stats");
+                    MessageBox.Show(ex.Message, "Stats");
                 }
             }
         }
@@ -70,9 +74,13 @@ namespace OOP_Project
                                                             VALUES ('" + Name + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')", con);
                 cmd.ExecuteNonQuery();
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Stats");
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Stats");
+                MessageBox.Show(ex.Message, "Stats");
             }
             startStats(Name);
         }
@@ -89,9 +97,17 @@ namespace OOP_Project
                 SqlCommand cmd = new SqlCommand("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + Name + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END", con);
                 CompareDateFromStats = cmd.ExecuteScalar().ToString();
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL " + ex.Message, "Stats");
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Stats");
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Stats"); ;
             }
             if (string.Compare("True", CompareDateFromStats) == 0)
             {
@@ -183,9 +199,6 @@ namespace OOP_Project
             {
                 return 0;
             }
-
-
-
         }
         public int getScreenTimeMonth()
         {
@@ -216,13 +229,11 @@ namespace OOP_Project
             {
                 return int.Parse(cmd1.ExecuteScalar().ToString());
             }
-
             else
             {
                 return 0;
             }
         }
-
         public override int getCount()
         {
             int count = 0;
@@ -237,6 +248,14 @@ namespace OOP_Project
                 SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) FROM Stats ", con);
                 count1 = cmd1.ExecuteScalar().ToString();
                 con.Close();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Stats");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL " + ex.Message, "Stats");
             }
             catch (Exception ex)
             {

@@ -13,7 +13,7 @@ namespace OOP_Project
 {
     public partial class Frm_Focus : Form
     {
-        Sql SQL = new Sql();
+
         int time;
         public Frm_Focus()
         {
@@ -24,22 +24,30 @@ namespace OOP_Project
         {
             try
             {
-                if (SQL.con.State == ConnectionState.Open)
+                if (AppObject.con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                    AppObject.con.Close();
                 }
-                SQL.con.Open();
-                SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='may');", SQL.con);
+                AppObject.con.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='may');", AppObject.con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd1);
                 DataTable ds = new DataTable();
                 da.Fill(ds);
                 dgv_MostUsedApps.DataSource = ds;
-                SQL.con.Close();
+                AppObject.con.Close();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "FORM FOCUS");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL " + ex.Message, "FORM FOCUS");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"FORM FOCUS");
+                MessageBox.Show(ex.Message, "FORM FOCUS");
             }
         }
         private void Frm_Focus_Load(object sender, EventArgs e)
@@ -53,12 +61,12 @@ namespace OOP_Project
             time = int.Parse(txt_timer.Text);
             if (rdo_min.Checked == true)
             {
-                time = time * 60; 
+                time = time * 60;
             }
             else if (rdo_hour.Checked == true)
             {
                 time = time * 60 * 60;
-            } 
+            }
 
             if (lab_appName.Text != "App Name")
             {
@@ -66,6 +74,7 @@ namespace OOP_Project
                 if (YesOrNo == DialogResult.Yes)
                 {
                     Focus NEW = new Focus(lab_appName.Text, time);
+                    txt_timer.Text = "00";
                 }
             }
             if (lab_appName.Text == "App Name")

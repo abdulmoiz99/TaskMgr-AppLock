@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
@@ -15,7 +14,6 @@ namespace OOP_Project
     abstract class AppObject
     {
         private string name;// appname or username 
-
         public string Name
         {
             get
@@ -41,7 +39,6 @@ namespace OOP_Project
             // check Whether the app or user is in record or not
             return false;
         }
-
         protected void KillApp(String Name)
         {
             foreach (Process proc in Process.GetProcessesByName(Name))
@@ -57,15 +54,27 @@ namespace OOP_Project
             }
         }
         // SQL setting and connection setup
-        public SqlConnection con = new SqlConnection(ReadCS());
-        private static string ReadCS()
+        public static SqlConnection con = new SqlConnection(ReadCS());
+        public static string userName = string.Empty;
+        public static string ReadCS()
         {
             using (var streamReader = File.OpenText("SqlSettings.dat"))
             {
-                var lines = streamReader.ReadToEnd();
+                var lines = "";
+                try
+                {
+                    lines = streamReader.ReadToEnd();
+                }
+                catch (FileNotFoundException ex)
+                {
+                    MessageBox.Show(ex.Message, "App Object");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "User");
+                }
                 return lines;
             }
         }
-
     }
 }

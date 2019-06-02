@@ -14,6 +14,9 @@ namespace OOP_Project
     public partial class Frm_Dashboard : Form
     {
         Timer t = new Timer();
+        int Mov;
+        int MValX;
+        int MValY;
         public Frm_Dashboard()
         {
             InitializeComponent();
@@ -179,7 +182,6 @@ namespace OOP_Project
                 notifyIcon1.Visible = true;
             }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -191,6 +193,26 @@ namespace OOP_Project
         private void btn_close_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Toppannel_MouseUp(object sender, MouseEventArgs e)
+        {
+            Mov = 0;
+        }
+
+        private void Toppannel_MouseDown(object sender, MouseEventArgs e)
+        {
+            Mov = 1;
+            MValX = e.X;
+            MValY = e.Y;
+        }
+
+        private void Toppannel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Mov == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
+            }
         }
     }
 }

@@ -13,54 +13,69 @@ namespace OOP_Project
 {
     public partial class Frm_AppLock : Form
     {
-        Sql SQL = new Sql();
+
         public Frm_AppLock()
         {
             InitializeComponent();
         }
-
         private void Frm_AppLock_Activated(object sender, EventArgs e)
         {
             try
             {
                 // lock
-                if (SQL.con.State == ConnectionState.Open)
+                if (AppObject.con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                    AppObject.con.Close();
                 }
-                SQL.con.Open();
+                AppObject.con.Open();
                 DataTable tb = new DataTable();
-                SqlCommand cmd = new SqlCommand("select L_id,L_Name from Lock  where L_locked=0 AND L_User='" + Sql.userName + "'", SQL.con);
+                SqlCommand cmd = new SqlCommand("select L_id,L_Name from Lock  where L_locked=0 AND L_User='" + AppObject.userName + "'", AppObject.con);
                 SqlDataReader d;
                 d = cmd.ExecuteReader();
                 tb.Load(d);
                 cmb_newLock.DisplayMember = "L_Name";
                 cmb_newLock.ValueMember = "L_id";
                 cmb_newLock.DataSource = tb;
-                SQL.con.Close();
+                AppObject.con.Close();
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "AppLock");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "AppLock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"AppLock");
+                MessageBox.Show(ex.Message, "AppLock");
             }
             try
             {
                 // unlock
-                if (SQL.con.State == ConnectionState.Open)
+                if (AppObject.con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                    AppObject.con.Close();
                 }
-                SQL.con.Open();
+                AppObject.con.Open();
                 DataTable tb1 = new DataTable();
-                SqlCommand cmd1 = new SqlCommand("select L_id,L_Name from Lock where L_locked=1 AND L_User='" + Sql.userName + "'", SQL.con);
+                SqlCommand cmd1 = new SqlCommand("select L_id,L_Name from Lock where L_locked=1 AND L_User='" + AppObject.userName + "'", AppObject.con);
                 SqlDataReader d1;
                 d1 = cmd1.ExecuteReader();
                 tb1.Load(d1);
                 cmb_newUnlock.DisplayMember = "L_Name";
                 cmb_newUnlock.ValueMember = "L_id";
                 cmb_newUnlock.DataSource = tb1;
-                SQL.con.Close();
+                AppObject.con.Close();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "AppLock");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "AppLock");
             }
             catch (Exception ex)
             {
@@ -70,29 +85,36 @@ namespace OOP_Project
             try
             {
                 //datagrid view
-                if (SQL.con.State == ConnectionState.Open)
+                if (AppObject.con.State == ConnectionState.Open)
                 {
-                    SQL.con.Close();
+                    AppObject.con.Close();
                 }
-                SQL.con.Open();
-                SqlCommand cmd2 = new SqlCommand("select L_name from Lock where L_locked=1", SQL.con);
+                AppObject.con.Open();
+                SqlCommand cmd2 = new SqlCommand("select L_name from Lock where L_locked=1", AppObject.con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd2);
                 DataTable ds = new DataTable();
                 da.Fill(ds);
                 dgv_currentlyLocked.DataSource = ds;
-                SQL.con.Close();
+                AppObject.con.Close();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "AppLock");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "AppLock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"AppLock");
+                MessageBox.Show(ex.Message, "AppLock");
             }
             if (dgv_currentlyLocked.RowCount > 0)
             {
                 pnl_applock.Visible = false;
             }
         }
-
         private void btn_inLock_Click(object sender, EventArgs e)
         {
             Lock New = new Lock();
@@ -117,13 +139,8 @@ namespace OOP_Project
                 {
                     MessageBox.Show(ex.Message);
                 }
-              
+
             }
-        }
-
-        private void Frm_AppLock_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -189,15 +189,6 @@
         AAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btn_Minimizesd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAL1JREFUSEtjGAVUA4rTP7sqTv20UmHqp93kYMVpn1YoTvvsAjUOO4Ba8g+o8D9F
-        GGIGbstAPsHQRDb+tAJqLCZQmPb5MHZNpGOQWVBjMcGoRfjwqEVk41GLyMYkWRS9+fv/dXd+E4VBapH1
-        kmRRwd4f/x9+/UcUBqlF1kuSRY5Lv/7P2/ODKAxSi6yXJIsowXgtols1AVTgQq2KT2naZyeosdgBUKEL
-        yDWwqplUDLRkufzUz45Q40YBpYCBAQDUVCGAc8dRgAAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>113, 27</value>
   </metadata>
@@ -275,4 +266,13 @@
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
+  <data name="btn_Minimizesd.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAL1JREFUSEtjGAVUA4rTP7sqTv20UmHqp93kYMVpn1YoTvvsAjUOO4Ba8g+o8D9F
+        GGIGbstAPsHQRDb+tAJqLCZQmPb5MHZNpGOQWVBjMcGoRfjwqEVk41GLyMYkWRS9+fv/dXd+E4VBapH1
+        kmRRwd4f/x9+/UcUBqlF1kuSRY5Lv/7P2/ODKAxSi6yXJIsowXgtols1AVTgQq2KT2naZyeosdgBUKEL
+        yDWwqplUDLRkufzUz45Q40YBpYCBAQDUVCGAc8dRgAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

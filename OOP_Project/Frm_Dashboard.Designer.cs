@@ -41,11 +41,11 @@
             this.btn_Active = new System.Windows.Forms.Button();
             this.btn_Lock = new System.Windows.Forms.Button();
             this.btn_DashBoard = new System.Windows.Forms.Button();
-            this.Toppannel = new XanderUI.XUIGradientPanel();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.btn_Minimizesd = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.xuiObjectEllipse1 = new XanderUI.XUIObjectEllipse();
+            this.btn_Minimizesd = new System.Windows.Forms.Button();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.Toppannel = new XanderUI.XUIGradientPanel();
             this.Panel_SideBar.SuspendLayout();
             this.Toppannel.SuspendLayout();
             this.SuspendLayout();
@@ -223,6 +223,45 @@
             this.btn_DashBoard.UseVisualStyleBackColor = false;
             this.btn_DashBoard.Click += new System.EventHandler(this.btn_DashBoard_Click);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
+            // 
+            // xuiObjectEllipse1
+            // 
+            this.xuiObjectEllipse1.CornerRadius = 30;
+            this.xuiObjectEllipse1.EffectedControl = this;
+            this.xuiObjectEllipse1.EffectedForm = this;
+            // 
+            // btn_Minimizesd
+            // 
+            this.btn_Minimizesd.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Minimizesd.FlatAppearance.BorderSize = 0;
+            this.btn_Minimizesd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Minimizesd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizesd.Image")));
+            this.btn_Minimizesd.Location = new System.Drawing.Point(715, 0);
+            this.btn_Minimizesd.Name = "btn_Minimizesd";
+            this.btn_Minimizesd.Size = new System.Drawing.Size(35, 37);
+            this.btn_Minimizesd.TabIndex = 8;
+            this.btn_Minimizesd.UseVisualStyleBackColor = false;
+            this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
+            // 
+            // btn_close
+            // 
+            this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Image = global::OOP_Project.Properties.Resources.close_window_26;
+            this.btn_close.Location = new System.Drawing.Point(754, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(35, 34);
+            this.btn_close.TabIndex = 9;
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
+            // 
             // Toppannel
             // 
             this.Toppannel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -240,45 +279,9 @@
             this.Toppannel.TopLeft = System.Drawing.Color.DeepSkyBlue;
             this.Toppannel.TopRight = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(192)))), ((int)(((byte)(224)))));
             this.Toppannel.Paint += new System.Windows.Forms.PaintEventHandler(this.Toppannel_Paint);
-            // 
-            // btn_close
-            // 
-            this.btn_close.BackColor = System.Drawing.Color.Transparent;
-            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Image = global::OOP_Project.Properties.Resources.close_window_26;
-            this.btn_close.Location = new System.Drawing.Point(754, 0);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(35, 34);
-            this.btn_close.TabIndex = 9;
-            this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
-            // 
-            // btn_Minimizesd
-            // 
-            this.btn_Minimizesd.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Minimizesd.FlatAppearance.BorderSize = 0;
-            this.btn_Minimizesd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Minimizesd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizesd.Image")));
-            this.btn_Minimizesd.Location = new System.Drawing.Point(715, 0);
-            this.btn_Minimizesd.Name = "btn_Minimizesd";
-            this.btn_Minimizesd.Size = new System.Drawing.Size(35, 37);
-            this.btn_Minimizesd.TabIndex = 8;
-            this.btn_Minimizesd.UseVisualStyleBackColor = false;
-            this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
-            // 
-            // xuiObjectEllipse1
-            // 
-            this.xuiObjectEllipse1.CornerRadius = 30;
-            this.xuiObjectEllipse1.EffectedControl = this;
-            this.xuiObjectEllipse1.EffectedForm = this;
+            this.Toppannel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseDown);
+            this.Toppannel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseMove);
+            this.Toppannel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseUp);
             // 
             // Frm_Dashboard
             // 
@@ -313,12 +316,12 @@
         private System.Windows.Forms.Button btn_AppUsage;
         private System.Windows.Forms.Panel Panel_SideBar;
         private System.Windows.Forms.Button btn_focus;
-        private XanderUI.XUIGradientPanel Toppannel;
-        private System.Windows.Forms.Button btn_Minimizesd;
-        private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private XanderUI.XUIObjectEllipse xuiObjectEllipse1;
+        private XanderUI.XUIGradientPanel Toppannel;
+        private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Button btn_Minimizesd;
     }
 }

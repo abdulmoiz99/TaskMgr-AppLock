@@ -257,7 +257,6 @@
             this.Name = "Frm_AppLock";
             this.Text = "Frm_AppLock";
             this.Activated += new System.EventHandler(this.Frm_AppLock_Activated);
-            this.Load += new System.EventHandler(this.Frm_AppLock_Load);
             this.pnl_applock.ResumeLayout(false);
             this.pnl_applock.PerformLayout();
             this.groupBox2.ResumeLayout(false);

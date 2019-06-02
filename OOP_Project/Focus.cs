@@ -41,7 +41,6 @@ namespace OOP_Project
             setRecord(procName, time);
             StartTimer(procName);
         }
-
         private void StartTimer(string procName)
         {
             base.Name = procName;
@@ -61,12 +60,22 @@ namespace OOP_Project
                         {
                             con.Close();
                         }
-                        con.Open();
-                        SqlCommand cmd = new SqlCommand("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + Name + "'", con);
-                        cmd.ExecuteNonQuery();
-                        con.Close();
+                        try
+                        {
+                            con.Open();
+                            SqlCommand cmd = new SqlCommand("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + Name + "'", con);
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show(ex.Message, "Focus");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Focus");
+                        }
                     }
-
                     else
                     {
                         RestricUse(Name);
@@ -77,11 +86,8 @@ namespace OOP_Project
             if (CheckInList(Name) == false)
             {
                 UpdateDate(Name);
-
             }
-
         }
-
         public override bool CheckInList(string name)//check date
         {
             string date = "";
@@ -89,7 +95,6 @@ namespace OOP_Project
             int differenceInDays = -1;
             if (getCount() > 0)
             {
-
                 if (con.State == ConnectionState.Open)
                 {
                     con.Close();
@@ -100,7 +105,14 @@ namespace OOP_Project
                     SqlCommand cmd = new SqlCommand("select F_date from Focus where F_name='" + name + "'", con);
                     date = cmd.ExecuteScalar().ToString();
                     con.Close();
-
+                }
+                catch (NullReferenceException ex)
+                {
+                    MessageBox.Show(ex.Message, "Focus");
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Focus");
                 }
                 catch (Exception ex)
                 {
@@ -110,7 +122,6 @@ namespace OOP_Project
                 EndDate = System.DateTime.Now;
                 TimeSpan ts = EndDate.Date - StartDate.Date;
                 differenceInDays = ts.Days;  // This is in int 
-
             }
             if (differenceInDays == 0)
             {
@@ -121,7 +132,6 @@ namespace OOP_Project
                 ResetTimer(name);
                 return false;
             }
-
         }
         private void UpdateDate(String procName)
         {
@@ -184,6 +194,10 @@ namespace OOP_Project
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Focus");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Focus");
@@ -198,9 +212,14 @@ namespace OOP_Project
                     con.Close();
                 }
                 con.Open();
-                SqlCommand cmd1 = new SqlCommand("insert into Focus (F_Name,F_CountLive,F_CountTimer,F_Date) values('" + Name + "',0," + time + ",'" + DateTime.Now.ToShortDateString() + "')", con);
+                SqlCommand cmd1 = new SqlCommand(@"insert into Focus (F_Name        ,F_CountLive,   F_CountTimer   ,F_user                   ,F_Date)
+                                                              values('" + Name + "',    0,          " + time + ",   '" + AppObject.userName + "','" + DateTime.Now.ToShortDateString() + "')", con);
                 cmd1.ExecuteNonQuery();
                 con.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Focus");
             }
             catch (Exception ex)
             {
@@ -223,6 +242,14 @@ namespace OOP_Project
                 con.Close();
 
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Focus");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Focus");
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Focus");
@@ -241,9 +268,17 @@ namespace OOP_Project
                 Name = cmd1.ExecuteScalar().ToString();
                 con.Close();
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "Focus");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Focus");
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Focus");
+                MessageBox.Show(ex.Message, "Focus");
             }
             return Name;
         }
