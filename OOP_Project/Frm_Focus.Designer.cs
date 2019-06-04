@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Focus));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_MostUsedApps = new System.Windows.Forms.DataGridView();
@@ -58,7 +59,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.groupBox2.Location = new System.Drawing.Point(372, 24);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(323, 383);
+            this.groupBox2.Size = new System.Drawing.Size(359, 383);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Frequently Used Apps";
@@ -67,20 +68,24 @@
             // 
             this.dgv_MostUsedApps.AllowUserToAddRows = false;
             this.dgv_MostUsedApps.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.PowderBlue;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.DimGray;
             this.dgv_MostUsedApps.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_MostUsedApps.BackgroundColor = System.Drawing.Color.White;
             this.dgv_MostUsedApps.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_MostUsedApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_MostUsedApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            this.dgv_MostUsedApps.Location = new System.Drawing.Point(3, 29);
+            this.dgv_MostUsedApps.Location = new System.Drawing.Point(6, 50);
             this.dgv_MostUsedApps.Name = "dgv_MostUsedApps";
             this.dgv_MostUsedApps.ReadOnly = true;
-            this.dgv_MostUsedApps.Size = new System.Drawing.Size(317, 329);
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            this.dgv_MostUsedApps.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_MostUsedApps.Size = new System.Drawing.Size(335, 327);
             this.dgv_MostUsedApps.TabIndex = 0;
             this.dgv_MostUsedApps.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_MostUsedApps_CellContentClick);
             // 
@@ -98,7 +103,7 @@
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(695, 407);
+            this.groupBox3.Size = new System.Drawing.Size(725, 407);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             // 
@@ -239,7 +244,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(720, 556);
+            this.ClientSize = new System.Drawing.Size(775, 557);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

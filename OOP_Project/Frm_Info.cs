@@ -40,7 +40,6 @@ namespace OOP_Project
                     pnl_Lock.Visible = false;
                 }
                 // FREQUENTLY USED APPS  
-                Stats Stats = new Stats();
                 if (AppObject.con.State == ConnectionState.Open)
                 {
                     AppObject.con.Close();

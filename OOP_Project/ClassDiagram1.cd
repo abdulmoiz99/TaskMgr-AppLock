@@ -6,7 +6,7 @@
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AEAAAAQAAAAAAAAAACAAAQQAAEAMAAAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AEAAAAQAAAAAAAAAACAAAQQAAEAMAAAAAAAAAAEEAAA=</HashCode>
       <FileName>AppObject.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -22,13 +22,6 @@
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
-    <InheritanceLine Type="OOP_Project.AppObject" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
-      <Path>
-        <Point X="5.5" Y="1.087" />
-        <Point X="6.562" Y="1.087" />
-        <Point X="6.562" Y="1.5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>gEABAAQAAAAAAgAAAAAAAAIAAAEIAAAiAAQAIgAEAAA=</HashCode>
       <FileName>Lock.cs</FileName>
@@ -36,13 +29,6 @@
   </Class>
   <Class Name="OOP_Project.Stats">
     <Position X="2.25" Y="1.5" Width="1.5" />
-    <InheritanceLine Type="OOP_Project.AppObject" FixedFromPoint="true">
-      <Path>
-        <Point X="4" Y="1.146" />
-        <Point X="3" Y="1.146" />
-        <Point X="3" Y="1.5" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AEQAAAQAkAAAAAAAgAAAIAAAACAAAAAAAAQBAAQEAAA=</HashCode>
       <FileName>Stats.cs</FileName>
@@ -53,12 +39,6 @@
     <Compartments>
       <Compartment Name="Properties" Collapsed="true" />
     </Compartments>
-    <InheritanceLine Type="OOP_Project.AppObject" FixedFromPoint="true">
-      <Path>
-        <Point X="5.5" Y="0.677" />
-        <Point X="7.5" Y="0.677" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>gEAAAAAAACAAAAAgAAAAAAABAAAAAQACAACAAgIEAAA=</HashCode>
       <FileName>User.cs</FileName>

@@ -48,22 +48,6 @@
             this.btn_endTask = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.RAM_label = new System.Windows.Forms.Label();
-            this.RAM_progressBar = new System.Windows.Forms.ProgressBar();
-            this.Free_RAM_label = new System.Windows.Forms.Label();
-            this.Used_RAM_label = new System.Windows.Forms.Label();
-            this.Total_RAM_label = new System.Windows.Forms.Label();
-            this.RAM_Percentage_label = new System.Windows.Forms.Label();
-            this.NoOfCore_label = new System.Windows.Forms.Label();
-            this.Manufacturer_label = new System.Windows.Forms.Label();
-            this.CPU_Name_label = new System.Windows.Forms.Label();
-            this.CPU_Percentage_label = new System.Windows.Forms.Label();
-            this.CPU_Utilization_label = new System.Windows.Forms.Label();
-            this.CPU_progressBar = new System.Windows.Forms.ProgressBar();
             this.Free_Space_label = new System.Windows.Forms.Label();
             this.Used_Space_label = new System.Windows.Forms.Label();
             this.Total_Space_label = new System.Windows.Forms.Label();
@@ -73,13 +57,29 @@
             this.Select_Drive_label = new System.Windows.Forms.Label();
             this.Disk_comboBox = new System.Windows.Forms.ComboBox();
             this.Disk_chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.NoOfCore_label = new System.Windows.Forms.Label();
+            this.Manufacturer_label = new System.Windows.Forms.Label();
+            this.CPU_Name_label = new System.Windows.Forms.Label();
+            this.CPU_Percentage_label = new System.Windows.Forms.Label();
+            this.CPU_Utilization_label = new System.Windows.Forms.Label();
+            this.CPU_progressBar = new System.Windows.Forms.ProgressBar();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Free_RAM_label = new System.Windows.Forms.Label();
+            this.Used_RAM_label = new System.Windows.Forms.Label();
+            this.Total_RAM_label = new System.Windows.Forms.Label();
+            this.RAM_Percentage_label = new System.Windows.Forms.Label();
+            this.RAM_progressBar = new System.Windows.Forms.ProgressBar();
+            this.RAM_label = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Disk_chart)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Disk_chart)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -112,8 +112,6 @@
             this.tabPage1.TabIndex = 3;
             this.tabPage1.Text = "Active";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
-            this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
             // label1
             // 
@@ -149,7 +147,6 @@
             this.lisV_Apps.TabIndex = 17;
             this.lisV_Apps.UseCompatibleStateImageBehavior = false;
             this.lisV_Apps.View = System.Windows.Forms.View.Details;
-            this.lisV_Apps.SelectedIndexChanged += new System.EventHandler(this.lisV_Apps_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -174,7 +171,6 @@
             this.lisV_Process.TabIndex = 21;
             this.lisV_Process.UseCompatibleStateImageBehavior = false;
             this.lisV_Process.View = System.Windows.Forms.View.Details;
-            this.lisV_Process.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // columnHeader4
             // 
@@ -227,7 +223,6 @@
             this.btn_endTask.TabIndex = 16;
             this.btn_endTask.Text = "End Task";
             this.btn_endTask.UseVisualStyleBackColor = true;
-            this.btn_endTask.Click += new System.EventHandler(this.btn_endTask_Click);
             // 
             // tabPage3
             // 
@@ -242,7 +237,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Performance";
             this.tabPage3.UseVisualStyleBackColor = true;
-            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // groupBox3
             // 
@@ -261,157 +255,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Disk";
-            // 
-            // groupBox2
-            // abc
-            this.groupBox2.Controls.Add(this.NoOfCore_label);
-            this.groupBox2.Controls.Add(this.Manufacturer_label);
-            this.groupBox2.Controls.Add(this.CPU_Name_label);
-            this.groupBox2.Controls.Add(this.CPU_Percentage_label);
-            this.groupBox2.Controls.Add(this.CPU_Utilization_label);
-            this.groupBox2.Controls.Add(this.CPU_progressBar);
-            this.groupBox2.Location = new System.Drawing.Point(387, 21);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(364, 250);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "CPU Usage";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.Free_RAM_label);
-            this.groupBox1.Controls.Add(this.Used_RAM_label);
-            this.groupBox1.Controls.Add(this.Total_RAM_label);
-            this.groupBox1.Controls.Add(this.RAM_Percentage_label);
-            this.groupBox1.Controls.Add(this.RAM_progressBar);
-            this.groupBox1.Controls.Add(this.RAM_label);
-            this.groupBox1.Location = new System.Drawing.Point(17, 21);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(364, 250);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ram Usage";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(767, 566);
-            this.tabPage2.TabIndex = 4;
-            this.tabPage2.Text = "App History";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 5000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // RAM_label
-            // 
-            this.RAM_label.AutoSize = true;
-            this.RAM_label.Location = new System.Drawing.Point(15, 36);
-            this.RAM_label.Name = "RAM_label";
-            this.RAM_label.Size = new System.Drawing.Size(48, 20);
-            this.RAM_label.TabIndex = 0;
-            this.RAM_label.Text = "RAM:";
-            // 
-            // RAM_progressBar
-            // 
-            this.RAM_progressBar.Location = new System.Drawing.Point(19, 59);
-            this.RAM_progressBar.Name = "RAM_progressBar";
-            this.RAM_progressBar.Size = new System.Drawing.Size(288, 32);
-            this.RAM_progressBar.TabIndex = 2;
-            this.RAM_progressBar.Click += new System.EventHandler(this.RAM_progressBar_Click);
-            // 
-            // Free_RAM_label
-            // 
-            this.Free_RAM_label.AutoSize = true;
-            this.Free_RAM_label.Location = new System.Drawing.Point(6, 205);
-            this.Free_RAM_label.Name = "Free_RAM_label";
-            this.Free_RAM_label.Size = new System.Drawing.Size(84, 20);
-            this.Free_RAM_label.TabIndex = 9;
-            this.Free_RAM_label.Text = "Free RAM:";
-            // 
-            // Used_RAM_label
-            // 
-            this.Used_RAM_label.AutoSize = true;
-            this.Used_RAM_label.Location = new System.Drawing.Point(6, 165);
-            this.Used_RAM_label.Name = "Used_RAM_label";
-            this.Used_RAM_label.Size = new System.Drawing.Size(89, 20);
-            this.Used_RAM_label.TabIndex = 8;
-            this.Used_RAM_label.Text = "Used RAM:";
-            // 
-            // Total_RAM_label
-            // 
-            this.Total_RAM_label.AutoSize = true;
-            this.Total_RAM_label.Location = new System.Drawing.Point(6, 125);
-            this.Total_RAM_label.Name = "Total_RAM_label";
-            this.Total_RAM_label.Size = new System.Drawing.Size(85, 20);
-            this.Total_RAM_label.TabIndex = 7;
-            this.Total_RAM_label.Text = "Total RAM:";
-            // 
-            // RAM_Percentage_label
-            // 
-            this.RAM_Percentage_label.AutoSize = true;
-            this.RAM_Percentage_label.Location = new System.Drawing.Point(313, 59);
-            this.RAM_Percentage_label.Name = "RAM_Percentage_label";
-            this.RAM_Percentage_label.Size = new System.Drawing.Size(29, 20);
-            this.RAM_Percentage_label.TabIndex = 6;
-            this.RAM_Percentage_label.Text = "0%";
-            // 
-            // NoOfCore_label
-            // 
-            this.NoOfCore_label.AutoSize = true;
-            this.NoOfCore_label.Location = new System.Drawing.Point(6, 205);
-            this.NoOfCore_label.Name = "NoOfCore_label";
-            this.NoOfCore_label.Size = new System.Drawing.Size(104, 20);
-            this.NoOfCore_label.TabIndex = 11;
-            this.NoOfCore_label.Text = "No. of Cores:";
-            // 
-            // Manufacturer_label
-            // 
-            this.Manufacturer_label.AutoSize = true;
-            this.Manufacturer_label.Location = new System.Drawing.Point(6, 165);
-            this.Manufacturer_label.Name = "Manufacturer_label";
-            this.Manufacturer_label.Size = new System.Drawing.Size(115, 20);
-            this.Manufacturer_label.TabIndex = 10;
-            this.Manufacturer_label.Text = "Manufacturer:";
-            // 
-            // CPU_Name_label
-            // 
-            this.CPU_Name_label.AutoSize = true;
-            this.CPU_Name_label.Location = new System.Drawing.Point(6, 125);
-            this.CPU_Name_label.Name = "CPU_Name_label";
-            this.CPU_Name_label.Size = new System.Drawing.Size(57, 20);
-            this.CPU_Name_label.TabIndex = 9;
-            this.CPU_Name_label.Text = "Name:";
-            // 
-            // CPU_Percentage_label
-            // 
-            this.CPU_Percentage_label.AutoSize = true;
-            this.CPU_Percentage_label.Location = new System.Drawing.Point(323, 59);
-            this.CPU_Percentage_label.Name = "CPU_Percentage_label";
-            this.CPU_Percentage_label.Size = new System.Drawing.Size(29, 20);
-            this.CPU_Percentage_label.TabIndex = 8;
-            this.CPU_Percentage_label.Text = "0%";
-            // 
-            // CPU_Utilization_label
-            // 
-            this.CPU_Utilization_label.AutoSize = true;
-            this.CPU_Utilization_label.Location = new System.Drawing.Point(28, 36);
-            this.CPU_Utilization_label.Name = "CPU_Utilization_label";
-            this.CPU_Utilization_label.Size = new System.Drawing.Size(117, 20);
-            this.CPU_Utilization_label.TabIndex = 7;
-            this.CPU_Utilization_label.Text = "CPU Utilization:";
-            // 
-            // CPU_progressBar
-            // 
-            this.CPU_progressBar.Location = new System.Drawing.Point(29, 59);
-            this.CPU_progressBar.Name = "CPU_progressBar";
-            this.CPU_progressBar.Size = new System.Drawing.Size(288, 32);
-            this.CPU_progressBar.TabIndex = 6;
             // 
             // Free_Space_label
             // 
@@ -503,6 +346,157 @@
             this.Disk_chart.TabIndex = 9;
             this.Disk_chart.Text = "chart1";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.NoOfCore_label);
+            this.groupBox2.Controls.Add(this.Manufacturer_label);
+            this.groupBox2.Controls.Add(this.CPU_Name_label);
+            this.groupBox2.Controls.Add(this.CPU_Percentage_label);
+            this.groupBox2.Controls.Add(this.CPU_Utilization_label);
+            this.groupBox2.Controls.Add(this.CPU_progressBar);
+            this.groupBox2.Location = new System.Drawing.Point(387, 21);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(364, 250);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "CPU Usage";
+            // 
+            // NoOfCore_label
+            // 
+            this.NoOfCore_label.AutoSize = true;
+            this.NoOfCore_label.Location = new System.Drawing.Point(6, 205);
+            this.NoOfCore_label.Name = "NoOfCore_label";
+            this.NoOfCore_label.Size = new System.Drawing.Size(104, 20);
+            this.NoOfCore_label.TabIndex = 11;
+            this.NoOfCore_label.Text = "No. of Cores:";
+            // 
+            // Manufacturer_label
+            // 
+            this.Manufacturer_label.AutoSize = true;
+            this.Manufacturer_label.Location = new System.Drawing.Point(6, 165);
+            this.Manufacturer_label.Name = "Manufacturer_label";
+            this.Manufacturer_label.Size = new System.Drawing.Size(115, 20);
+            this.Manufacturer_label.TabIndex = 10;
+            this.Manufacturer_label.Text = "Manufacturer:";
+            // 
+            // CPU_Name_label
+            // 
+            this.CPU_Name_label.AutoSize = true;
+            this.CPU_Name_label.Location = new System.Drawing.Point(6, 125);
+            this.CPU_Name_label.Name = "CPU_Name_label";
+            this.CPU_Name_label.Size = new System.Drawing.Size(57, 20);
+            this.CPU_Name_label.TabIndex = 9;
+            this.CPU_Name_label.Text = "Name:";
+            // 
+            // CPU_Percentage_label
+            // 
+            this.CPU_Percentage_label.AutoSize = true;
+            this.CPU_Percentage_label.Location = new System.Drawing.Point(323, 59);
+            this.CPU_Percentage_label.Name = "CPU_Percentage_label";
+            this.CPU_Percentage_label.Size = new System.Drawing.Size(29, 20);
+            this.CPU_Percentage_label.TabIndex = 8;
+            this.CPU_Percentage_label.Text = "0%";
+            // 
+            // CPU_Utilization_label
+            // 
+            this.CPU_Utilization_label.AutoSize = true;
+            this.CPU_Utilization_label.Location = new System.Drawing.Point(28, 36);
+            this.CPU_Utilization_label.Name = "CPU_Utilization_label";
+            this.CPU_Utilization_label.Size = new System.Drawing.Size(117, 20);
+            this.CPU_Utilization_label.TabIndex = 7;
+            this.CPU_Utilization_label.Text = "CPU Utilization:";
+            // 
+            // CPU_progressBar
+            // 
+            this.CPU_progressBar.Location = new System.Drawing.Point(29, 59);
+            this.CPU_progressBar.Name = "CPU_progressBar";
+            this.CPU_progressBar.Size = new System.Drawing.Size(288, 32);
+            this.CPU_progressBar.TabIndex = 6;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.Free_RAM_label);
+            this.groupBox1.Controls.Add(this.Used_RAM_label);
+            this.groupBox1.Controls.Add(this.Total_RAM_label);
+            this.groupBox1.Controls.Add(this.RAM_Percentage_label);
+            this.groupBox1.Controls.Add(this.RAM_progressBar);
+            this.groupBox1.Controls.Add(this.RAM_label);
+            this.groupBox1.Location = new System.Drawing.Point(17, 21);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(364, 250);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Ram Usage";
+            // 
+            // Free_RAM_label
+            // 
+            this.Free_RAM_label.AutoSize = true;
+            this.Free_RAM_label.Location = new System.Drawing.Point(6, 205);
+            this.Free_RAM_label.Name = "Free_RAM_label";
+            this.Free_RAM_label.Size = new System.Drawing.Size(84, 20);
+            this.Free_RAM_label.TabIndex = 9;
+            this.Free_RAM_label.Text = "Free RAM:";
+            // 
+            // Used_RAM_label
+            // 
+            this.Used_RAM_label.AutoSize = true;
+            this.Used_RAM_label.Location = new System.Drawing.Point(6, 165);
+            this.Used_RAM_label.Name = "Used_RAM_label";
+            this.Used_RAM_label.Size = new System.Drawing.Size(89, 20);
+            this.Used_RAM_label.TabIndex = 8;
+            this.Used_RAM_label.Text = "Used RAM:";
+            // 
+            // Total_RAM_label
+            // 
+            this.Total_RAM_label.AutoSize = true;
+            this.Total_RAM_label.Location = new System.Drawing.Point(6, 125);
+            this.Total_RAM_label.Name = "Total_RAM_label";
+            this.Total_RAM_label.Size = new System.Drawing.Size(85, 20);
+            this.Total_RAM_label.TabIndex = 7;
+            this.Total_RAM_label.Text = "Total RAM:";
+            // 
+            // RAM_Percentage_label
+            // 
+            this.RAM_Percentage_label.AutoSize = true;
+            this.RAM_Percentage_label.Location = new System.Drawing.Point(313, 59);
+            this.RAM_Percentage_label.Name = "RAM_Percentage_label";
+            this.RAM_Percentage_label.Size = new System.Drawing.Size(29, 20);
+            this.RAM_Percentage_label.TabIndex = 6;
+            this.RAM_Percentage_label.Text = "0%";
+            // 
+            // RAM_progressBar
+            // 
+            this.RAM_progressBar.Location = new System.Drawing.Point(19, 59);
+            this.RAM_progressBar.Name = "RAM_progressBar";
+            this.RAM_progressBar.Size = new System.Drawing.Size(288, 32);
+            this.RAM_progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.RAM_progressBar.TabIndex = 2;
+            // 
+            // RAM_label
+            // 
+            this.RAM_label.AutoSize = true;
+            this.RAM_label.Location = new System.Drawing.Point(15, 36);
+            this.RAM_label.Name = "RAM_label";
+            this.RAM_label.Size = new System.Drawing.Size(48, 20);
+            this.RAM_label.TabIndex = 0;
+            this.RAM_label.Text = "RAM:";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(767, 566);
+            this.tabPage2.TabIndex = 4;
+            this.tabPage2.Text = "App History";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Frm_Performance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,7 +508,6 @@
             this.Name = "Frm_Performance";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Performance";
-            this.Activated += new System.EventHandler(this.Frm_Performance_Activated);
             this.Load += new System.EventHandler(this.Frm_Performance_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -522,11 +515,11 @@
             this.tabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Disk_chart)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Disk_chart)).EndInit();
             this.ResumeLayout(false);
 
         }

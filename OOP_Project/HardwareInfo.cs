@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Management;
+using System.Windows.Forms;
 
 namespace OOP_Project
 {
@@ -409,7 +410,10 @@ namespace OOP_Project
                 {
                     return ((string)wmi["Caption"]).Trim() + ", " + (string)wmi["Version"] + ", " + (string)wmi["OSArchitecture"];
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
             return "BIOS Maker: Unknown";
         }

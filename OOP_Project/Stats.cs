@@ -118,7 +118,7 @@ namespace OOP_Project
                 return false;
             }
         }
-        public string currentMonth()
+        public static string currentMonth()
         {
             int MonthNum = System.DateTime.Now.Month;
             string monthName = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(MonthNum);

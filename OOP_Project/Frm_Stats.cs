@@ -29,7 +29,7 @@ namespace OOP_Project
             // to setup chart   
             chart1.Series[0].Points.Clear();
 
-            btn_Daily.BackColor = Color.AliceBlue;
+            btn_Daily.BackColor = Color.LightBlue;
             btn_Monthly.BackColor = Color.White;
             chart1.Series["Time"]["PieLabelStyle"] = "Disabled";
             Lock LOCK = new Lock();
@@ -64,7 +64,7 @@ namespace OOP_Project
         {
             chart1.Series[0].Points.Clear();
             btn_Daily.BackColor = Color.White;
-            btn_Monthly.BackColor = Color.AliceBlue; 
+            btn_Monthly.BackColor = Color.LightBlue;
 
 
 

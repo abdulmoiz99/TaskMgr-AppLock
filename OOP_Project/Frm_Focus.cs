@@ -29,7 +29,7 @@ namespace OOP_Project
                     AppObject.con.Close();
                 }
                 AppObject.con.Open();
-                SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='may');", AppObject.con);
+                SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='"+Stats.currentMonth().ToString()+"');", AppObject.con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd1);
                 DataTable ds = new DataTable();
                 da.Fill(ds);

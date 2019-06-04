@@ -56,7 +56,7 @@ namespace OOP_Project
         // SQL setting and connection setup
         public readonly static SqlConnection con = new SqlConnection(ReadCS());
         public static string userName = string.Empty;
-        public static string ReadCS()
+        private static string ReadCS()
         {
             using (var streamReader = File.OpenText("SqlSettings.dat"))
             {
@@ -71,7 +71,7 @@ namespace OOP_Project
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "User");
+                    MessageBox.Show(ex.Message, "App Object");
                 }
                 return lines;
             }

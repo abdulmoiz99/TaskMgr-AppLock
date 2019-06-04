@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Diagnostics;
 using System.Management;
 
 namespace OOP_Project
@@ -33,11 +32,7 @@ namespace OOP_Project
             }
         }
 
-        private void Disk_comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //UpdateDiskInfo();
-        }
-
+     
         private void UpdateDiskInfo()
         {
             foreach (var series in Disk_chart.Series)
@@ -59,9 +54,9 @@ namespace OOP_Project
                 Drive_Ready_label.Text = "Drive Ready:      " + driveReady;
                 Drive_Type_label.Text = "Drive Type:       " + driveType;
                 Drive_Format_label.Text = "Drive Format:     " + driveFormat;
-                Total_Space_label.Text = "Total Space:      " + (Convert.ToInt32(driveInfo.TotalSize * .000000001f)).ToString() + " GB";
-                Used_Space_label.Text = "Used Space:       " + (Convert.ToInt32((driveInfo.TotalSize - driveInfo.AvailableFreeSpace) * .000000001f)).ToString() + " GB";
-                Free_Space_label.Text = "Free Space:       " + (Convert.ToInt32(driveInfo.AvailableFreeSpace * .000000001f)).ToString() + " GB";
+                Total_Space_label.Text = "Total Space:      " + (Convert.ToInt32(driveInfo.TotalSize * .000000001f)) + " GB";
+                Used_Space_label.Text = "Used Space:       " + (Convert.ToInt32((driveInfo.TotalSize - driveInfo.AvailableFreeSpace) * .000000001f)) + " GB";
+                Free_Space_label.Text = "Free Space:       " + (Convert.ToInt32(driveInfo.AvailableFreeSpace * .000000001f))+ " GB";
             }
             else
             {
@@ -95,25 +90,7 @@ namespace OOP_Project
                     Manufacturer_label.Text = "Manufacturer: " + moProcessor["manufacturer"].ToString();
             }
 
-            //double TotalRam = double.Parse(HardwareInfo.GetPhysicalMemory());
-            //PerformanceCounter availableBytes = new PerformanceCounter("Memory", "Available Bytes", true);
-            //double AvailableRam = availableBytes.RawValue / 1024 / 1024; // Mb 
-            //availableBytes.Close();
-            //double UsedRam = TotalRam - AvailableRam;
-
-            //this.chart1.Series["TotalRam"].Points.AddXY("Available", AvailableRam);
-            //this.chart1.Series["TotalRam"].Points.AddXY("Used", UsedRam); 
             timer1_Tick(sender,e);
-        }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-        }
-        private void tabPage1_Enter(object sender, EventArgs e)
-        {
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -153,28 +130,7 @@ namespace OOP_Project
                 lisV_Process.Items.Add(itm);
             }
         }
-        private void Frm_Performance_Activated(object sender, EventArgs e)
-        {
-        }
-        private void chart2_Click(object sender, EventArgs e)
-        {
-        }
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-        }
-        private void lisV_Apps_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void btn_endTask_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void RAM_progressBar_Click(object sender, EventArgs e)
-        {
-
-        }
+     
         //RAM
         protected PerformanceCounter ramCounter = new PerformanceCounter("Memory", "Available MBytes");
         ComputerInfo myComputerInfo = new ComputerInfo();
