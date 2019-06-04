@@ -87,7 +87,6 @@
             this.label22.Size = new System.Drawing.Size(42, 16);
             this.label22.TabIndex = 8;
             this.label22.Text = "GPU :";
-            this.label22.Click += new System.EventHandler(this.label22_Click);
             // 
             // label21
             // 
@@ -129,7 +128,6 @@
             this.label23.Size = new System.Drawing.Size(99, 16);
             this.label23.TabIndex = 9;
             this.label23.Text = "Clock Speed :";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // label15
             // 
@@ -140,7 +138,6 @@
             this.label15.Size = new System.Drawing.Size(101, 16);
             this.label15.TabIndex = 7;
             this.label15.Text = "MAC Address:";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label1
             // 
@@ -151,7 +148,6 @@
             this.label1.Size = new System.Drawing.Size(100, 16);
             this.label1.TabIndex = 7;
             this.label1.Text = "Manufacturer:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label24
             // 
@@ -162,7 +158,6 @@
             this.label24.Size = new System.Drawing.Size(79, 16);
             this.label24.TabIndex = 7;
             this.label24.Text = "Proccesor :";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // label20
             // 
@@ -203,7 +198,6 @@
             this.lab_proccesor.Size = new System.Drawing.Size(72, 17);
             this.lab_proccesor.TabIndex = 1;
             this.lab_proccesor.Text = "proccesor";
-            this.lab_proccesor.Click += new System.EventHandler(this.lab_proccesor_Click);
             // 
             // lab_macAddress
             // 
@@ -214,7 +208,6 @@
             this.lab_macAddress.Size = new System.Drawing.Size(87, 17);
             this.lab_macAddress.TabIndex = 1;
             this.lab_macAddress.Text = "macAddress";
-            this.lab_macAddress.Click += new System.EventHandler(this.lab_macAddress_Click);
             // 
             // lab_GPU
             // 
@@ -225,7 +218,6 @@
             this.lab_GPU.Size = new System.Drawing.Size(35, 17);
             this.lab_GPU.TabIndex = 1;
             this.lab_GPU.Text = "GPU";
-            this.lab_GPU.Click += new System.EventHandler(this.lab_GPU_Click);
             // 
             // lab_manufacturer
             // 
@@ -236,7 +228,6 @@
             this.lab_manufacturer.Size = new System.Drawing.Size(96, 17);
             this.lab_manufacturer.TabIndex = 1;
             this.lab_manufacturer.Text = "manufacturer";
-            this.lab_manufacturer.Click += new System.EventHandler(this.lab_manufacturer_Click);
             // 
             // lab_clockSpeed
             // 
@@ -247,7 +238,6 @@
             this.lab_clockSpeed.Size = new System.Drawing.Size(83, 17);
             this.lab_clockSpeed.TabIndex = 1;
             this.lab_clockSpeed.Text = "clockSpeed";
-            this.lab_clockSpeed.Click += new System.EventHandler(this.lab_clockSpeed_Click);
             // 
             // lab344
             // 
@@ -363,7 +353,6 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Windows";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pictureBox1
             // 

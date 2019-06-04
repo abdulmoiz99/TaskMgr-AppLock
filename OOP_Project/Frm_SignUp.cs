@@ -16,7 +16,6 @@ namespace OOP_Project
         {
             InitializeComponent();
         }
-
         private void btn_SignUp_Click(object sender, EventArgs e)
         {
             User New = new User();
@@ -34,17 +33,6 @@ namespace OOP_Project
                 MessageBox.Show("UserName Already Taken", "Create Account");
             }
         }
-
-        private void Frm_SignUp_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_close_Click(object sender, EventArgs e)
         {
             this.Hide();

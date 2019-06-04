@@ -13,13 +13,12 @@ namespace OOP_Project
 {
     public partial class Frm_Password : Form
     {
-        string name = ";";
+        readonly string  name =string.Empty;
         public Frm_Password(string ProcName)
         {
             InitializeComponent();
             name = ProcName;
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             label1.Text = name;
@@ -31,16 +30,6 @@ namespace OOP_Project
         {
             label1.Text = name;
             txt_Password.Focus();
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void txt_Password_Enter(object sender, EventArgs e)

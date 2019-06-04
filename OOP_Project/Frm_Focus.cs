@@ -13,7 +13,7 @@ namespace OOP_Project
 {
     public partial class Frm_Focus : Form
     {
-        Sql SQL = new Sql();
+
         int time;
         public Frm_Focus()
         {
@@ -24,26 +24,32 @@ namespace OOP_Project
         {
             try
             {
-                SQL.con.Open();
-                SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='may');", SQL.con);
+                if (AppObject.con.State == ConnectionState.Open)
+                {
+                    AppObject.con.Close();
+                }
+                AppObject.con.Open();
+                SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='may');", AppObject.con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd1);
                 DataTable ds = new DataTable();
                 da.Fill(ds);
                 dgv_MostUsedApps.DataSource = ds;
-                SQL.con.Close();
+                AppObject.con.Close();
 
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message, "FORM FOCUS");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL " + ex.Message, "FORM FOCUS");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "FORM FOCUS");
             }
         }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void Frm_Focus_Load(object sender, EventArgs e)
         {
             txt_timer.BorderStyle = BorderStyle.None;
@@ -55,12 +61,12 @@ namespace OOP_Project
             time = int.Parse(txt_timer.Text);
             if (rdo_min.Checked == true)
             {
-                time = time * 60; 
+                time = time * 60;
             }
             else if (rdo_hour.Checked == true)
             {
                 time = time * 60 * 60;
-            } 
+            }
 
             if (lab_appName.Text != "App Name")
             {
@@ -68,6 +74,7 @@ namespace OOP_Project
                 if (YesOrNo == DialogResult.Yes)
                 {
                     Focus NEW = new Focus(lab_appName.Text, time);
+                    txt_timer.Text = "00";
                 }
             }
             if (lab_appName.Text == "App Name")
@@ -75,12 +82,6 @@ namespace OOP_Project
                 MessageBox.Show("Please Select An App First", "Focus", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgv_MostUsedApps_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -94,15 +95,12 @@ namespace OOP_Project
             {
                 MessageBox.Show(ex.Message);
             }
-
         }
-
         private void btn_add_Click(object sender, EventArgs e)
         {
             time++;
             txt_timer.Text = time.ToString();
         }
-
         private void btn_minus_Click(object sender, EventArgs e)
         {
             if (time > 0)

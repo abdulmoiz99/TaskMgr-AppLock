@@ -14,6 +14,9 @@ namespace OOP_Project
     public partial class Frm_Dashboard : Form
     {
         Timer t = new Timer();
+        int Mov;
+        int MValX;
+        int MValY;
         public Frm_Dashboard()
         {
             InitializeComponent();
@@ -34,7 +37,7 @@ namespace OOP_Project
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
            
-            // ======To Start Focus=======
+            // ======To Start Focus==========
             var NEW = new Focus();
             int AppCount = NEW.getCount();
             if (AppCount > 0)
@@ -45,9 +48,9 @@ namespace OOP_Project
                     F[i] = new Focus(NEW.getAppName(i));
                 }
             }
-             //=============To start Lock===
-            var NEW1 = new Lock();
-            int appCountLock = NEW1.getCount();
+             //=============To start Lock======
+            var Lock = new Lock();
+            int appCountLock = Lock.getCount();
             if (appCountLock > 0)
             {
                 string Name;
@@ -55,8 +58,8 @@ namespace OOP_Project
                 Lock[] L = new Lock[appCountLock + 1];
                 for (int i = 1; i <= appCountLock; i++)
                 {
-                    Name = NEW1.getAppName(i);
-                    if (NEW1.CheckAppLock(Name) == true)
+                    Name = Lock.getAppName(i);
+                    if (Lock.CheckAppLock(Name) == true)
                     {
                         L[i] = new Lock(Name);
                     }
@@ -98,7 +101,6 @@ namespace OOP_Project
                     {
                         LOCK.setRecord(p.ProcessName);
                     }
-
                 }
             }
         }
@@ -140,18 +142,7 @@ namespace OOP_Project
             NEW.MdiParent = this;
             NEW.Dock = DockStyle.Fill;
             NEW.Show();
-
         }
-
-        private void btn_AppLaunch_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Panel_SideBar_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_systemInfo_Click(object sender, EventArgs e)
         {
             PanelFloat.Height = btn_systemInfo.Height;
@@ -166,10 +157,6 @@ namespace OOP_Project
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-        }
-
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Show();
@@ -177,11 +164,6 @@ namespace OOP_Project
             notifyIcon1.Visible = false;
             WindowState = FormWindowState.Normal;
         }
-        private void Toppannel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Frm_Dashboard_Resize_1(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
@@ -190,13 +172,37 @@ namespace OOP_Project
                 notifyIcon1.Visible = true;
             }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
             Frm_Login LOGIN = new Frm_Login();
             LOGIN.ShowDialog();
             this.Close();
+        }
+
+        private void btn_close_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Toppannel_MouseUp(object sender, MouseEventArgs e)
+        {
+            Mov = 0;
+        }
+
+        private void Toppannel_MouseDown(object sender, MouseEventArgs e)
+        {
+            Mov = 1;
+            MValX = e.X;
+            MValY = e.Y;
+        }
+
+        private void Toppannel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (Mov == 1)
+            {
+                this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
+            }
         }
     }
 }

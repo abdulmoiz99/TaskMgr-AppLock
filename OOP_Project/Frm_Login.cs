@@ -16,7 +16,7 @@ namespace OOP_Project
         {
             InitializeComponent();
         }
-       
+
         private void btn_signUp_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -24,12 +24,6 @@ namespace OOP_Project
             NEW.ShowDialog();
             this.Close();
         }
-
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
-
-        }
-
         private void btn_LogIn_Click(object sender, EventArgs e)
         {
 
@@ -39,7 +33,7 @@ namespace OOP_Project
             {
                 if (User.checkPassword(txt_UserName.Text, txt_Password.Text) == true)
                 {
-                    Sql.userName = txt_UserName.Text;
+                    AppObject.userName = txt_UserName.Text;
                     this.Hide();
                     Frm_Dashboard NEW1 = new Frm_Dashboard();
                     NEW1.ShowDialog();
@@ -59,20 +53,14 @@ namespace OOP_Project
 
         private void Frm_Login_Load(object sender, EventArgs e)
         {
-           txt_UserName.Focus();
+            txt_UserName.Focus();
         }
 
         private void txt_Password_Enter(object sender, EventArgs e)
         {
-            
-           txt_Password.PasswordChar = '●';
+
+            txt_Password.PasswordChar = '●';
         }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btn_close_Click(object sender, EventArgs e)
         {
 

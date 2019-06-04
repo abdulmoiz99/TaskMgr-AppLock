@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Focus));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgv_MostUsedApps = new System.Windows.Forms.DataGridView();
@@ -78,14 +77,6 @@
             this.dgv_MostUsedApps.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_MostUsedApps.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_MostUsedApps.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_MostUsedApps.Location = new System.Drawing.Point(3, 29);
             this.dgv_MostUsedApps.Name = "dgv_MostUsedApps";
             this.dgv_MostUsedApps.ReadOnly = true;
@@ -110,7 +101,6 @@
             this.groupBox3.Size = new System.Drawing.Size(695, 407);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // groupBox5
             // 
@@ -129,7 +119,6 @@
             this.groupBox5.TabIndex = 5;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Restric Use";
-            this.groupBox5.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // btn_add
             // 
@@ -178,7 +167,6 @@
             this.rdo_sec.Name = "rdo_sec";
             this.rdo_sec.Size = new System.Drawing.Size(92, 23);
             this.rdo_sec.TabIndex = 27;
-            this.rdo_sec.TabStop = true;
             this.rdo_sec.Text = "Seconds";
             this.rdo_sec.UseVisualStyleBackColor = true;
             // 
@@ -190,13 +178,13 @@
             this.rdo_hour.Name = "rdo_hour";
             this.rdo_hour.Size = new System.Drawing.Size(63, 23);
             this.rdo_hour.TabIndex = 25;
-            this.rdo_hour.TabStop = true;
             this.rdo_hour.Text = "Hour";
             this.rdo_hour.UseVisualStyleBackColor = true;
             // 
             // rdo_min
             // 
             this.rdo_min.AutoSize = true;
+            this.rdo_min.Checked = true;
             this.rdo_min.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
             this.rdo_min.Location = new System.Drawing.Point(150, 157);
             this.rdo_min.Name = "rdo_min";
