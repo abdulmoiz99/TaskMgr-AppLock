@@ -263,7 +263,7 @@
             this.groupBox3.Text = "Disk";
             // 
             // groupBox2
-            // 
+            // abc
             this.groupBox2.Controls.Add(this.NoOfCore_label);
             this.groupBox2.Controls.Add(this.Manufacturer_label);
             this.groupBox2.Controls.Add(this.CPU_Name_label);
