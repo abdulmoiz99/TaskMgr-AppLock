@@ -36,19 +36,19 @@ namespace OOP_Project
         }
         private void Frm_Dashboard_Load(object sender, EventArgs e)
         {
-           
+
             // ======To Start Focus==========
             var NEW = new Focus();
             int AppCount = NEW.getCount();
             if (AppCount > 0)
             {
-                Focus[] F = new Focus[AppCount+1];
+                Focus[] F = new Focus[AppCount + 1];
                 for (int i = 1; i <= AppCount; i++)
                 {
                     F[i] = new Focus(NEW.getAppName(i));
                 }
             }
-             //=============To start Lock======
+            //=============To start Lock======
             var Lock = new Lock();
             int appCountLock = Lock.getCount();
             if (appCountLock > 0)
@@ -97,7 +97,7 @@ namespace OOP_Project
                     {
                         Stats NEW = new Stats(p.ProcessName);
                     }
-                    if (LOCK.CheckInList(p.ProcessName)==false)
+                    if (LOCK.CheckInList(p.ProcessName) == false)
                     {
                         LOCK.setRecord(p.ProcessName);
                     }
@@ -157,21 +157,7 @@ namespace OOP_Project
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            Show();
-            ShowInTaskbar = true;
-            notifyIcon1.Visible = false;
-            WindowState = FormWindowState.Normal;
-        }
-        private void Frm_Dashboard_Resize_1(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Minimized)
-            {
-                Hide();
-                notifyIcon1.Visible = true;
-            }
-        }
+      
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -203,6 +189,16 @@ namespace OOP_Project
             {
                 this.SetDesktopLocation(MousePosition.X - MValX, MousePosition.Y - MValY);
             }
+        }
+
+        private void btn_Frm_Active_Click(object sender, EventArgs e)
+        {
+            PanelFloat.Height = btn_Frm_Active.Height;
+            PanelFloat.Top = btn_Frm_Active.Top;
+            Frm_Active NEW = new Frm_Active();
+            NEW.MdiParent = this;
+            NEW.Dock = DockStyle.Fill;
+            NEW.Show();
         }
     }
 }

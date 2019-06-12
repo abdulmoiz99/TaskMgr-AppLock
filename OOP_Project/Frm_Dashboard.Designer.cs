@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Dashboard));
             this.PanelFloat = new System.Windows.Forms.Panel();
             this.Panel_SideBar = new System.Windows.Forms.Panel();
+            this.btn_Frm_Active = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btn_focus = new System.Windows.Forms.Button();
@@ -41,11 +41,10 @@
             this.btn_Active = new System.Windows.Forms.Button();
             this.btn_Lock = new System.Windows.Forms.Button();
             this.btn_DashBoard = new System.Windows.Forms.Button();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.xuiObjectEllipse1 = new XanderUI.XUIObjectEllipse();
-            this.btn_Minimizesd = new System.Windows.Forms.Button();
-            this.btn_close = new System.Windows.Forms.Button();
             this.Toppannel = new XanderUI.XUIGradientPanel();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.btn_Minimizesd = new System.Windows.Forms.Button();
             this.Panel_SideBar.SuspendLayout();
             this.Toppannel.SuspendLayout();
             this.SuspendLayout();
@@ -53,14 +52,15 @@
             // PanelFloat
             // 
             this.PanelFloat.BackColor = System.Drawing.Color.White;
-            this.PanelFloat.Location = new System.Drawing.Point(3, 188);
+            this.PanelFloat.Location = new System.Drawing.Point(5, 188);
             this.PanelFloat.Name = "PanelFloat";
-            this.PanelFloat.Size = new System.Drawing.Size(7, 49);
+            this.PanelFloat.Size = new System.Drawing.Size(5, 49);
             this.PanelFloat.TabIndex = 4;
             // 
             // Panel_SideBar
             // 
             this.Panel_SideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.Panel_SideBar.Controls.Add(this.btn_Frm_Active);
             this.Panel_SideBar.Controls.Add(this.label1);
             this.Panel_SideBar.Controls.Add(this.button2);
             this.Panel_SideBar.Controls.Add(this.btn_focus);
@@ -77,6 +77,25 @@
             this.Panel_SideBar.Name = "Panel_SideBar";
             this.Panel_SideBar.Size = new System.Drawing.Size(268, 691);
             this.Panel_SideBar.TabIndex = 6;
+            // 
+            // btn_Frm_Active
+            // 
+            this.btn_Frm_Active.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.btn_Frm_Active.FlatAppearance.BorderSize = 0;
+            this.btn_Frm_Active.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(60)))), ((int)(((byte)(114)))));
+            this.btn_Frm_Active.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Frm_Active.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Frm_Active.ForeColor = System.Drawing.Color.White;
+            this.btn_Frm_Active.Image = global::OOP_Project.Properties.Resources.system_task_36;
+            this.btn_Frm_Active.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Frm_Active.Location = new System.Drawing.Point(12, 244);
+            this.btn_Frm_Active.Name = "btn_Frm_Active";
+            this.btn_Frm_Active.Size = new System.Drawing.Size(253, 50);
+            this.btn_Frm_Active.TabIndex = 9;
+            this.btn_Frm_Active.Text = "        Active Task";
+            this.btn_Frm_Active.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Frm_Active.UseVisualStyleBackColor = false;
+            this.btn_Frm_Active.Click += new System.EventHandler(this.btn_Frm_Active_Click);
             // 
             // label1
             // 
@@ -111,7 +130,7 @@
             this.btn_focus.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btn_focus.Image = global::OOP_Project.Properties.Resources.delete_shield_36;
             this.btn_focus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_focus.Location = new System.Drawing.Point(12, 356);
+            this.btn_focus.Location = new System.Drawing.Point(12, 410);
             this.btn_focus.Name = "btn_focus";
             this.btn_focus.Size = new System.Drawing.Size(253, 50);
             this.btn_focus.TabIndex = 4;
@@ -143,7 +162,7 @@
             this.btn_systemInfo.ForeColor = System.Drawing.Color.White;
             this.btn_systemInfo.Image = global::OOP_Project.Properties.Resources.info_36;
             this.btn_systemInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_systemInfo.Location = new System.Drawing.Point(12, 468);
+            this.btn_systemInfo.Location = new System.Drawing.Point(12, 522);
             this.btn_systemInfo.Name = "btn_systemInfo";
             this.btn_systemInfo.Size = new System.Drawing.Size(253, 50);
             this.btn_systemInfo.TabIndex = 6;
@@ -161,7 +180,7 @@
             this.btn_AppUsage.ForeColor = System.Drawing.Color.White;
             this.btn_AppUsage.Image = global::OOP_Project.Properties.Resources.chart_361;
             this.btn_AppUsage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_AppUsage.Location = new System.Drawing.Point(12, 412);
+            this.btn_AppUsage.Location = new System.Drawing.Point(12, 466);
             this.btn_AppUsage.Name = "btn_AppUsage";
             this.btn_AppUsage.Size = new System.Drawing.Size(253, 50);
             this.btn_AppUsage.TabIndex = 5;
@@ -177,13 +196,13 @@
             this.btn_Active.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Active.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Active.ForeColor = System.Drawing.Color.White;
-            this.btn_Active.Image = global::OOP_Project.Properties.Resources.system_task_36;
+            this.btn_Active.Image = global::OOP_Project.Properties.Resources.tasks_36;
             this.btn_Active.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Active.Location = new System.Drawing.Point(12, 244);
+            this.btn_Active.Location = new System.Drawing.Point(12, 298);
             this.btn_Active.Name = "btn_Active";
             this.btn_Active.Size = new System.Drawing.Size(253, 50);
             this.btn_Active.TabIndex = 2;
-            this.btn_Active.Text = "     Performance";
+            this.btn_Active.Text = "      Performance";
             this.btn_Active.UseVisualStyleBackColor = false;
             this.btn_Active.Click += new System.EventHandler(this.btn_Active_Click);
             // 
@@ -197,7 +216,7 @@
             this.btn_Lock.ForeColor = System.Drawing.Color.White;
             this.btn_Lock.Image = global::OOP_Project.Properties.Resources.locker_36;
             this.btn_Lock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Lock.Location = new System.Drawing.Point(12, 300);
+            this.btn_Lock.Location = new System.Drawing.Point(12, 354);
             this.btn_Lock.Name = "btn_Lock";
             this.btn_Lock.Size = new System.Drawing.Size(253, 50);
             this.btn_Lock.TabIndex = 3;
@@ -219,48 +238,15 @@
             this.btn_DashBoard.Name = "btn_DashBoard";
             this.btn_DashBoard.Size = new System.Drawing.Size(253, 50);
             this.btn_DashBoard.TabIndex = 1;
-            this.btn_DashBoard.Text = " DashBoard";
+            this.btn_DashBoard.Text = "  DashBoard";
             this.btn_DashBoard.UseVisualStyleBackColor = false;
             this.btn_DashBoard.Click += new System.EventHandler(this.btn_DashBoard_Click);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
             // xuiObjectEllipse1
             // 
             this.xuiObjectEllipse1.CornerRadius = 30;
             this.xuiObjectEllipse1.EffectedControl = this;
             this.xuiObjectEllipse1.EffectedForm = this;
-            // 
-            // btn_Minimizesd
-            // 
-            this.btn_Minimizesd.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Minimizesd.FlatAppearance.BorderSize = 0;
-            this.btn_Minimizesd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Minimizesd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizesd.Image")));
-            this.btn_Minimizesd.Location = new System.Drawing.Point(715, 0);
-            this.btn_Minimizesd.Name = "btn_Minimizesd";
-            this.btn_Minimizesd.Size = new System.Drawing.Size(35, 37);
-            this.btn_Minimizesd.TabIndex = 8;
-            this.btn_Minimizesd.UseVisualStyleBackColor = false;
-            this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
-            // 
-            // btn_close
-            // 
-            this.btn_close.BackColor = System.Drawing.Color.Transparent;
-            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Image = global::OOP_Project.Properties.Resources.close_window_26;
-            this.btn_close.Location = new System.Drawing.Point(754, 0);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(35, 34);
-            this.btn_close.TabIndex = 9;
-            this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
             // 
             // Toppannel
             // 
@@ -282,6 +268,34 @@
             this.Toppannel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseMove);
             this.Toppannel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseUp);
             // 
+            // btn_close
+            // 
+            this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.Location = new System.Drawing.Point(754, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(35, 34);
+            this.btn_close.TabIndex = 9;
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
+            // 
+            // btn_Minimizesd
+            // 
+            this.btn_Minimizesd.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Minimizesd.FlatAppearance.BorderSize = 0;
+            this.btn_Minimizesd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Minimizesd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizesd.Image")));
+            this.btn_Minimizesd.Location = new System.Drawing.Point(715, 0);
+            this.btn_Minimizesd.Name = "btn_Minimizesd";
+            this.btn_Minimizesd.Size = new System.Drawing.Size(35, 37);
+            this.btn_Minimizesd.TabIndex = 8;
+            this.btn_Minimizesd.UseVisualStyleBackColor = false;
+            this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
+            // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,7 +310,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Dashboard";
             this.Load += new System.EventHandler(this.Frm_Dashboard_Load);
-            this.Resize += new System.EventHandler(this.Frm_Dashboard_Resize_1);
             this.Panel_SideBar.ResumeLayout(false);
             this.Panel_SideBar.PerformLayout();
             this.Toppannel.ResumeLayout(false);
@@ -315,12 +328,12 @@
         private System.Windows.Forms.Button btn_AppUsage;
         private System.Windows.Forms.Panel Panel_SideBar;
         private System.Windows.Forms.Button btn_focus;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
         private XanderUI.XUIObjectEllipse xuiObjectEllipse1;
         private XanderUI.XUIGradientPanel Toppannel;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_Minimizesd;
+        private System.Windows.Forms.Button btn_Frm_Active;
     }
 }

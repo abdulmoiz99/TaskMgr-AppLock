@@ -1,10 +1,16 @@
 ﻿using System;
+using Microsoft.VisualBasic.Devices;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Management;
 using System.Windows.Forms;
+using System.IO;
+using System.Management;
 
 namespace OOP_Project
 {
@@ -58,7 +64,10 @@ namespace OOP_Project
             {
                 if (MACAddress == String.Empty)
                 {
-                    if ((bool)mo["IPEnabled"] == true) MACAddress = mo["MacAddress"].ToString();
+                    if ((bool)mo["IPEnabled"] == true)
+                    {
+                        MACAddress = mo["MacAddress"].ToString();
+                    }
                 }
                 mo.Dispose();
             }
@@ -390,7 +399,10 @@ namespace OOP_Project
 
                 }
 
-                catch { }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
 
             }
 
@@ -454,6 +466,38 @@ namespace OOP_Project
             }
             return info;
         }
+        public static float G1()
+        {
+            PerformanceCounter a= new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            float speed =a.NextValue();
 
+            MessageBox.Show(speed+"c");
+            return speed;
+        }
+        public static string GetNoOfCPUCores()
+        {
+            string core = "";
+            ManagementObjectSearcher mosProcessor = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
+            foreach (ManagementObject moProcessor in mosProcessor.Get())
+            {
+                 core = moProcessor["NumberOfCores"].ToString();
+            }
+            return core;
+        }
+        public static double GetAvailableRAM()
+        {
+            PerformanceCounter availableBytes = new PerformanceCounter("Memory", "Available Bytes", true);
+            double AvailableRam = availableBytes.RawValue / 1024 / 1024; // Mb  
+            availableBytes.Close();
+            return AvailableRam;
+        } 
+        public static double GetUsedRAM()
+        {
+            double TotalRam = double.Parse(GetPhysicalMemory());
+            double AvailableRam = GetAvailableRAM();
+            double UsedRam = TotalRam - AvailableRam;
+            return UsedRam;
+
+        }
     }
 }

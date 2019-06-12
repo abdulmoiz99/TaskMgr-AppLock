@@ -53,7 +53,10 @@ namespace OOP_Project
                     {
                         arr[1] = (Time / 60).ToString() + " mins";
                     }
-                    else arr[1] = (Time).ToString() + " sec";
+                    else
+                    {
+                        arr[1] = (Time).ToString() + " sec";
+                    }
                     itm = new ListViewItem(arr);
                     lisV_Apps.Items.Add(itm);
                 }

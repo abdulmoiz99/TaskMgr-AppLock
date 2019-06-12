@@ -29,15 +29,9 @@ namespace OOP_Project
             lab_windoesSpec.Text = HardwareInfo.GetOSInformation();
             lab_proccesor.Text = HardwareInfo.GetProcessorInformation();
             lab_macAddress.Text = HardwareInfo.GetMACAddress();
-            // RAM            
-            double TotalRam = double.Parse(HardwareInfo.GetPhysicalMemory());
-            PerformanceCounter availableBytes = new PerformanceCounter("Memory", "Available Bytes", true);
-            double AvailableRam = availableBytes.RawValue / 1024 / 1024; // Mb 
-            availableBytes.Close();
-            double UsedRam = TotalRam - AvailableRam;
-            lab_TRam.Text = TotalRam.ToString() + " MB";
-            lab_ARam.Text = AvailableRam.ToString() + " MB";
-            lab_URam.Text = UsedRam.ToString() + " MB";
+            lab_TRam.Text = HardwareInfo.GetPhysicalMemory() + " MB";
+            lab_ARam.Text = HardwareInfo.GetAvailableRAM().ToString() + " MB";
+            lab_URam.Text = HardwareInfo.GetUsedRAM().ToString() + " MB";
         }
     }
 }

@@ -36,15 +36,15 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.btn_add = new System.Windows.Forms.Button();
-            this.btn_minus = new System.Windows.Forms.Button();
             this.txt_timer = new System.Windows.Forms.TextBox();
             this.rdo_sec = new System.Windows.Forms.RadioButton();
             this.rdo_hour = new System.Windows.Forms.RadioButton();
             this.rdo_min = new System.Windows.Forms.RadioButton();
-            this.btn_Restric = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lab_appName = new System.Windows.Forms.Label();
+            this.btn_add = new System.Windows.Forms.Button();
+            this.btn_minus = new System.Windows.Forms.Button();
+            this.btn_Restric = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_MostUsedApps)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -125,34 +125,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Restric Use";
             // 
-            // btn_add
-            // 
-            this.btn_add.FlatAppearance.BorderSize = 0;
-            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_add.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
-            this.btn_add.Image = global::OOP_Project.Properties.Resources.slide_up_40;
-            this.btn_add.Location = new System.Drawing.Point(229, 67);
-            this.btn_add.Name = "btn_add";
-            this.btn_add.Size = new System.Drawing.Size(50, 66);
-            this.btn_add.TabIndex = 30;
-            this.btn_add.UseVisualStyleBackColor = true;
-            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
-            // 
-            // btn_minus
-            // 
-            this.btn_minus.FlatAppearance.BorderSize = 0;
-            this.btn_minus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_minus.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_minus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
-            this.btn_minus.Image = ((System.Drawing.Image)(resources.GetObject("btn_minus.Image")));
-            this.btn_minus.Location = new System.Drawing.Point(63, 67);
-            this.btn_minus.Name = "btn_minus";
-            this.btn_minus.Size = new System.Drawing.Size(50, 66);
-            this.btn_minus.TabIndex = 29;
-            this.btn_minus.UseVisualStyleBackColor = true;
-            this.btn_minus.Click += new System.EventHandler(this.btn_minus_Click);
-            // 
             // txt_timer
             // 
             this.txt_timer.BackColor = System.Drawing.Color.White;
@@ -199,23 +171,6 @@
             this.rdo_min.Text = "Min";
             this.rdo_min.UseVisualStyleBackColor = true;
             // 
-            // btn_Restric
-            // 
-            this.btn_Restric.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
-            this.btn_Restric.FlatAppearance.BorderSize = 0;
-            this.btn_Restric.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Restric.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Restric.ForeColor = System.Drawing.Color.White;
-            this.btn_Restric.Image = ((System.Drawing.Image)(resources.GetObject("btn_Restric.Image")));
-            this.btn_Restric.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Restric.Location = new System.Drawing.Point(44, 202);
-            this.btn_Restric.Name = "btn_Restric";
-            this.btn_Restric.Size = new System.Drawing.Size(235, 70);
-            this.btn_Restric.TabIndex = 5;
-            this.btn_Restric.Text = "Restric";
-            this.btn_Restric.UseVisualStyleBackColor = false;
-            this.btn_Restric.Click += new System.EventHandler(this.btn_Restric_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lab_appName);
@@ -238,6 +193,51 @@
             this.lab_appName.Size = new System.Drawing.Size(159, 32);
             this.lab_appName.TabIndex = 4;
             this.lab_appName.Text = "App Name";
+            // 
+            // btn_add
+            // 
+            this.btn_add.FlatAppearance.BorderSize = 0;
+            this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_add.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.btn_add.Image = global::OOP_Project.Properties.Resources.slide_up_40;
+            this.btn_add.Location = new System.Drawing.Point(229, 67);
+            this.btn_add.Name = "btn_add";
+            this.btn_add.Size = new System.Drawing.Size(50, 66);
+            this.btn_add.TabIndex = 30;
+            this.btn_add.UseVisualStyleBackColor = true;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
+            // 
+            // btn_minus
+            // 
+            this.btn_minus.FlatAppearance.BorderSize = 0;
+            this.btn_minus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_minus.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_minus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
+            this.btn_minus.Image = ((System.Drawing.Image)(resources.GetObject("btn_minus.Image")));
+            this.btn_minus.Location = new System.Drawing.Point(63, 67);
+            this.btn_minus.Name = "btn_minus";
+            this.btn_minus.Size = new System.Drawing.Size(50, 66);
+            this.btn_minus.TabIndex = 29;
+            this.btn_minus.UseVisualStyleBackColor = true;
+            this.btn_minus.Click += new System.EventHandler(this.btn_minus_Click);
+            // 
+            // btn_Restric
+            // 
+            this.btn_Restric.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(150)))), ((int)(((byte)(243)))));
+            this.btn_Restric.FlatAppearance.BorderSize = 0;
+            this.btn_Restric.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Restric.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Restric.ForeColor = System.Drawing.Color.White;
+            this.btn_Restric.Image = ((System.Drawing.Image)(resources.GetObject("btn_Restric.Image")));
+            this.btn_Restric.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Restric.Location = new System.Drawing.Point(44, 202);
+            this.btn_Restric.Name = "btn_Restric";
+            this.btn_Restric.Size = new System.Drawing.Size(235, 70);
+            this.btn_Restric.TabIndex = 5;
+            this.btn_Restric.Text = "Restric";
+            this.btn_Restric.UseVisualStyleBackColor = false;
+            this.btn_Restric.Click += new System.EventHandler(this.btn_Restric_Click);
             // 
             // Frm_Focus
             // 

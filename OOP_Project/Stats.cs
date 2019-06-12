@@ -189,7 +189,7 @@ namespace OOP_Project
                 con.Close();
             }
             con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='devenv' AND stats_date='" + DateTime.Now.ToShortDateString() + "' ", con);
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='OOP_Project' AND stats_date='" + DateTime.Now.ToShortDateString() + "' ", con);
             if (cmd1.ExecuteScalar().ToString() != "")
             {
                 return int.Parse(cmd1.ExecuteScalar().ToString());
@@ -207,7 +207,7 @@ namespace OOP_Project
                 con.Close();
             }
             con.Open();
-            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='devenv' AND stats_Month='" + currentMonth() + "' ", con);
+            SqlCommand cmd1 = new SqlCommand("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='OOP_Project' AND stats_Month='" + currentMonth() + "' ", con);
             if (cmd1.ExecuteScalar().ToString() != "")
             {
                 return int.Parse(cmd1.ExecuteScalar().ToString());

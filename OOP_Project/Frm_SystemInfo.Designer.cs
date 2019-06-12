@@ -33,18 +33,19 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lab_userName = new System.Windows.Forms.Label();
-            this.lab_deviceName = new System.Windows.Forms.Label();
             this.lab_proccesor = new System.Windows.Forms.Label();
             this.lab_macAddress = new System.Windows.Forms.Label();
             this.lab_GPU = new System.Windows.Forms.Label();
             this.lab_manufacturer = new System.Windows.Forms.Label();
             this.lab_clockSpeed = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lab_userName = new System.Windows.Forms.Label();
+            this.lab_deviceName = new System.Windows.Forms.Label();
             this.lab344 = new System.Windows.Forms.Label();
             this.lab_URam = new System.Windows.Forms.Label();
             this.lab_TRam = new System.Windows.Forms.Label();
@@ -52,18 +53,17 @@
             this.lab_ARam = new System.Windows.Forms.Label();
             this.lab2312 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lab213 = new System.Windows.Forms.Label();
             this.lab211 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lab_windoesSpec
@@ -119,6 +119,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "System";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(557, 65);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(110, 122);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 25;
+            this.pictureBox3.TabStop = false;
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -159,38 +169,9 @@
             this.label24.TabIndex = 7;
             this.label24.Text = "Proccesor :";
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(76, 101);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(43, 16);
-            this.label20.TabIndex = 7;
-            this.label20.Text = "User :";
-            // 
-            // lab_userName
-            // 
-            this.lab_userName.AutoSize = true;
-            this.lab_userName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_userName.Location = new System.Drawing.Point(125, 101);
-            this.lab_userName.Name = "lab_userName";
-            this.lab_userName.Size = new System.Drawing.Size(73, 17);
-            this.lab_userName.TabIndex = 1;
-            this.lab_userName.Text = "userName";
-            // 
-            // lab_deviceName
-            // 
-            this.lab_deviceName.AutoSize = true;
-            this.lab_deviceName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lab_deviceName.Location = new System.Drawing.Point(125, 72);
-            this.lab_deviceName.Name = "lab_deviceName";
-            this.lab_deviceName.Size = new System.Drawing.Size(92, 17);
-            this.lab_deviceName.TabIndex = 1;
-            this.lab_deviceName.Text = "deviceName";
-            // 
             // lab_proccesor
             // 
+            this.lab_proccesor.AutoEllipsis = true;
             this.lab_proccesor.AutoSize = true;
             this.lab_proccesor.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lab_proccesor.Location = new System.Drawing.Point(129, 28);
@@ -238,6 +219,37 @@
             this.lab_clockSpeed.Size = new System.Drawing.Size(83, 17);
             this.lab_clockSpeed.TabIndex = 1;
             this.lab_clockSpeed.Text = "clockSpeed";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(76, 101);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(43, 16);
+            this.label20.TabIndex = 7;
+            this.label20.Text = "User :";
+            // 
+            // lab_userName
+            // 
+            this.lab_userName.AutoSize = true;
+            this.lab_userName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_userName.Location = new System.Drawing.Point(125, 101);
+            this.lab_userName.Name = "lab_userName";
+            this.lab_userName.Size = new System.Drawing.Size(73, 17);
+            this.lab_userName.TabIndex = 1;
+            this.lab_userName.Text = "userName";
+            // 
+            // lab_deviceName
+            // 
+            this.lab_deviceName.AutoEllipsis = true;
+            this.lab_deviceName.AutoSize = true;
+            this.lab_deviceName.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lab_deviceName.Location = new System.Drawing.Point(125, 72);
+            this.lab_deviceName.Name = "lab_deviceName";
+            this.lab_deviceName.Size = new System.Drawing.Size(92, 17);
+            this.lab_deviceName.TabIndex = 1;
+            this.lab_deviceName.Text = "deviceName";
             // 
             // lab344
             // 
@@ -318,6 +330,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ram ";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(557, 26);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(110, 122);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox2.TabIndex = 24;
+            this.pictureBox2.TabStop = false;
+            // 
             // lab213
             // 
             this.lab213.AutoSize = true;
@@ -364,26 +386,6 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::OOP_Project.Properties.Resources.motherboard_100;
-            this.pictureBox3.Location = new System.Drawing.Point(557, 65);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(110, 122);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 25;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::OOP_Project.Properties.Resources.smartphone_ram_100;
-            this.pictureBox2.Location = new System.Drawing.Point(557, 26);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(110, 122);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 24;
-            this.pictureBox2.TabStop = false;
-            // 
             // Frm_SystemInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,13 +401,13 @@
             this.Load += new System.EventHandler(this.Frm_SystemInfo_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

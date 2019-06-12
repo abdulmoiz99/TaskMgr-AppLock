@@ -55,7 +55,7 @@ namespace OOP_Project
         }
         // SQL setting and connection setup
         public readonly static SqlConnection con = new SqlConnection(ReadCS());
-        public static string userName = string.Empty;
+        public static String userName =String.Empty;
         private static string ReadCS()
         {
             using (var streamReader = File.OpenText("SqlSettings.dat"))

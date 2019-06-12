@@ -30,11 +30,17 @@ namespace OOP_Project
         {
             label1.Text = name;
             txt_Password.Focus();
+            btn_Unlock.FlatStyle = FlatStyle.Flat;
         }
 
         private void txt_Password_Enter(object sender, EventArgs e)
         {
             txt_Password.PasswordChar = '●';
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

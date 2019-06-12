@@ -293,6 +293,16 @@ namespace OOP_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap tasks_36 {
+            get {
+                object obj = ResourceManager.GetObject("tasks-36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap unlock_48 {
             get {
                 object obj = ResourceManager.GetObject("unlock-48", resourceCulture);
@@ -326,6 +336,16 @@ namespace OOP_Project.Properties {
         internal static System.Drawing.Bitmap windows_xp_100 {
             get {
                 object obj = ResourceManager.GetObject("windows-xp-100", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xpired_36 {
+            get {
+                object obj = ResourceManager.GetObject("xpired-36", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

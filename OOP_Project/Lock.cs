@@ -47,7 +47,7 @@ namespace OOP_Project
         private void GiveAccess_Timer(object sender, EventArgs e)
         {
             if (Process.GetProcessesByName(Name).Length > 0)
-            {
+            { 
             }
             else
             {
@@ -69,11 +69,11 @@ namespace OOP_Project
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("SQL " + ex.Message, "Lock");
+                MessageBox.Show("SQL " +"unlock"+ ex.Message, "Lock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("unlock"+ex.Message, "Lock");
             }
         }
         private void lockApp(String procName)
@@ -91,11 +91,11 @@ namespace OOP_Project
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("SQL " + ex.Message, "Lock");
+                MessageBox.Show("SQL " +"LockApp"+ ex.Message, "Lock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("LockApp" + ex.Message, "Lock");
             }
         }
         private void CheckLockStatus(String procName)
@@ -141,15 +141,15 @@ namespace OOP_Project
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("CheckLockStats"+ex.Message, "Lock");
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("SQL " + ex.Message, "Lock");
+                MessageBox.Show("SQL " + "CheckLockStats" + ex.Message, "Lock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("CheckLockStats" + ex.Message, "Lock");
             }
         }
         public void Startapp(String ProcName)
@@ -184,15 +184,15 @@ namespace OOP_Project
                 }
                 catch (NullReferenceException ex)
                 {
-                    MessageBox.Show(ex.Message, "Lock");
+                    MessageBox.Show("CheckappLock"+ex.Message, "Lock");
                 }
                 catch (SqlException ex)
                 {
-                    MessageBox.Show("SQL " + ex.Message, "Lock");
+                    MessageBox.Show("SQL " + "CheckappLock" + ex.Message, "Lock");
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message, "Lock");
+                    MessageBox.Show("CheckappLock" + ex.Message, "Lock");
                 }
 
             }
@@ -235,15 +235,15 @@ namespace OOP_Project
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("CheckInList"+ex.Message, "Lock");
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("SQL " + ex.Message, "Lock");
+                MessageBox.Show("SQL " + "CheckInList" + ex.Message, "Lock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("CheckInList" + ex.Message, "Lock");
             }
             if (string.Compare("True", Check) == 0)
             {
@@ -271,15 +271,15 @@ namespace OOP_Project
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("GetCount"+ex.Message, "Lock");
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("SQL " + ex.Message, "Lock");
+                MessageBox.Show("SQL " + "GetCount" + ex.Message, "Lock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("GetCount" + ex.Message, "Lock");
             }
             count = int.Parse(count1);
             return count;
@@ -300,15 +300,15 @@ namespace OOP_Project
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("getAppName"+ex.Message, "Lock");
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("SQL " + ex.Message, "Lock");
+                MessageBox.Show("SQL " + "getAppName" + ex.Message, "Lock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("getAppName" + ex.Message, "Lock");
             }
             return Name;
         }
@@ -328,11 +328,11 @@ namespace OOP_Project
             }
             catch (SqlException ex)
             {
-                MessageBox.Show("SQL " + ex.Message, "Lock");
+                MessageBox.Show("SQL " +"SetRecord"+ ex.Message, "Lock");
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Lock");
+                MessageBox.Show("SetRecord" + ex.Message, "Lock");
             }
         }
     }

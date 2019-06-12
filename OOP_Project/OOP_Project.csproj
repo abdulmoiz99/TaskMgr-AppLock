@@ -90,6 +90,12 @@
     <Compile Include="Frm-Blank.Designer.cs">
       <DependentUpon>Frm-Blank.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Active.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Active.Designer.cs">
+      <DependentUpon>Frm_Active.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_AppLock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm-Blank.resx">
       <DependentUpon>Frm-Blank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Active.resx">
+      <DependentUpon>Frm_Active.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_AppLock.resx">
       <DependentUpon>Frm_AppLock.cs</DependentUpon>
@@ -296,6 +305,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\xpired-36.png" />
+    <None Include="Resources\tasks-36.png" />
     <None Include="Resources\chart-361.png" />
   </ItemGroup>
   <ItemGroup>
