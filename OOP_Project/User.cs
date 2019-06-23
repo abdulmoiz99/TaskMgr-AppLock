@@ -35,7 +35,7 @@ namespace OOP_Project
         {
 
         }
-        public User(String name, string email, string password, string cnfrmPassword)
+        public User(String name, string email, string password)
         {
             base.Name = name;
             this.Email = email;
@@ -52,8 +52,8 @@ namespace OOP_Project
                             con.Close();
                         }
                         con.Open();
-                        SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password   ,      UIN_CPassword    )
-                                                        VALUES                  ('" + Name + "'  , '" + Email + "'  ,'" + Password + "','" + CnfrmPassword + "')", con);
+                        SqlCommand cmd = new SqlCommand(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password    )
+                                                        VALUES                  ('" + Name + "'  , '" + Email + "'  ,'" + Password + "')", con);
                         cmd.ExecuteNonQuery();
                         con.Close();
                     }

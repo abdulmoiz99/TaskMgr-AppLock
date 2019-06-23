@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OOP_Project
 {
     public partial class Frm_Dashboard : Form
     {
+
         Timer t = new Timer();
         int Mov;
         int MValX;
@@ -157,7 +152,7 @@ namespace OOP_Project
         {
             this.WindowState = FormWindowState.Minimized;
         }
-      
+
         private void label1_Click(object sender, EventArgs e)
         {
             this.Hide();

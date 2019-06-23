@@ -217,7 +217,7 @@ namespace OOP_Project
                 return 0;
             }
         }
-        public int getAppConutToday()
+        public int getAppconutToday()
         {
             if (con.State == ConnectionState.Open)
             {
@@ -240,7 +240,7 @@ namespace OOP_Project
             string count1 = "0";
             try
             {
-                if (con.State == ConnectionState.Open)
+                if (AppObject.con.State == ConnectionState.Open)
                 {
                     con.Close();
                 }
@@ -260,6 +260,10 @@ namespace OOP_Project
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Stats");
+            }
+            finally
+            {
+                con.Close();
             }
             count = int.Parse(count1);
             return count;

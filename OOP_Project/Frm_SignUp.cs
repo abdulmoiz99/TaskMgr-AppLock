@@ -21,7 +21,7 @@ namespace OOP_Project
             User New = new User();
             if (New.CheckInList(txt_userName.Text) == false)
             {
-                User NEW = new User(txt_userName.Text, txt_Email.Text, txt_password.Text, txt_confirmPassword.Text);
+                User NEW = new User(txt_userName.Text, txt_Email.Text, txt_password.Text);
                 MessageBox.Show("User Created Succesfully");
                 this.Hide();
                 Frm_Login NEW1 = new Frm_Login();

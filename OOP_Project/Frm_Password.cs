@@ -13,22 +13,23 @@ namespace OOP_Project
 {
     public partial class Frm_Password : Form
     {
-        readonly string  name =string.Empty;
+        readonly string  name ="a";
         public Frm_Password(string ProcName)
         {
             InitializeComponent();
             name = ProcName;
+            label1.Text = ProcName;
+
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            label1.Text = name;
+           // label1.Text = name;
             Lock NEW = new Lock(name, txt_Password.Text.ToString());
             this.Close();
         }
 
-        private void Frm_Password_Load(object sender, EventArgs e)
+        private void Frm_Passeword_Load(object sender, EventArgs e)
         {
-            label1.Text = name;
             txt_Password.Focus();
             btn_Unlock.FlatStyle = FlatStyle.Flat;
         }
@@ -40,7 +41,7 @@ namespace OOP_Project
 
         private void btn_close_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }

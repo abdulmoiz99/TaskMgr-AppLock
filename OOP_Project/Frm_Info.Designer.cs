@@ -501,6 +501,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frm_Info";
             this.Activated += new System.EventHandler(this.Frm_Info_Activated);
+            this.Load += new System.EventHandler(this.Frm_Info_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);

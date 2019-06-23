@@ -20,6 +20,7 @@ namespace OOP_Project
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Hide();
+           // Frm_Dashboard New = new Frm_Dashboard();
             Frm_Login New = new Frm_Login();
             New.ShowDialog();
             this.Close();

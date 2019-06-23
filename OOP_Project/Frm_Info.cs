@@ -20,10 +20,15 @@ namespace OOP_Project
         }
         private void Frm_Info_Activated(object sender, EventArgs e)
         {
+            
+        }
+
+        private void Frm_Info_Load(object sender, EventArgs e)
+        {
             lab_user.Text = AppObject.userName.ToUpper();
             try
             {
-                // CURRENTLY LOCKED APP 
+             //   CURRENTLY LOCKED APP
                 if (AppObject.con.State == ConnectionState.Open)
                 {
                     AppObject.con.Close();
@@ -39,7 +44,7 @@ namespace OOP_Project
                 {
                     pnl_Lock.Visible = false;
                 }
-                // FREQUENTLY USED APPS  
+             //   FREQUENTLY USED APPS
                 if (AppObject.con.State == ConnectionState.Open)
                 {
                     AppObject.con.Close();

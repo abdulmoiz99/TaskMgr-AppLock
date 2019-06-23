@@ -56,7 +56,7 @@ namespace OOP_Project
                 {
                     if (TimerEqual(Name) == false)
                     {
-                        if (con.State == ConnectionState.Open)
+                        if (AppObject.con.State == ConnectionState.Open)
                         {
                             con.Close();
                         }
@@ -79,7 +79,7 @@ namespace OOP_Project
                     else
                     {
                         RestricUse(Name);
-                        MessageBox.Show(Name + " is restricted");
+                        MessageBox.Show(Name + " is restricted","Daily Limit Exceed",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     }
                 }
             }

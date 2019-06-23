@@ -33,7 +33,7 @@
             this.Panel_SideBar = new System.Windows.Forms.Panel();
             this.btn_Frm_Active = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Setting = new System.Windows.Forms.Button();
             this.btn_focus = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btn_systemInfo = new System.Windows.Forms.Button();
@@ -45,8 +45,12 @@
             this.Toppannel = new XanderUI.XUIGradientPanel();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_Minimizesd = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel_SideBar.SuspendLayout();
             this.Toppannel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelFloat
@@ -62,7 +66,7 @@
             this.Panel_SideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
             this.Panel_SideBar.Controls.Add(this.btn_Frm_Active);
             this.Panel_SideBar.Controls.Add(this.label1);
-            this.Panel_SideBar.Controls.Add(this.button2);
+            this.Panel_SideBar.Controls.Add(this.btn_Setting);
             this.Panel_SideBar.Controls.Add(this.btn_focus);
             this.Panel_SideBar.Controls.Add(this.button1);
             this.Panel_SideBar.Controls.Add(this.btn_systemInfo);
@@ -109,16 +113,16 @@
             this.label1.Text = "Log Out";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button2
+            // btn_Setting
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(3, 651);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(38, 40);
-            this.button2.TabIndex = 7;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Setting.FlatAppearance.BorderSize = 0;
+            this.btn_Setting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Setting.Image = ((System.Drawing.Image)(resources.GetObject("btn_Setting.Image")));
+            this.btn_Setting.Location = new System.Drawing.Point(3, 651);
+            this.btn_Setting.Name = "btn_Setting";
+            this.btn_Setting.Size = new System.Drawing.Size(38, 40);
+            this.btn_Setting.TabIndex = 7;
+            this.btn_Setting.UseVisualStyleBackColor = true;
             // 
             // btn_focus
             // 
@@ -296,12 +300,32 @@
             this.btn_Minimizesd.UseVisualStyleBackColor = false;
             this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Gray;
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(344, 173);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(353, 254);
+            this.panel1.TabIndex = 8;
+            this.panel1.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureBox1.Location = new System.Drawing.Point(97, 82);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1059, 691);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Toppannel);
             this.Controls.Add(this.Panel_SideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -313,6 +337,8 @@
             this.Panel_SideBar.ResumeLayout(false);
             this.Panel_SideBar.PerformLayout();
             this.Toppannel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -328,12 +354,14 @@
         private System.Windows.Forms.Button btn_AppUsage;
         private System.Windows.Forms.Panel Panel_SideBar;
         private System.Windows.Forms.Button btn_focus;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Setting;
         private System.Windows.Forms.Label label1;
         private XanderUI.XUIObjectEllipse xuiObjectEllipse1;
         private XanderUI.XUIGradientPanel Toppannel;
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_Minimizesd;
         private System.Windows.Forms.Button btn_Frm_Active;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

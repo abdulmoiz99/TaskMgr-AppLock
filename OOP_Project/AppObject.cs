@@ -54,8 +54,9 @@ namespace OOP_Project
             }
         }
         // SQL setting and connection setup
-        public readonly static SqlConnection con = new SqlConnection(ReadCS());
-        public static String userName =String.Empty;
+        public static SqlConnection con = new SqlConnection(@"Data Source=" + DataSource + ";Initial Catalog=OOP;Integrated Security=True;Pooling=False");// ReadCS().ToString());
+        private static String DataSource = ReadCS();
+        public static String userName = String.Empty;
         private static string ReadCS()
         {
             using (var streamReader = File.OpenText("SqlSettings.dat"))
