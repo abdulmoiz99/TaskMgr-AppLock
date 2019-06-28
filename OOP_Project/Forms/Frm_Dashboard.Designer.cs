@@ -45,12 +45,8 @@
             this.Toppannel = new XanderUI.XUIGradientPanel();
             this.btn_close = new System.Windows.Forms.Button();
             this.btn_Minimizesd = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel_SideBar.SuspendLayout();
             this.Toppannel.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelFloat
@@ -300,32 +296,12 @@
             this.btn_Minimizesd.UseVisualStyleBackColor = false;
             this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Gray;
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(344, 173);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 254);
-            this.panel1.TabIndex = 8;
-            this.panel1.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureBox1.Location = new System.Drawing.Point(97, 82);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1059, 691);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Toppannel);
             this.Controls.Add(this.Panel_SideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -337,8 +313,6 @@
             this.Panel_SideBar.ResumeLayout(false);
             this.Panel_SideBar.PerformLayout();
             this.Toppannel.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -361,7 +335,5 @@
         private System.Windows.Forms.Button btn_close;
         private System.Windows.Forms.Button btn_Minimizesd;
         private System.Windows.Forms.Button btn_Frm_Active;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

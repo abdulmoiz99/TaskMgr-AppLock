@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lab_ScreenTimeMonth = new System.Windows.Forms.Label();
@@ -124,10 +124,10 @@
             // btn_Daily
             // 
             this.btn_Daily.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Daily.Location = new System.Drawing.Point(124, 34);
+            this.btn_Daily.Location = new System.Drawing.Point(184, 34);
             this.btn_Daily.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Daily.Name = "btn_Daily";
-            this.btn_Daily.Size = new System.Drawing.Size(220, 38);
+            this.btn_Daily.Size = new System.Drawing.Size(162, 38);
             this.btn_Daily.TabIndex = 2;
             this.btn_Daily.Text = "Daily";
             this.btn_Daily.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             this.btn_Monthly.Location = new System.Drawing.Point(344, 34);
             this.btn_Monthly.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_Monthly.Name = "btn_Monthly";
-            this.btn_Monthly.Size = new System.Drawing.Size(220, 38);
+            this.btn_Monthly.Size = new System.Drawing.Size(146, 38);
             this.btn_Monthly.TabIndex = 3;
             this.btn_Monthly.Text = "Monthly";
             this.btn_Monthly.UseVisualStyleBackColor = true;
@@ -162,18 +162,19 @@
             // 
             // chart1
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart1.Legends.Add(legend4);
+            this.chart1.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(6, 88);
             this.chart1.Name = "chart1";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.Legend = "Legend1";
-            series4.Name = "Time";
-            series4.YValuesPerPoint = 6;
-            this.chart1.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Legend = "Legend1";
+            series2.Name = "Time";
+            series2.YValuesPerPoint = 6;
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(720, 265);
             this.chart1.TabIndex = 20;
             this.chart1.Text = "chart1";

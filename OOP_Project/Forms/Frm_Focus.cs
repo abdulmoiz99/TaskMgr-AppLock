@@ -22,33 +22,7 @@ namespace OOP_Project
 
         private void Frm_Focus_Activated(object sender, EventArgs e)
         {
-            try
-            {
-                if (AppObject.con.State == ConnectionState.Open)
-                {
-                    AppObject.con.Close();
-                }
-                AppObject.con.Open();
-                SqlCommand cmd1 = new SqlCommand("SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='"+Stats.currentMonth().ToString()+"');", AppObject.con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd1);
-                DataTable ds = new DataTable();
-                da.Fill(ds);
-                dgv_MostUsedApps.DataSource = ds;
-                AppObject.con.Close();
-
-            }
-            catch (NullReferenceException ex)
-            {
-                MessageBox.Show(ex.Message, "FORM FOCUS");
-            }
-            catch (SqlException ex)
-            {
-                MessageBox.Show("SQL " + ex.Message, "FORM FOCUS");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "FORM FOCUS");
-            }
+            FormSetup.fillDgv(dgv_MostUsedApps, "SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='" + Stats.currentMonth().ToString() + "');");
         }
         private void Frm_Focus_Load(object sender, EventArgs e)
         {
@@ -90,11 +64,23 @@ namespace OOP_Project
                 int index = e.RowIndex;
                 DataGridViewRow selectedrow = dgv_MostUsedApps.Rows[index];
                 lab_appName.Text = selectedrow.Cells[0].Value.ToString();
+                if (lab_appName.Text != "App Name")
+                {
+                    chart.Series[0].Points.Clear();
+                    Stats New = new Stats();
+                    panel1.Visible = false;
+                    chart.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineWidth = 0;
+                    chart.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineWidth = 0;
+                    chart.ChartAreas[0].AxisY.MajorGrid.Enabled = false;
+                    string[] Days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+                    for (int i = 0; i < 7; i++) { this.chart.Series["Time"].Points.AddXY(Days[i], (New.getStatsByDay(lab_appName.Text, Days[i]))/60); }
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+
         }
         private void btn_add_Click(object sender, EventArgs e)
         {

@@ -103,7 +103,6 @@ namespace OOP_Project
         {
             PanelFloat.Height = btn_DashBoard.Height;
             PanelFloat.Top = btn_DashBoard.Top;
-
             Frm_Info NEW = new Frm_Info();
             NEW.MdiParent = this;
             NEW.Dock = DockStyle.Fill;
@@ -146,6 +145,7 @@ namespace OOP_Project
             NEW.MdiParent = this;
             NEW.Dock = DockStyle.Fill;
             NEW.Show();
+            FormSetup N = new FormSetup();
         }
 
         private void btn_Minimizesd_Click(object sender, EventArgs e)

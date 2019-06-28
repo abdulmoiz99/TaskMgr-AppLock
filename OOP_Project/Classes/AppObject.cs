@@ -21,6 +21,42 @@ namespace OOP_Project
             set
             { name = value; }
         }
+
+        public static string DataSource
+        {
+            get
+            {
+                return dataSource;
+            }
+            set { dataSource = value; }
+        }
+
+        public static string UserName
+        {
+            get
+            {
+                return userName;
+            }
+
+            set
+            {
+                userName = value;
+            }
+        }
+
+        public static SqlConnection Con
+        {
+            get
+            {
+                return con;
+            }
+
+            set
+            {
+                con = value;
+            }
+        }
+
         public abstract int getCount();
         public virtual string getAppName(int id)
         {
@@ -54,10 +90,11 @@ namespace OOP_Project
             }
         }
         // SQL setting and connection setup
-        public static SqlConnection con = new SqlConnection(@"Data Source=" + DataSource + ";Initial Catalog=OOP;Integrated Security=True;Pooling=False");// ReadCS().ToString());
-        private static String DataSource = ReadCS();
-        public static String userName = String.Empty;
-        private static string ReadCS()
+        //public static SqlConnection con = new SqlConnection(@"Data Source=" + DataSource + ";Initial Catalog=OOP;Integrated Security=True;Pooling=False");// ReadCS().ToString());
+        private static String userName = "a";// String.Empty;
+        private static SqlConnection con = new SqlConnection(@"Data Source=" + DataSource + ";Initial Catalog=OOP;Integrated Security=True;Pooling=False");// ReadCS().ToString()); 
+        private static String dataSource;
+        public static string ReadCS()
         {
             using (var streamReader = File.OpenText("SqlSettings.dat"))
             {

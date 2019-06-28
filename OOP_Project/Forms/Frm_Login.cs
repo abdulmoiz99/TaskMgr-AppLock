@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OOP_Project.Classes;
 
 namespace OOP_Project
 {
@@ -33,7 +34,7 @@ namespace OOP_Project
             {
                 if (User.checkPassword(txt_UserName.Text, txt_Password.Text) == true)
                 {
-                    AppObject.userName = txt_UserName.Text;
+                    AppObject.UserName = txt_UserName.Text;
                     this.Hide();
                     Frm_Dashboard NEW1 = new Frm_Dashboard();
                     NEW1.ShowDialog();
@@ -54,6 +55,15 @@ namespace OOP_Project
         private void Frm_Login_Load(object sender, EventArgs e)
         {
             txt_UserName.Focus();
+            try
+            {
+                AppObject.DataSource = AppObject.ReadCS();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
 
         private void txt_Password_Enter(object sender, EventArgs e)

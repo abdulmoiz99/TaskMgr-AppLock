@@ -235,12 +235,12 @@
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(53, 90);
+            this.label7.Location = new System.Drawing.Point(28, 90);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 22);
+            this.label7.Size = new System.Drawing.Size(82, 22);
             this.label7.TabIndex = 5;
-            this.label7.Text = "Email:";
+            this.label7.Text = "E-mail   :";
             // 
             // Frm_SignUp
             // 

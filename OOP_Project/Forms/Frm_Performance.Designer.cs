@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -187,19 +187,22 @@
             // 
             // Disk_chart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.Disk_chart.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.Disk_chart.Legends.Add(legend4);
+            this.Disk_chart.BorderSkin.BackColor = System.Drawing.Color.Silver;
+            this.Disk_chart.BorderSkin.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom;
+            this.Disk_chart.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss;
+            chartArea1.Name = "ChartArea1";
+            this.Disk_chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.Disk_chart.Legends.Add(legend1);
             this.Disk_chart.Location = new System.Drawing.Point(19, 25);
             this.Disk_chart.Name = "Disk_chart";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series4.LabelBorderWidth = 0;
-            series4.LabelForeColor = System.Drawing.Color.White;
-            series4.Legend = "Legend1";
-            series4.Name = "DiskUsage";
-            this.Disk_chart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.LabelBorderWidth = 0;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "DiskUsage";
+            this.Disk_chart.Series.Add(series1);
             this.Disk_chart.Size = new System.Drawing.Size(323, 224);
             this.Disk_chart.TabIndex = 9;
             this.Disk_chart.Text = "chart1";

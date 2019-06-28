@@ -76,129 +76,131 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppObject.cs" />
-    <Compile Include="Focus.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Classes\AppObject.cs" />
+    <Compile Include="Classes\Focus.cs" />
+    <Compile Include="Classes\SQL.cs" />
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm-Blank.cs">
+    <Compile Include="Classes\FormSetup.cs" />
+    <Compile Include="Forms\Frm-Blank.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm-Blank.Designer.cs">
+    <Compile Include="Forms\Frm-Blank.Designer.cs">
       <DependentUpon>Frm-Blank.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Active.cs">
+    <Compile Include="Forms\Frm_Active.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Active.Designer.cs">
+    <Compile Include="Forms\Frm_Active.Designer.cs">
       <DependentUpon>Frm_Active.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_AppLock.cs">
+    <Compile Include="Forms\Frm_AppLock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_AppLock.Designer.cs">
+    <Compile Include="Forms\Frm_AppLock.Designer.cs">
       <DependentUpon>Frm_AppLock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Dashboard.cs">
+    <Compile Include="Forms\Frm_Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Dashboard.Designer.cs">
+    <Compile Include="Forms\Frm_Dashboard.Designer.cs">
       <DependentUpon>Frm_Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Focus.cs">
+    <Compile Include="Forms\Frm_Focus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Focus.Designer.cs">
+    <Compile Include="Forms\Frm_Focus.Designer.cs">
       <DependentUpon>Frm_Focus.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Info.cs">
+    <Compile Include="Forms\Frm_Info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Info.Designer.cs">
+    <Compile Include="Forms\Frm_Info.Designer.cs">
       <DependentUpon>Frm_Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Login.cs">
+    <Compile Include="Forms\Frm_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Login.Designer.cs">
+    <Compile Include="Forms\Frm_Login.Designer.cs">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Password.cs">
+    <Compile Include="Forms\Frm_Password.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Password.Designer.cs">
+    <Compile Include="Forms\Frm_Password.Designer.cs">
       <DependentUpon>Frm_Password.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Performance.cs">
+    <Compile Include="Forms\Frm_Performance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Performance.Designer.cs">
+    <Compile Include="Forms\Frm_Performance.Designer.cs">
       <DependentUpon>Frm_Performance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_SignUp.cs">
+    <Compile Include="Forms\Frm_SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_SignUp.Designer.cs">
+    <Compile Include="Forms\Frm_SignUp.Designer.cs">
       <DependentUpon>Frm_SignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Stats.cs">
+    <Compile Include="Forms\Frm_Stats.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Stats.Designer.cs">
+    <Compile Include="Forms\Frm_Stats.Designer.cs">
       <DependentUpon>Frm_Stats.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_SystemInfo.cs">
+    <Compile Include="Forms\Frm_SystemInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_SystemInfo.Designer.cs">
+    <Compile Include="Forms\Frm_SystemInfo.Designer.cs">
       <DependentUpon>Frm_SystemInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="HardwareInfo.cs" />
-    <Compile Include="Lock.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Classes\HardwareInfo.cs" />
+    <Compile Include="Classes\Lock.cs" />
+    <Compile Include="Classes\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stats.cs" />
-    <Compile Include="User.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <Compile Include="Classes\Stats.cs" />
+    <Compile Include="Classes\User.cs" />
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm-Blank.resx">
+    <EmbeddedResource Include="Forms\Frm-Blank.resx">
       <DependentUpon>Frm-Blank.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Active.resx">
+    <EmbeddedResource Include="Forms\Frm_Active.resx">
       <DependentUpon>Frm_Active.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_AppLock.resx">
+    <EmbeddedResource Include="Forms\Frm_AppLock.resx">
       <DependentUpon>Frm_AppLock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Dashboard.resx">
+    <EmbeddedResource Include="Forms\Frm_Dashboard.resx">
       <DependentUpon>Frm_Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Focus.resx">
+    <EmbeddedResource Include="Forms\Frm_Focus.resx">
       <DependentUpon>Frm_Focus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Info.resx">
+    <EmbeddedResource Include="Forms\Frm_Info.resx">
       <DependentUpon>Frm_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Login.resx">
+    <EmbeddedResource Include="Forms\Frm_Login.resx">
       <DependentUpon>Frm_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Password.resx">
+    <EmbeddedResource Include="Forms\Frm_Password.resx">
       <DependentUpon>Frm_Password.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Performance.resx">
+    <EmbeddedResource Include="Forms\Frm_Performance.resx">
       <DependentUpon>Frm_Performance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_SignUp.resx">
+    <EmbeddedResource Include="Forms\Frm_SignUp.resx">
       <DependentUpon>Frm_SignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Stats.resx">
+    <EmbeddedResource Include="Forms\Frm_Stats.resx">
       <DependentUpon>Frm_Stats.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_SystemInfo.resx">
+    <EmbeddedResource Include="Forms\Frm_SystemInfo.resx">
       <DependentUpon>Frm_SystemInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
