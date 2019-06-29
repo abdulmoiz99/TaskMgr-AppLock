@@ -22,7 +22,7 @@ namespace OOP_Project
 
         private void Frm_Focus_Activated(object sender, EventArgs e)
         {
-            FormSetup.fillDgv(dgv_MostUsedApps, "SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='" + Stats.currentMonth().ToString() + "');");
+            FormSetup.fillDgv(dgv_MostUsedApps, "SELECT DISTINCT stats_appname FROM Stats where Stats_Time>(SELECT AVG(Stats_Time)FROM Stats WHERE Stats_Month='" + Stats.currentMonth().ToString() + "'And Stats_User='"+AppObject.UserName+"')");
         }
         private void Frm_Focus_Load(object sender, EventArgs e)
         {

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using OOP_Project.Forms;
 
 namespace OOP_Project
 {
@@ -163,7 +164,8 @@ namespace OOP_Project
 
         private void btn_close_Click_1(object sender, EventArgs e)
         {
-            this.Close();
+           
+           this.Close();
         }
 
         private void Toppannel_MouseUp(object sender, MouseEventArgs e)

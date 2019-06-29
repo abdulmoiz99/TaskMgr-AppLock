@@ -52,8 +52,7 @@ namespace OOP_Project
             }
             else
             {
-                lockApp(Name);
-            }
+                lockApp(Name); t.Stop();            }
         }
         public void Unlock(string ProcName)
         {
@@ -159,14 +158,14 @@ namespace OOP_Project
         {
             int count = 0;
             string count1 = "0";
-            count1 = SQL.ScalarQuery("SELECT COUNT(*) FROM Lock ");
+            count1 = SQL.ScalarQuery("SELECT COUNT(*) FROM Lock where L_User='"+AppObject.UserName+"'");
             count = int.Parse(count1);
             return count;
         }
         public override string getAppName(int id)
         {
             string Name = "";
-            Name = SQL.ScalarQuery("SELECT L_Name from Lock where L_id =" + id + " ");
+            Name = SQL.ScalarQuery("SELECT L_Name from Lock where L_id =" + id + " ANd  L_User='" + AppObject.UserName + "'");
             return Name;
         }
         public override void setRecord(String Name)

@@ -15,7 +15,6 @@ namespace OOP_Project
     {
         private string email;
         private string password;
-        private string cnfrmPassword;
         public string Email
         {
             get { return email; }
@@ -26,12 +25,6 @@ namespace OOP_Project
             get { return password; }
             set { password = value; }
         }
-
-        public string CnfrmPassword
-        {
-            get { return cnfrmPassword; }
-            set { cnfrmPassword = value; }
-        }
         public User()
         {
 
@@ -41,15 +34,13 @@ namespace OOP_Project
             base.Name = name;
             this.Email = email;
             this.Password = password;
-            this.CnfrmPassword = cnfrmPassword;
-            if (matchPassword(password, cnfrmPassword) == true)
+
+            if (CheckInList(name) == false)
             {
-                if (CheckInList(name) == false)
-                {
-                    SQL.NonScalarQuery(@"INSERT INTO userinfo (UIN_username  ,UIN_email     ,  UIN_password    )
-                                                        VALUES                  ('" + Name + "'  , '" + Email + "'  ,'" + Password + "')");
-                }
+                SQL.NonScalarQuery(@"INSERT INTO userinfo (UIN_username     ,UIN_email     ,  UIN_password    )
+                                           VALUES              ('" + Name + "'  , '" + Email + "'  ,'" + Password + "')");
             }
+
         }
         private bool matchPassword(string password, string cnfrmPassword)
         {
@@ -67,14 +58,8 @@ namespace OOP_Project
         {
             string Compare = "";
             Compare = SQL.ScalarQuery("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM userinfo  WHERE UIN_username = '" + name + "' ) THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END");
-            if (string.Compare("True", Compare) == 0)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            if (string.Compare("True", Compare) == 0) return true;
+            else return false;
         }
 
         public bool checkPassword(string name, string password)

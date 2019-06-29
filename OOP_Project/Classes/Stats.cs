@@ -41,19 +41,19 @@ namespace OOP_Project
         {
             if (Process.GetProcessesByName(Name).Length > 0)
             {
-                SQL.NonScalarQuery("UPDATE stats SET stats_time = stats_time + 1 WHERE stats_AppName = '" + Name + "' AND stats_Date = '" + DateTime.Now.ToShortDateString() + "'");
+                SQL.NonScalarQuery("UPDATE stats SET stats_time = stats_time + 1 WHERE stats_AppName = '" + Name + "' AND stats_Date = '" + DateTime.Now.ToShortDateString() + "' AND stats_user='"+AppObject.UserName+"'");
             }
         }
         public override void setRecord(string Name)
         {
-            SQL.NonScalarQuery(@"INSERT INTO stats (Stats_AppName  , Stats_Time     ,  Stats_Date                              ,Stats_Day                       ,Stats_Month)
-                                                            VALUES ('" + Name + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "')");
+            SQL.NonScalarQuery(@"INSERT INTO stats (Stats_AppName  , Stats_Time     ,  Stats_Date                              ,Stats_Day                       ,Stats_Month                        ,Stats_User)
+                                                            VALUES ('" + Name + "',      '0'  ,'" + DateTime.Now.ToShortDateString() + "','" + DateTime.Now.DayOfWeek + "','" + currentMonth() + "','"+AppObject.UserName+"')");
             startStats(Name);
         }
         public override bool CheckInList(string Name)
         {
             string CompareDateFromStats = "";
-            CompareDateFromStats = SQL.ScalarQuery("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + Name + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END");
+            CompareDateFromStats = SQL.ScalarQuery("SELECT CASE WHEN EXISTS (SELECT TOP 1 * FROM stats  WHERE stats_date = '" + DateTime.Now.ToShortDateString() + "' AND stats_appName='" + Name + "' AND stats_user='" + AppObject.UserName + "') THEN CAST (1 AS BIT) ELSE CAST (0 AS BIT) END");
             if (string.Compare("True", CompareDateFromStats) == 0)
             {
                 return true;
@@ -72,7 +72,7 @@ namespace OOP_Project
         public int getStatsToday(string procName)
         {
             String Stats;
-            Stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "' AND  stats_date='" + DateTime.Now.ToShortDateString() + "'");
+            Stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "' AND  stats_date='" + DateTime.Now.ToShortDateString() + "' AND stats_user='" + AppObject.UserName + "'");
             if (Stats != "")
             {
                 return int.Parse(Stats);
@@ -86,7 +86,7 @@ namespace OOP_Project
         public int getStatsByDay(string procName, string Day)
         {
             string stats = "";
-            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "' AND stats_day='"+Day+"' AND  stats_MONTH='" + currentMonth() + "'");
+            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_Appname='" + procName + "' AND stats_day='"+Day+"' AND  stats_MONTH='" + currentMonth() + "' AND stats_user='" + AppObject.UserName + "'");
             if (stats != "")
             {
                 return int.Parse(stats);
@@ -100,7 +100,7 @@ namespace OOP_Project
         public int getStatsbyCurrentMonth(String AppName)
         {
             string stats = "";
-            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_AppName='" + AppName + "'AND stats_Month='" + currentMonth() + "'");
+            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_AppName='" + AppName + "'AND stats_Month='" + currentMonth() + "' AND stats_user='" + AppObject.UserName + "'");
             if (stats != "")
             {
                 return int.Parse(stats);
@@ -114,7 +114,7 @@ namespace OOP_Project
         public int getScreenTimeToday()
         {
             string stats = "";
-            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='OOP_Project' AND stats_date='" + DateTime.Now.ToShortDateString() + "' ");
+            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='OOP_Project' AND stats_date='" + DateTime.Now.ToShortDateString() + "' AND stats_user='" + AppObject.UserName + "' ");
             if (stats != "")
             {
                 return int.Parse(stats);
@@ -128,7 +128,7 @@ namespace OOP_Project
         public int getScreenTimeMonth()
         {
             string stats = "";
-            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='OOP_Project' AND stats_Month='" + currentMonth() + "' ");
+            stats = SQL.ScalarQuery("SELECT SUM(STATS_time) FROM Stats WHERE stats_appname='OOP_Project' AND stats_Month='" + currentMonth() + "' AND stats_user='" + AppObject.UserName + "' ");
             if (stats != "")
             {
                 return int.Parse(stats);
@@ -142,7 +142,7 @@ namespace OOP_Project
         public int getAppconutToday()
         {
             string stats = "";
-            stats = SQL.ScalarQuery("SELECT COUNT(stats_appname) FROM stats WHERE stats_date='" + DateTime.Now.ToShortDateString() + "'");
+            stats = SQL.ScalarQuery("SELECT COUNT(stats_appname) FROM stats WHERE stats_date='" + DateTime.Now.ToShortDateString() + "' ANd stats_user='" + AppObject.UserName + "'");
             if (stats != "")
             {
                 return int.Parse(stats);
@@ -157,7 +157,7 @@ namespace OOP_Project
         {
             int count = 0;
             string count1 = "0";
-            count1 = SQL.ScalarQuery("SELECT COUNT(*) FROM Stats ");
+            count1 = SQL.ScalarQuery("SELECT COUNT(*) FROM Stats where stats_user='" + AppObject.UserName + "'");
             count = int.Parse(count1);
             return count;
         }

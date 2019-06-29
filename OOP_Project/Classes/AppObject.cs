@@ -21,7 +21,6 @@ namespace OOP_Project
             set
             { name = value; }
         }
-
         public static string DataSource
         {
             get
@@ -30,7 +29,6 @@ namespace OOP_Project
             }
             set { dataSource = value; }
         }
-
         public static string UserName
         {
             get
@@ -43,20 +41,17 @@ namespace OOP_Project
                 userName = value;
             }
         }
-
         public static SqlConnection Con
         {
             get
             {
                 return con;
             }
-
             set
             {
                 con = value;
             }
         }
-
         public abstract int getCount();
         public virtual string getAppName(int id)
         {
@@ -90,8 +85,7 @@ namespace OOP_Project
             }
         }
         // SQL setting and connection setup
-        //public static SqlConnection con = new SqlConnection(@"Data Source=" + DataSource + ";Initial Catalog=OOP;Integrated Security=True;Pooling=False");// ReadCS().ToString());
-        private static String userName = "a";// String.Empty;
+        private static String userName = String.Empty;
         private static SqlConnection con = new SqlConnection(@"Data Source=" + DataSource + ";Initial Catalog=OOP;Integrated Security=True;Pooling=False");// ReadCS().ToString()); 
         private static String dataSource;
         public static string ReadCS()

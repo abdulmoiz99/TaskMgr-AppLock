@@ -20,12 +20,13 @@ namespace OOP_Project
         }
         private void Frm_AppLock_Activated(object sender, EventArgs e)
         {
+            pnl_applock.Visible = true;
             // lock 
             FormSetup.fillCombo(cmb_newLock, "Lock", "L_Name", "L_id", "L_locked=0", "L");
             //Unlock
             FormSetup.fillCombo(cmb_newUnlock, "Lock", "L_Name", "L_id", "L_locked=1", "L");
             //datagrid view 
-            FormSetup.fillDgv(dgv_currentlyLocked, "select L_name from Lock where L_locked=1");
+            FormSetup.fillDgv(dgv_currentlyLocked, "select L_name from Lock where L_locked=1 and L_User='"+AppObject.UserName+"'");
             if (dgv_currentlyLocked.RowCount > 0)
             {
                 pnl_applock.Visible = false;

@@ -31,8 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_Dashboard));
             this.PanelFloat = new System.Windows.Forms.Panel();
             this.Panel_SideBar = new System.Windows.Forms.Panel();
-            this.btn_Frm_Active = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.xuiObjectEllipse1 = new XanderUI.XUIObjectEllipse();
+            this.Toppannel = new XanderUI.XUIGradientPanel();
+            this.btn_close = new System.Windows.Forms.Button();
+            this.btn_Minimizesd = new System.Windows.Forms.Button();
+            this.btn_Frm_Active = new System.Windows.Forms.Button();
             this.btn_Setting = new System.Windows.Forms.Button();
             this.btn_focus = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,10 +45,6 @@
             this.btn_Active = new System.Windows.Forms.Button();
             this.btn_Lock = new System.Windows.Forms.Button();
             this.btn_DashBoard = new System.Windows.Forms.Button();
-            this.xuiObjectEllipse1 = new XanderUI.XUIObjectEllipse();
-            this.Toppannel = new XanderUI.XUIGradientPanel();
-            this.btn_close = new System.Windows.Forms.Button();
-            this.btn_Minimizesd = new System.Windows.Forms.Button();
             this.Panel_SideBar.SuspendLayout();
             this.Toppannel.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +78,72 @@
             this.Panel_SideBar.Size = new System.Drawing.Size(268, 691);
             this.Panel_SideBar.TabIndex = 6;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(96)))), ((int)(((byte)(133)))));
+            this.label1.Location = new System.Drawing.Point(47, 658);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 22);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Log Out";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // xuiObjectEllipse1
+            // 
+            this.xuiObjectEllipse1.CornerRadius = 30;
+            this.xuiObjectEllipse1.EffectedControl = this;
+            this.xuiObjectEllipse1.EffectedForm = this;
+            // 
+            // Toppannel
+            // 
+            this.Toppannel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Toppannel.BottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(212)))), ((int)(((byte)(104)))));
+            this.Toppannel.BottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(192)))), ((int)(((byte)(224)))));
+            this.Toppannel.Controls.Add(this.btn_close);
+            this.Toppannel.Controls.Add(this.btn_Minimizesd);
+            this.Toppannel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Toppannel.Location = new System.Drawing.Point(268, 0);
+            this.Toppannel.Name = "Toppannel";
+            this.Toppannel.PrimerColor = System.Drawing.Color.White;
+            this.Toppannel.Size = new System.Drawing.Size(791, 36);
+            this.Toppannel.Style = XanderUI.XUIGradientPanel.GradientStyle.Corners;
+            this.Toppannel.TabIndex = 3;
+            this.Toppannel.TopLeft = System.Drawing.Color.DeepSkyBlue;
+            this.Toppannel.TopRight = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(192)))), ((int)(((byte)(224)))));
+            this.Toppannel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseDown);
+            this.Toppannel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseMove);
+            this.Toppannel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseUp);
+            // 
+            // btn_close
+            // 
+            this.btn_close.BackColor = System.Drawing.Color.Transparent;
+            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btn_close.FlatAppearance.BorderSize = 0;
+            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.Location = new System.Drawing.Point(754, 0);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(35, 34);
+            this.btn_close.TabIndex = 9;
+            this.btn_close.UseVisualStyleBackColor = false;
+            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
+            // 
+            // btn_Minimizesd
+            // 
+            this.btn_Minimizesd.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Minimizesd.FlatAppearance.BorderSize = 0;
+            this.btn_Minimizesd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Minimizesd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizesd.Image")));
+            this.btn_Minimizesd.Location = new System.Drawing.Point(715, 0);
+            this.btn_Minimizesd.Name = "btn_Minimizesd";
+            this.btn_Minimizesd.Size = new System.Drawing.Size(35, 37);
+            this.btn_Minimizesd.TabIndex = 8;
+            this.btn_Minimizesd.UseVisualStyleBackColor = false;
+            this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
+            // 
             // btn_Frm_Active
             // 
             this.btn_Frm_Active.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
@@ -96,18 +162,6 @@
             this.btn_Frm_Active.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_Frm_Active.UseVisualStyleBackColor = false;
             this.btn_Frm_Active.Click += new System.EventHandler(this.btn_Frm_Active_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(96)))), ((int)(((byte)(133)))));
-            this.label1.Location = new System.Drawing.Point(47, 658);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 22);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Log Out";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btn_Setting
             // 
@@ -241,60 +295,6 @@
             this.btn_DashBoard.Text = "  DashBoard";
             this.btn_DashBoard.UseVisualStyleBackColor = false;
             this.btn_DashBoard.Click += new System.EventHandler(this.btn_DashBoard_Click);
-            // 
-            // xuiObjectEllipse1
-            // 
-            this.xuiObjectEllipse1.CornerRadius = 30;
-            this.xuiObjectEllipse1.EffectedControl = this;
-            this.xuiObjectEllipse1.EffectedForm = this;
-            // 
-            // Toppannel
-            // 
-            this.Toppannel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Toppannel.BottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(212)))), ((int)(((byte)(104)))));
-            this.Toppannel.BottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(192)))), ((int)(((byte)(224)))));
-            this.Toppannel.Controls.Add(this.btn_close);
-            this.Toppannel.Controls.Add(this.btn_Minimizesd);
-            this.Toppannel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Toppannel.Location = new System.Drawing.Point(268, 0);
-            this.Toppannel.Name = "Toppannel";
-            this.Toppannel.PrimerColor = System.Drawing.Color.White;
-            this.Toppannel.Size = new System.Drawing.Size(791, 36);
-            this.Toppannel.Style = XanderUI.XUIGradientPanel.GradientStyle.Corners;
-            this.Toppannel.TabIndex = 3;
-            this.Toppannel.TopLeft = System.Drawing.Color.DeepSkyBlue;
-            this.Toppannel.TopRight = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(192)))), ((int)(((byte)(224)))));
-            this.Toppannel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseDown);
-            this.Toppannel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseMove);
-            this.Toppannel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Toppannel_MouseUp);
-            // 
-            // btn_close
-            // 
-            this.btn_close.BackColor = System.Drawing.Color.Transparent;
-            this.btn_close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_close.FlatAppearance.BorderSize = 0;
-            this.btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
-            this.btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
-            this.btn_close.Location = new System.Drawing.Point(754, 0);
-            this.btn_close.Name = "btn_close";
-            this.btn_close.Size = new System.Drawing.Size(35, 34);
-            this.btn_close.TabIndex = 9;
-            this.btn_close.UseVisualStyleBackColor = false;
-            this.btn_close.Click += new System.EventHandler(this.btn_close_Click_1);
-            // 
-            // btn_Minimizesd
-            // 
-            this.btn_Minimizesd.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Minimizesd.FlatAppearance.BorderSize = 0;
-            this.btn_Minimizesd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Minimizesd.Image = ((System.Drawing.Image)(resources.GetObject("btn_Minimizesd.Image")));
-            this.btn_Minimizesd.Location = new System.Drawing.Point(715, 0);
-            this.btn_Minimizesd.Name = "btn_Minimizesd";
-            this.btn_Minimizesd.Size = new System.Drawing.Size(35, 37);
-            this.btn_Minimizesd.TabIndex = 8;
-            this.btn_Minimizesd.UseVisualStyleBackColor = false;
-            this.btn_Minimizesd.Click += new System.EventHandler(this.btn_Minimizesd_Click);
             // 
             // Frm_Dashboard
             // 

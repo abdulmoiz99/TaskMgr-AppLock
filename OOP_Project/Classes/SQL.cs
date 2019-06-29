@@ -16,13 +16,30 @@ namespace OOP_Project.Classes
         public static String ScalarQuery(String Query)
         {
             String Result = string.Empty;
+            try
+            {
+
             if (AppObject.Con.State == ConnectionState.Open)
             {
                 AppObject.Con.Close();
             }
             AppObject.Con.Open();
             SqlCommand cmd = new SqlCommand(Query, AppObject.Con);
-            return cmd.ExecuteScalar().ToString();
+            Result= cmd.ExecuteScalar().ToString();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("SQL " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("SQL Scalar Query" + ex.Message);
+            }
+            finally
+            {
+                AppObject.Con.Close();
+            }
+            return Result;
         }
         public static void NonScalarQuery(String Query)
         {

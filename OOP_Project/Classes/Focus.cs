@@ -18,17 +18,12 @@ namespace OOP_Project
         public int Time
         {
             get
-            {
-                return time;
-            }
-
+            { return time; }
             set
-            {
-                time = value;
-            }
+            { time = value; }
         }
         public Focus()
-        {
+        { 
         }
         public Focus(string procName)
         {
@@ -57,11 +52,7 @@ namespace OOP_Project
                 {
                     if (TimerEqual(Name) == false)
                     {
-                        if (AppObject.Con.State == ConnectionState.Open)
-                        {
-                            Con.Close();
-                        }
-                        SQL.NonScalarQuery("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + Name + "'");
+                        SQL.NonScalarQuery("UPDATE Focus SET F_CountLive = F_CountLive + 1 WHERE F_Name = '" + Name + "'and F_user='" + AppObject.UserName + "'");
                     }
                     else
                     {
@@ -82,15 +73,11 @@ namespace OOP_Project
             int differenceInDays = -1;
             if (getCount() > 0)
             {
-                if (Con.State == ConnectionState.Open)
-                {
-                    Con.Close();
-                }
-                date = SQL.ScalarQuery("select F_date from Focus where F_name='" + name + "'");
+                date = SQL.ScalarQuery("select F_date from Focus where F_name='" + name + "'and F_user='" + AppObject.UserName + "'");
                 StartDate = Convert.ToDateTime(date);
                 EndDate = System.DateTime.Now;
                 TimeSpan ts = EndDate.Date - StartDate.Date;
-                differenceInDays = ts.Days;  // This is in int 
+                differenceInDays = ts.Days; 
             }
             if (differenceInDays == 0)
             {
@@ -104,14 +91,14 @@ namespace OOP_Project
         }
         private void UpdateDate(String procName)
         {
-            SQL.NonScalarQuery("Update Focus set F_date='" + DateTime.Now.ToShortDateString() + "' where f_Name='" + procName + "'");
+            SQL.NonScalarQuery("Update Focus set F_date='" + DateTime.Now.ToShortDateString() + "' where f_Name='" + procName + "' and F_user='" + AppObject.UserName + "'");
         }
         private bool TimerEqual(String procName)
         {
             string countLive;
             string countTime;
-            countLive = SQL.ScalarQuery("select F_CountLive from Focus where F_name='" + procName + "'");
-            countTime = SQL.ScalarQuery("select F_CountTimer from Focus where F_name='" + procName + "'");
+            countLive = SQL.ScalarQuery("select F_CountLive  from Focus where F_name='" + procName + "' And F_user='" + AppObject.UserName + "'");
+            countTime = SQL.ScalarQuery("select F_CountTimer from Focus where F_name='" + procName + "' And F_user='" + AppObject.UserName + "'");
             if (string.Compare(countLive, countTime) == 0)
             {
                 return true;
@@ -130,9 +117,8 @@ namespace OOP_Project
         }
 
         private void ResetTimer(string procName)
-
         {
-            SQL.NonScalarQuery("Update Focus set F_Countlive= 0 where f_Name='" + procName + "'");
+            SQL.NonScalarQuery("Update Focus set F_Countlive= 0 where f_Name='" + procName + "' and F_user='" + AppObject.UserName + "'");
         }
         public override void setRecord(string Name, int time)
         {
@@ -143,7 +129,7 @@ namespace OOP_Project
         {
             int count = 0;
             string count1 = "0";
-            count1 = SQL.ScalarQuery("SELECT COUNT(*) FROM Focus;");
+            count1 = SQL.ScalarQuery("SELECT COUNT(*) FROM Focus where F_user='"+AppObject.UserName+"';");
             count = int.Parse(count1);
             return count;
         }
@@ -151,7 +137,7 @@ namespace OOP_Project
         public override string getAppName(int id)
         {
             string Name = "";
-            Name = SQL.ScalarQuery("SELECT F_Name from focus where F_id =" + id + "");
+            Name = SQL.ScalarQuery("SELECT F_Name from focus where F_id =" + id + " and F_user='" + AppObject.UserName + "' and F_user='" + AppObject.UserName + "'");
             return Name;
         }
     }
